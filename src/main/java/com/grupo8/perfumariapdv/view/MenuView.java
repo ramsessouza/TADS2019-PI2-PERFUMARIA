@@ -28,19 +28,21 @@ public class MenuView extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(870, 540));
-        setPreferredSize(new java.awt.Dimension(870, 540));
+        setMaximumSize(new java.awt.Dimension(900, 600));
+        setMinimumSize(new java.awt.Dimension(900, 600));
         setResizable(false);
 
-        dskPainelPrincipal.setMaximumSize(new java.awt.Dimension(690, 490));
-        dskPainelPrincipal.setMinimumSize(new java.awt.Dimension(690, 490));
-        dskPainelPrincipal.setPreferredSize(new java.awt.Dimension(690, 490));
+        jPanel1.setMaximumSize(new java.awt.Dimension(888, 588));
+        jPanel1.setMinimumSize(new java.awt.Dimension(888, 588));
+
+        dskPainelPrincipal.setMaximumSize(new java.awt.Dimension(713, 550));
+        dskPainelPrincipal.setMinimumSize(new java.awt.Dimension(713, 550));
 
         javax.swing.GroupLayout dskPainelPrincipalLayout = new javax.swing.GroupLayout(dskPainelPrincipal);
         dskPainelPrincipal.setLayout(dskPainelPrincipalLayout);
         dskPainelPrincipalLayout.setHorizontalGroup(
             dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 713, Short.MAX_VALUE)
         );
         dskPainelPrincipalLayout.setVerticalGroup(
             dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,31 +104,26 @@ public class MenuView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(btnConsultaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadastroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConsultaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                        .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -137,10 +134,9 @@ public class MenuView extends javax.swing.JFrame {
                         .addComponent(btnConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(110, 110, 110)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -190,6 +186,9 @@ public class MenuView extends javax.swing.JFrame {
 //==============================================================================
     private ProdutoCadastroAlteracaoView produtoCadastroAlteracao;
     private ProdutoConsultaView produtoConsulta;
+    private ClienteCadastroAlteracaoView clienteCadastroAlteracao;
+    private ClienteConsultaView clienteConsulta;
+    private RelatorioConsultaView relatorioConsulta;
     
     
     //BOTÃO CADASTRO DE PRODUTO
@@ -258,17 +257,98 @@ public class MenuView extends javax.swing.JFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
-
+    
+    //BOTÃO CADASTRO DE CLIENTE
     private void btnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClienteActionPerformed
-        // TODO add your handling code here:
+        //verifica se a tela ja existe
+        if(clienteCadastroAlteracao == null )
+        {   
+            //se não existir faz uma tela
+            clienteCadastroAlteracao = new ClienteCadastroAlteracaoView();
+        }
+        
+        //verifico se a tela ja esta no painel
+        if(!clienteCadastroAlteracao.isVisible())
+        {    
+            //mostro a tela no painel principal caso nao esteja la
+            dskPainelPrincipal.add(clienteCadastroAlteracao);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
+            clienteCadastroAlteracao.setVisible(true);
+        }
+        
+        //coloco ela na frente de todas para todos os casos
+        clienteCadastroAlteracao.toFront();
+        
+        //redimensiona tela para tamanho do painel
+        try {
+            clienteCadastroAlteracao.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //coloca título de acordo com a funcao cadasto/alteracao
+        clienteCadastroAlteracao.setTitle("CADASTRO DE CLIENTES");
     }//GEN-LAST:event_btnCadastroClienteActionPerformed
 
+    //BOTÃO CONSULTA DE CLIENTE
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
-        // TODO add your handling code here:
+        //verifica se a tela ja existe
+        if(clienteConsulta == null )
+        {   
+            //se não existir faz uma tela
+            clienteConsulta = new ClienteConsultaView();
+        }
+        
+        //verifico se a tela ja esta no painel
+        if(!clienteConsulta.isVisible())
+        {    
+            //mostro a tela no painel principal caso nao esteja la
+            dskPainelPrincipal.add(clienteConsulta);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
+            clienteConsulta.setVisible(true);
+        }
+        
+        //coloco ela na frente de todas para todos os casos
+        clienteConsulta.toFront();
+        
+        //redimensiona tela para tamanho do painel
+        try {
+            clienteConsulta.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //limpa tabela de pesquisa
+        clienteConsulta.tableModelLimpar();
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
-
+    
+    //BOTAO CONSULTA DE RELATORIO VENDAS
     private void btnRelatorioVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioVendasActionPerformed
-        // TODO add your handling code here:
+        //verifica se a tela ja existe
+        if(relatorioConsulta == null )
+        {   
+            //se não existir faz uma tela
+            relatorioConsulta = new RelatorioConsultaView();
+        }
+        
+        //verifico se a tela ja esta no painel
+        if(!relatorioConsulta.isVisible())
+        {    
+            //mostro a tela no painel principal caso nao esteja la
+            dskPainelPrincipal.add(relatorioConsulta);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
+            relatorioConsulta.setVisible(true);
+        }
+        
+        //coloco ela na frente de todas para todos os casos
+        relatorioConsulta.toFront();
+        
+        //redimensiona tela para tamanho do painel
+        try {
+            relatorioConsulta.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //limpa tabela de pesquisa
+        relatorioConsulta.tableModelLimpar();
     }//GEN-LAST:event_btnRelatorioVendasActionPerformed
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed

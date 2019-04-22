@@ -9,10 +9,10 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ProdutoConsultaView extends javax.swing.JInternalFrame {
+public class ClienteConsultaView extends javax.swing.JInternalFrame {
 //==============================================================================       
     //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
-    public ProdutoConsultaView() {
+    public ClienteConsultaView() {
         initComponents();
     }
 
@@ -31,7 +31,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
         btnAlterar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
 
-        setTitle("CONSULTA DE PRODUTOS");
+        setTitle("CONSULTA DE CLIENTES");
         setMaximumSize(new java.awt.Dimension(680, 484));
         setMinimumSize(new java.awt.Dimension(680, 484));
         setPreferredSize(new java.awt.Dimension(680, 484));
@@ -56,7 +56,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        jLabel1.setText("Nome do produto");
+        jLabel1.setText("Nome do Cliente");
 
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,36 +67,36 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
 
         produtoTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Categoria", "Quantidade", "Custo", "Valor"
+                "Id", "Nome", "Sexo", "CPF", "RG", "Logradouro", "Numero"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -112,13 +112,14 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             produtoTabela.getColumnModel().getColumn(0).setResizable(false);
             produtoTabela.getColumnModel().getColumn(0).setPreferredWidth(3);
             produtoTabela.getColumnModel().getColumn(2).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(2).setPreferredWidth(10);
             produtoTabela.getColumnModel().getColumn(3).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(3).setPreferredWidth(5);
+            produtoTabela.getColumnModel().getColumn(3).setPreferredWidth(10);
             produtoTabela.getColumnModel().getColumn(4).setResizable(false);
             produtoTabela.getColumnModel().getColumn(4).setPreferredWidth(5);
             produtoTabela.getColumnModel().getColumn(5).setResizable(false);
             produtoTabela.getColumnModel().getColumn(5).setPreferredWidth(5);
+            produtoTabela.getColumnModel().getColumn(6).setResizable(false);
+            produtoTabela.getColumnModel().getColumn(6).setPreferredWidth(5);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
