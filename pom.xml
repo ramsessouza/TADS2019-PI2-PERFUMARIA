@@ -7,13 +7,29 @@
     <packaging>jar</packaging>
     
     <organization>
-        <name>Dev Bros</name>
+        <name>Grupo 8</name>
     </organization>
     
     <developers>
         <developer>
-            <id>Souzaram</id>
+            <id>Ramses</id>
             <name>Ramsés Carneiro de Souza</name>
+        </developer>
+        <developer>
+            <id>Debora</id>
+            <name>Debora Gomes</name>
+        </developer>
+        <developer>
+            <id>Victor</id>
+            <name>Victor</name>
+        </developer>
+        <developer>
+            <id>Gabriela</id>
+            <name>Gabriela Annibal Yamamoto</name>
+        </developer>
+        <developer>
+            <id>Veronica</id>
+            <name>Veronica</name>
         </developer>
     </developers>
     
@@ -34,6 +50,23 @@
             <artifactId>beansbinding</artifactId>
             <version>1.2.1</version>
         </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>DateChooser</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.seaglasslookandfeel</groupId>
+            <artifactId>seaglasslookandfeel</artifactId>
+            <version>0.2.1</version>
+        </dependency>
     </dependencies>
     <name>PerfumariaPDV</name>
+    <repositories>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
 </project>
