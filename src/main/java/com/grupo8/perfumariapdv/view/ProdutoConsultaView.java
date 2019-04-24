@@ -27,14 +27,14 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
         btnPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         produtoTabela = new javax.swing.JTable();
+        lbCabecario = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
 
-        setTitle("CONSULTA DE PRODUTOS");
-        setMaximumSize(new java.awt.Dimension(680, 484));
-        setMinimumSize(new java.awt.Dimension(680, 484));
-        setPreferredSize(new java.awt.Dimension(680, 484));
+        setMaximumSize(new java.awt.Dimension(710, 550));
+        setMinimumSize(new java.awt.Dimension(710, 550));
+        setPreferredSize(new java.awt.Dimension(710, 550));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -67,6 +67,11 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
 
         produtoTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -121,6 +126,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             produtoTabela.getColumnModel().getColumn(5).setPreferredWidth(5);
         }
 
+        lbCabecario.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        lbCabecario.setText("Consulta de Produto");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -128,27 +136,31 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtProdutoNome)
                         .addGap(18, 18, 18)
-                        .addComponent(btnPesquisar)))
+                        .addComponent(btnPesquisar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbCabecario, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lbCabecario)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtProdutoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -181,7 +193,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 409, Short.MAX_VALUE)
+                        .addGap(0, 435, Short.MAX_VALUE)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,9 +367,10 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             //Configura a tela de cadastro/alteracao como uma tela de alteracao
             produtoCadastroAlteracao.setModoEdicao(true);
             
-            //coloca a tela com titulo de alteracao de produto
-            produtoCadastroAlteracao.setTitle("ALTERAÇÃO DO PRODUTO: "
-                    +produto.getNome().toUpperCase());
+            //coloca a tela com cabecario e titulo de alteracao de produto
+            produtoCadastroAlteracao.setCabecario("Alteração do Produto: "
+                    +produto.getNome());
+            produtoCadastroAlteracao.setTitle("PDV Vendas / Consulta de Produto / Alteração de Produto");
             
             //mostro a tela no painel principal
             this.getParent().add(produtoCadastroAlteracao);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
@@ -410,6 +423,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbCabecario;
     private javax.swing.JTable produtoTabela;
     private javax.swing.JTextField txtProdutoNome;
     // End of variables declaration//GEN-END:variables

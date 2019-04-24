@@ -1,7 +1,7 @@
 package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.model.Produto;
-import com.grupo8.perfumariapdv.model.ProdutoValidacao;
+import com.grupo8.perfumariapdv.model.Validacao;
 import com.grupo8.perfumariapdv.controller.ProdutoController;
 import javax.swing.JOptionPane;
 
@@ -35,10 +35,11 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        lbCabecario = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(680, 484));
-        setMinimumSize(new java.awt.Dimension(680, 484));
-        setPreferredSize(new java.awt.Dimension(680, 484));
+        setMaximumSize(new java.awt.Dimension(710, 550));
+        setMinimumSize(new java.awt.Dimension(710, 550));
+        setPreferredSize(new java.awt.Dimension(710, 550));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -56,8 +57,13 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 formInternalFrameOpened(evt);
             }
         });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
-        pneCadastroProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        pneCadastroProduto.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Produto"));
 
         jLabel2.setText("Nome");
 
@@ -95,7 +101,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNome)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addGroup(pneCadastroProdutoLayout.createSequentialGroup()
@@ -126,34 +132,32 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pneCadastroProdutoLayout.createSequentialGroup()
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pneCadastroProdutoLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cboCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pneCadastroProdutoLayout.createSequentialGroup()
-                                .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7)))))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cboCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pneCadastroProdutoLayout.createSequentialGroup()
+                        .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)))
                     .addGroup(pneCadastroProdutoLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -171,25 +175,32 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
             }
         });
 
+        lbCabecario.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        lbCabecario.setText("Cabecario");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pneCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 500, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pneCadastroProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 530, Short.MAX_VALUE)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbCabecario, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lbCabecario)
+                .addGap(18, 18, 18)
                 .addComponent(pneCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,6 +221,9 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     
     //ID DE PRODUTO PARA CASO DE EDICAO
     private Integer idProduto;
+    
+    //TEXTO DO CABECARIO
+    private String cabecario;
     
     //GETERS E SETERS DA PÁGINA
      public Produto getProduto() {
@@ -235,6 +249,15 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     public void setIdProduto(Integer idProduto) {
         this.idProduto = idProduto;
     }
+
+    public String getCabecario() {
+        return cabecario;
+    }
+
+    public void setCabecario(String cabecario) {
+        this.cabecario = cabecario;
+    }
+    
     
     
     //FUNÇÃO DE LIMPAR FORMULÁRIO CADASTRAR/ALTERAR PRODUTO
@@ -277,7 +300,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
         //validacao dos campos
-        String produtoOK = ProdutoValidacao.ValidarProduto(txtNome.getText(),
+        String produtoOK = Validacao.Produto(txtNome.getText(),
             cboCategoria.getSelectedItem().toString(), txtQuantidade.getText(),
             txtCusto.getText(), txtValor.getText());
         
@@ -356,8 +379,15 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     
     //QUANDO FORM INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        //NAO ESTA SENDO USADO
+        //Colocar a variavel cabecario no jlabel
+        lbCabecario.setText(cabecario);
     }//GEN-LAST:event_formInternalFrameOpened
+    
+    //QUANDO FORM É EXIBIDO
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        //Colocar a variavel cabecario no jlabel
+        lbCabecario.setText(cabecario);
+    }//GEN-LAST:event_formComponentShown
 
 //==============================================================================
     //NAO MEXER (ELEMENTOS DA TELA)
@@ -374,6 +404,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbCabecario;
     private javax.swing.JPanel pneCadastroProduto;
     private javax.swing.JFormattedTextField txtCusto;
     private javax.swing.JTextArea txtDescricao;

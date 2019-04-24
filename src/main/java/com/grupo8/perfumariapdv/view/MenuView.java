@@ -27,6 +27,7 @@ public class MenuView extends javax.swing.JFrame {
         btnConsultaCliente = new javax.swing.JButton();
         btnRelatorioVendas = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        lbCabecario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PerfumariaPDV 1.0");
@@ -48,7 +49,7 @@ public class MenuView extends javax.swing.JFrame {
         );
         dskPainelPrincipalLayout.setVerticalGroup(
             dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
         btnVenda.setText("Venda");
@@ -58,14 +59,14 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroProduto.setText("Cadastrar Produtos");
+        btnCadastroProduto.setText("Cadastrar Produto");
         btnCadastroProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastroProdutoActionPerformed(evt);
             }
         });
 
-        btnConsultaProduto.setText("Consultar Produtos");
+        btnConsultaProduto.setText("Consultar Produto");
         btnConsultaProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultaProdutoActionPerformed(evt);
@@ -100,30 +101,36 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
+        lbCabecario.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        lbCabecario.setText("Bem vindo usuário! PDV Vendas Perfumaria 1.0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                    .addComponent(btnConsultaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCadastroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsultaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                            .addComponent(btnConsultaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCadastroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConsultaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbCabecario, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(lbCabecario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -136,8 +143,9 @@ public class MenuView extends javax.swing.JFrame {
                         .addComponent(btnConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -163,32 +171,38 @@ public class MenuView extends javax.swing.JFrame {
 
     //NAO MEXER NO METODO ABAIXO (DECLARACAO DE CLASSE PRINCIPAL)
     public static void main(String args[]) {
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Windows".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
+        //NIMBUS==================================================================
         try {
-            UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
-        } catch (Exception e) {
-            e.printStackTrace();
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        
+        //GLASS=================================================================
+//        try {
+//            UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        
+        //EM CASO DE USAR NIMBUS OU GLASS=======================================
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuView().setVisible(true);
             }
         });
+        
     }
 //==============================================================================
     private ProdutoCadastroAlteracaoView produtoCadastroAlteracao;
@@ -207,6 +221,10 @@ public class MenuView extends javax.swing.JFrame {
             produtoCadastroAlteracao = new ProdutoCadastroAlteracaoView();
         }
         
+        //coloca título e cabecario de acordo com a funcao cadasto/alteracao
+        produtoCadastroAlteracao.setTitle("PDV Vendas / Cadastro de Produto");
+        produtoCadastroAlteracao.setCabecario("Cadastro de Produto");
+        
         //verifico se a tela ja esta no painel
         if(!produtoCadastroAlteracao.isVisible())
         {    
@@ -224,9 +242,6 @@ public class MenuView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        //coloca título de acordo com a funcao cadasto/alteracao
-        produtoCadastroAlteracao.setTitle("CADASTRO DE PRODUTOS");
     }//GEN-LAST:event_btnCadastroProdutoActionPerformed
     
     //BOTÃO CONSULTA DE PRODUTO
@@ -237,6 +252,9 @@ public class MenuView extends javax.swing.JFrame {
             //se não existir faz uma tela
             produtoConsulta = new ProdutoConsultaView();
         }
+        
+        //coloca título de acordo com a funcao
+        produtoConsulta.setTitle("PDV Vendas / Consulta de Produto");
         
         //verifico se a tela ja esta no painel
         if(!produtoConsulta.isVisible())
@@ -274,6 +292,9 @@ public class MenuView extends javax.swing.JFrame {
             clienteCadastroAlteracao = new ClienteCadastroAlteracaoView();
         }
         
+        //coloca título de acordo com a funcao cadasto/alteracao
+        clienteCadastroAlteracao.setTitle("PDV Vendas / Cadastro Cliente");
+        
         //verifico se a tela ja esta no painel
         if(!clienteCadastroAlteracao.isVisible())
         {    
@@ -291,9 +312,6 @@ public class MenuView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        //coloca título de acordo com a funcao cadasto/alteracao
-        clienteCadastroAlteracao.setTitle("CADASTRO DE CLIENTES");
     }//GEN-LAST:event_btnCadastroClienteActionPerformed
 
     //BOTÃO CONSULTA DE CLIENTE
@@ -304,6 +322,9 @@ public class MenuView extends javax.swing.JFrame {
             //se não existir faz uma tela
             clienteConsulta = new ClienteConsultaView();
         }
+        
+        //coloca título de acordo com a funcao
+        clienteConsulta.setTitle("PDV Vendas / Consulta de Cliente");
         
         //verifico se a tela ja esta no painel
         if(!clienteConsulta.isVisible())
@@ -335,6 +356,9 @@ public class MenuView extends javax.swing.JFrame {
             //se não existir faz uma tela
             relatorioConsulta = new RelatorioConsultaView();
         }
+        
+        //coloca título de acordo com a funcao
+        relatorioConsulta.setTitle("PDV Vendas / Relatório de Vendas");
         
         //verifico se a tela ja esta no painel
         if(!relatorioConsulta.isVisible())
@@ -375,6 +399,7 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton btnVenda;
     private javax.swing.JDesktopPane dskPainelPrincipal;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbCabecario;
     // End of variables declaration//GEN-END:variables
 //==============================================================================
 }
