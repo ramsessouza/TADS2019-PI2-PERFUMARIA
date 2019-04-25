@@ -21,7 +21,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cboCategoria = new javax.swing.JComboBox<String>();
+        cboCategoria = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtQuantidade = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -37,9 +37,9 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         btnSalvar = new javax.swing.JButton();
         lbCabecario = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(710, 550));
-        setMinimumSize(new java.awt.Dimension(710, 550));
-        setPreferredSize(new java.awt.Dimension(710, 550));
+        setMaximumSize(new java.awt.Dimension(1280, 600));
+        setMinimumSize(new java.awt.Dimension(1280, 600));
+        setPreferredSize(new java.awt.Dimension(1280, 600));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -69,7 +69,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Categoria");
 
-        cboCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Higiene", "Cosmeticos" }));
+        cboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Higiene", "Cosmeticos" }));
 
         jLabel4.setText("Quantidade");
 
@@ -101,7 +101,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pneCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNome)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addGroup(pneCadastroProdutoLayout.createSequentialGroup()
@@ -176,7 +176,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         });
 
         lbCabecario.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        lbCabecario.setText("Cabecario");
+        lbCabecario.setText("Cadastro de Produto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,15 +185,18 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pneCadastroProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 530, Short.MAX_VALUE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pneCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbCabecario, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 110, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

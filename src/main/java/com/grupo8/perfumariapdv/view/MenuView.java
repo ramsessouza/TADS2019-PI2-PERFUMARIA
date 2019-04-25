@@ -4,6 +4,7 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class MenuView extends javax.swing.JFrame {
 //==============================================================================    
@@ -18,152 +19,211 @@ public class MenuView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jpCabecario = new javax.swing.JPanel();
+        btnSair = new javax.swing.JButton();
+        jpCorpo = new javax.swing.JPanel();
         dskPainelPrincipal = new javax.swing.JDesktopPane();
+        jpBotoes = new javax.swing.JPanel();
         btnVenda = new javax.swing.JButton();
         btnCadastroProduto = new javax.swing.JButton();
         btnConsultaProduto = new javax.swing.JButton();
         btnCadastroCliente = new javax.swing.JButton();
         btnConsultaCliente = new javax.swing.JButton();
         btnRelatorioVendas = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
-        lbCabecario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PerfumariaPDV 1.0");
-        setMaximumSize(new java.awt.Dimension(900, 600));
-        setMinimumSize(new java.awt.Dimension(900, 600));
+        setMaximumSize(new java.awt.Dimension(1024, 560));
+        setMinimumSize(new java.awt.Dimension(1024, 560));
+        setPreferredSize(new java.awt.Dimension(1024, 560));
         setResizable(false);
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(888, 588));
-        jPanel1.setMinimumSize(new java.awt.Dimension(888, 588));
+        jpCabecario.setBackground(new java.awt.Color(17, 128, 216));
+        jpCabecario.setMaximumSize(new java.awt.Dimension(1024, 50));
+        jpCabecario.setMinimumSize(new java.awt.Dimension(1024, 50));
 
-        dskPainelPrincipal.setMaximumSize(new java.awt.Dimension(713, 550));
-        dskPainelPrincipal.setMinimumSize(new java.awt.Dimension(713, 550));
-
-        javax.swing.GroupLayout dskPainelPrincipalLayout = new javax.swing.GroupLayout(dskPainelPrincipal);
-        dskPainelPrincipal.setLayout(dskPainelPrincipalLayout);
-        dskPainelPrincipalLayout.setHorizontalGroup(
-            dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 713, Short.MAX_VALUE)
-        );
-        dskPainelPrincipalLayout.setVerticalGroup(
-            dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-
-        btnVenda.setText("Venda");
-        btnVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVendaActionPerformed(evt);
-            }
-        });
-
-        btnCadastroProduto.setText("Cadastrar Produto");
-        btnCadastroProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroProdutoActionPerformed(evt);
-            }
-        });
-
-        btnConsultaProduto.setText("Consultar Produto");
-        btnConsultaProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultaProdutoActionPerformed(evt);
-            }
-        });
-
-        btnCadastroCliente.setText("Cadastro Cliente");
-        btnCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroClienteActionPerformed(evt);
-            }
-        });
-
-        btnConsultaCliente.setText("Consulta Cliente");
-        btnConsultaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultaClienteActionPerformed(evt);
-            }
-        });
-
-        btnRelatorioVendas.setText("Relatório Vendas");
-        btnRelatorioVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRelatorioVendasActionPerformed(evt);
-            }
-        });
-
-        btnSair.setText("Sair ");
+        btnSair.setBackground(new java.awt.Color(17, 128, 216));
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setText("Sair");
+        btnSair.setBorder(null);
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
             }
         });
 
-        lbCabecario.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        lbCabecario.setText("Bem vindo usuário! PDV Vendas Perfumaria 1.0");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpCabecarioLayout = new javax.swing.GroupLayout(jpCabecario);
+        jpCabecario.setLayout(jpCabecarioLayout);
+        jpCabecarioLayout.setHorizontalGroup(
+            jpCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecarioLayout.createSequentialGroup()
+                .addContainerGap(980, Short.MAX_VALUE)
+                .addComponent(btnSair)
+                .addGap(21, 21, 21))
+        );
+        jpCabecarioLayout.setVerticalGroup(
+            jpCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(btnConsultaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCadastroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnConsultaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbCabecario, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE))
+                .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(lbCabecario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+        jpCorpo.setBackground(new java.awt.Color(255, 255, 255));
+        jpCorpo.setMaximumSize(new java.awt.Dimension(859, 512));
+        jpCorpo.setMinimumSize(new java.awt.Dimension(859, 512));
+        jpCorpo.setPreferredSize(new java.awt.Dimension(859, 512));
+
+        dskPainelPrincipal.setMaximumSize(new java.awt.Dimension(859, 514));
+        dskPainelPrincipal.setMinimumSize(new java.awt.Dimension(859, 514));
+        dskPainelPrincipal.setPreferredSize(new java.awt.Dimension(859, 514));
+
+        javax.swing.GroupLayout dskPainelPrincipalLayout = new javax.swing.GroupLayout(dskPainelPrincipal);
+        dskPainelPrincipal.setLayout(dskPainelPrincipalLayout);
+        dskPainelPrincipalLayout.setHorizontalGroup(
+            dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 859, Short.MAX_VALUE)
+        );
+        dskPainelPrincipalLayout.setVerticalGroup(
+            dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jpCorpoLayout = new javax.swing.GroupLayout(jpCorpo);
+        jpCorpo.setLayout(jpCorpoLayout);
+        jpCorpoLayout.setHorizontalGroup(
+            jpCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpCorpoLayout.createSequentialGroup()
+                .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jpCorpoLayout.setVerticalGroup(
+            jpCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpCorpoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        jpBotoes.setBackground(new java.awt.Color(17, 128, 216));
+
+        btnVenda.setBackground(new java.awt.Color(17, 128, 216));
+        btnVenda.setForeground(new java.awt.Color(255, 255, 255));
+        btnVenda.setText("Venda");
+        btnVenda.setBorder(null);
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
+
+        btnCadastroProduto.setBackground(new java.awt.Color(17, 128, 216));
+        btnCadastroProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastroProduto.setText("Cadastra Produto");
+        btnCadastroProduto.setBorder(null);
+        btnCadastroProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroProdutoActionPerformed(evt);
+            }
+        });
+
+        btnConsultaProduto.setBackground(new java.awt.Color(17, 128, 216));
+        btnConsultaProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultaProduto.setText("Consulta Produto");
+        btnConsultaProduto.setBorder(null);
+        btnConsultaProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaProdutoActionPerformed(evt);
+            }
+        });
+
+        btnCadastroCliente.setBackground(new java.awt.Color(17, 128, 216));
+        btnCadastroCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastroCliente.setText("Cadastro Cliente");
+        btnCadastroCliente.setBorder(null);
+        btnCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroClienteActionPerformed(evt);
+            }
+        });
+
+        btnConsultaCliente.setBackground(new java.awt.Color(17, 128, 216));
+        btnConsultaCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultaCliente.setText("Consulta Cliente");
+        btnConsultaCliente.setBorder(null);
+        btnConsultaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaClienteActionPerformed(evt);
+            }
+        });
+
+        btnRelatorioVendas.setBackground(new java.awt.Color(17, 128, 216));
+        btnRelatorioVendas.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorioVendas.setText("Relatório Vendas");
+        btnRelatorioVendas.setBorder(null);
+        btnRelatorioVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioVendasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpBotoesLayout = new javax.swing.GroupLayout(jpBotoes);
+        jpBotoes.setLayout(jpBotoesLayout);
+        jpBotoesLayout.setHorizontalGroup(
+            jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBotoesLayout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnCadastroProduto)
+                        .addComponent(btnConsultaCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnVenda, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnCadastroCliente, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(btnConsultaProduto)
+                    .addComponent(btnRelatorioVendas))
+                .addGap(17, 17, 17))
+        );
+        jpBotoesLayout.setVerticalGroup(
+            jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVenda)
+                .addGap(18, 18, 18)
+                .addComponent(btnCadastroProduto)
+                .addGap(18, 18, 18)
+                .addComponent(btnConsultaProduto)
+                .addGap(18, 18, 18)
+                .addComponent(btnCadastroCliente)
+                .addGap(18, 18, 18)
+                .addComponent(btnConsultaCliente)
+                .addGap(18, 18, 18)
+                .addComponent(btnRelatorioVendas)
+                .addContainerGap(266, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jpBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jpCorpo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpCabecario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jpCabecario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 62, Short.MAX_VALUE)
+                        .addComponent(jpBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpCorpo, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)))
         );
 
         pack();
@@ -312,6 +372,9 @@ public class MenuView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //retira o painel superior
+        ((BasicInternalFrameUI)clienteCadastroAlteracao.getUI()).setNorthPane(null); 
     }//GEN-LAST:event_btnCadastroClienteActionPerformed
 
     //BOTÃO CONSULTA DE CLIENTE
@@ -398,8 +461,9 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVenda;
     private javax.swing.JDesktopPane dskPainelPrincipal;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbCabecario;
+    private javax.swing.JPanel jpBotoes;
+    private javax.swing.JPanel jpCabecario;
+    private javax.swing.JPanel jpCorpo;
     // End of variables declaration//GEN-END:variables
 //==============================================================================
 }
