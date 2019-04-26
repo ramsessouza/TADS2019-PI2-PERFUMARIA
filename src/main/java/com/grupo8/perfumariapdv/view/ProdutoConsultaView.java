@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class ProdutoConsultaView extends javax.swing.JInternalFrame {
@@ -391,6 +392,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             {
                 Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
+        
+            //retira o painel superior
+            ((BasicInternalFrameUI)produtoCadastroAlteracao.getUI()).setNorthPane(null);
         }
         else
         {

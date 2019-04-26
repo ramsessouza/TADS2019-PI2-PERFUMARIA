@@ -305,8 +305,7 @@ public class MenuView extends javax.swing.JFrame {
             produtoCadastroAlteracao = new ProdutoCadastroAlteracaoView();
         }
         
-        //coloca título e cabecario de acordo com a funcao cadasto/alteracao
-        produtoCadastroAlteracao.setTitle("PDV Vendas / Cadastro de Produto");
+        //coloca cabecario de acordo com a funcao cadasto/alteracao
         produtoCadastroAlteracao.setCabecario("Cadastro de Produto");
         
         //verifico se a tela ja esta no painel
@@ -339,9 +338,6 @@ public class MenuView extends javax.swing.JFrame {
             //se não existir faz uma tela
             produtoConsulta = new ProdutoConsultaView();
         }
-        
-        //coloca título de acordo com a funcao
-        produtoConsulta.setTitle("PDV Vendas / Consulta de Produto");
         
         //verifico se a tela ja esta no painel
         if(!produtoConsulta.isVisible())
@@ -382,8 +378,8 @@ public class MenuView extends javax.swing.JFrame {
             clienteCadastroAlteracao = new ClienteCadastroAlteracaoView();
         }
         
-        //coloca título de acordo com a funcao cadasto/alteracao
-        clienteCadastroAlteracao.setTitle("PDV Vendas / Cadastro Cliente");
+        //coloca cabecario de acordo com a funcao cadasto/alteracao
+        clienteCadastroAlteracao.setCabecario("Cadastro de Cliente");
         
         //verifico se a tela ja esta no painel
         if(!clienteCadastroAlteracao.isVisible())
@@ -415,9 +411,6 @@ public class MenuView extends javax.swing.JFrame {
             //se não existir faz uma tela
             clienteConsulta = new ClienteConsultaView();
         }
-        
-        //coloca título de acordo com a funcao
-        clienteConsulta.setTitle("PDV Vendas / Consulta de Cliente");
         
         //verifico se a tela ja esta no painel
         if(!clienteConsulta.isVisible())
@@ -452,9 +445,6 @@ public class MenuView extends javax.swing.JFrame {
             //se não existir faz uma tela
             relatorioConsulta = new RelatorioConsultaView();
         }
-        
-        //coloca título de acordo com a funcao
-        relatorioConsulta.setTitle("PDV Vendas / Relatório de Vendas");
         
         //verifico se a tela ja esta no painel
         if(!relatorioConsulta.isVisible())
