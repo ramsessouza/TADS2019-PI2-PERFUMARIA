@@ -6,7 +6,6 @@ public class Cliente {
     private Integer id;
     private String nome;
     private Integer cpf;
-    private String rg;
     private String sexo;
     private String estadoCivil;
     private Date dataNascimento;
@@ -42,14 +41,6 @@ public class Cliente {
 
     public void setCpf(Integer cpf) {
         this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
     }
 
     public String getSexo() {

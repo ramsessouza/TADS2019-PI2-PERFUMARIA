@@ -20,6 +20,8 @@ public class MenuView extends javax.swing.JFrame {
     private void initComponents() {
 
         jpTudo = new javax.swing.JPanel();
+        jpCabecario = new javax.swing.JPanel();
+        btnSair = new javax.swing.JButton();
         jpBotoes = new javax.swing.JPanel();
         btnVenda = new javax.swing.JButton();
         btnCadastroProduto = new javax.swing.JButton();
@@ -29,8 +31,6 @@ public class MenuView extends javax.swing.JFrame {
         btnRelatorioVendas = new javax.swing.JButton();
         jpCorpo = new javax.swing.JPanel();
         dskPainelPrincipal = new javax.swing.JDesktopPane();
-        jpCabecario = new javax.swing.JPanel();
-        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PerfumariaPDV 1.0");
@@ -44,12 +44,45 @@ public class MenuView extends javax.swing.JFrame {
         jpTudo.setMinimumSize(new java.awt.Dimension(1024, 560));
         jpTudo.setPreferredSize(new java.awt.Dimension(1024, 560));
 
-        jpBotoes.setBackground(new java.awt.Color(102, 102, 102));
+        jpCabecario.setBackground(new java.awt.Color(17, 128, 216));
+        jpCabecario.setMaximumSize(new java.awt.Dimension(1024, 40));
+        jpCabecario.setMinimumSize(new java.awt.Dimension(1024, 40));
+        jpCabecario.setPreferredSize(new java.awt.Dimension(1024, 40));
+
+        btnSair.setBackground(new java.awt.Color(17, 128, 216));
+        btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setText("Sair");
+        btnSair.setBorder(null);
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpCabecarioLayout = new javax.swing.GroupLayout(jpCabecario);
+        jpCabecario.setLayout(jpCabecarioLayout);
+        jpCabecarioLayout.setHorizontalGroup(
+            jpCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jpCabecarioLayout.setVerticalGroup(
+            jpCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpCabecarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jpBotoes.setBackground(new java.awt.Color(51, 51, 51));
         jpBotoes.setMaximumSize(new java.awt.Dimension(165, 502));
         jpBotoes.setMinimumSize(new java.awt.Dimension(165, 502));
         jpBotoes.setPreferredSize(new java.awt.Dimension(165, 502));
 
-        btnVenda.setBackground(new java.awt.Color(102, 102, 102));
+        btnVenda.setBackground(new java.awt.Color(51, 51, 51));
         btnVenda.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnVenda.setText("Venda");
@@ -60,7 +93,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroProduto.setBackground(new java.awt.Color(102, 102, 102));
+        btnCadastroProduto.setBackground(new java.awt.Color(51, 51, 51));
         btnCadastroProduto.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnCadastroProduto.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastroProduto.setText("Cadastra Produto");
@@ -71,7 +104,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnConsultaProduto.setBackground(new java.awt.Color(102, 102, 102));
+        btnConsultaProduto.setBackground(new java.awt.Color(51, 51, 51));
         btnConsultaProduto.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnConsultaProduto.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultaProduto.setText("Consulta Produto");
@@ -82,7 +115,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroCliente.setBackground(new java.awt.Color(102, 102, 102));
+        btnCadastroCliente.setBackground(new java.awt.Color(51, 51, 51));
         btnCadastroCliente.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnCadastroCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastroCliente.setText("Cadastro Cliente");
@@ -93,7 +126,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnConsultaCliente.setBackground(new java.awt.Color(102, 102, 102));
+        btnConsultaCliente.setBackground(new java.awt.Color(51, 51, 51));
         btnConsultaCliente.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnConsultaCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultaCliente.setText("Consulta Cliente");
@@ -104,7 +137,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnRelatorioVendas.setBackground(new java.awt.Color(102, 102, 102));
+        btnRelatorioVendas.setBackground(new java.awt.Color(51, 51, 51));
         btnRelatorioVendas.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnRelatorioVendas.setForeground(new java.awt.Color(255, 255, 255));
         btnRelatorioVendas.setText("Relatório Vendas");
@@ -178,39 +211,6 @@ public class MenuView extends javax.swing.JFrame {
         jpCorpoLayout.setVerticalGroup(
             jpCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jpCabecario.setBackground(new java.awt.Color(17, 128, 216));
-        jpCabecario.setMaximumSize(new java.awt.Dimension(1024, 40));
-        jpCabecario.setMinimumSize(new java.awt.Dimension(1024, 40));
-        jpCabecario.setPreferredSize(new java.awt.Dimension(1024, 40));
-
-        btnSair.setBackground(new java.awt.Color(17, 128, 216));
-        btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
-        btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
-        btnSair.setBorder(null);
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jpCabecarioLayout = new javax.swing.GroupLayout(jpCabecario);
-        jpCabecario.setLayout(jpCabecarioLayout);
-        jpCabecarioLayout.setHorizontalGroup(
-            jpCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecarioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jpCabecarioLayout.setVerticalGroup(
-            jpCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpCabecarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         javax.swing.GroupLayout jpTudoLayout = new javax.swing.GroupLayout(jpTudo);
