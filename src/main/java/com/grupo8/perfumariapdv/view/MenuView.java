@@ -20,7 +20,7 @@ public class MenuView extends javax.swing.JFrame {
     private void initComponents() {
 
         jpTudo = new javax.swing.JPanel();
-        jpCabecario = new javax.swing.JPanel();
+        jpCabecalho = new javax.swing.JPanel();
         btnSair = new javax.swing.JButton();
         jpBotoes = new javax.swing.JPanel();
         btnVenda = new javax.swing.JButton();
@@ -44,10 +44,10 @@ public class MenuView extends javax.swing.JFrame {
         jpTudo.setMinimumSize(new java.awt.Dimension(1024, 560));
         jpTudo.setPreferredSize(new java.awt.Dimension(1024, 560));
 
-        jpCabecario.setBackground(new java.awt.Color(17, 128, 216));
-        jpCabecario.setMaximumSize(new java.awt.Dimension(1024, 40));
-        jpCabecario.setMinimumSize(new java.awt.Dimension(1024, 40));
-        jpCabecario.setPreferredSize(new java.awt.Dimension(1024, 40));
+        jpCabecalho.setBackground(new java.awt.Color(17, 128, 216));
+        jpCabecalho.setMaximumSize(new java.awt.Dimension(1024, 40));
+        jpCabecalho.setMinimumSize(new java.awt.Dimension(1024, 40));
+        jpCabecalho.setPreferredSize(new java.awt.Dimension(1024, 40));
 
         btnSair.setBackground(new java.awt.Color(17, 128, 216));
         btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
@@ -60,29 +60,30 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jpCabecarioLayout = new javax.swing.GroupLayout(jpCabecario);
-        jpCabecario.setLayout(jpCabecarioLayout);
-        jpCabecarioLayout.setHorizontalGroup(
-            jpCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecarioLayout.createSequentialGroup()
+        javax.swing.GroupLayout jpCabecalhoLayout = new javax.swing.GroupLayout(jpCabecalho);
+        jpCabecalho.setLayout(jpCabecalhoLayout);
+        jpCabecalhoLayout.setHorizontalGroup(
+            jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecalhoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jpCabecarioLayout.setVerticalGroup(
-            jpCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpCabecarioLayout.createSequentialGroup()
+        jpCabecalhoLayout.setVerticalGroup(
+            jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpCabecalhoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jpBotoes.setBackground(new java.awt.Color(51, 51, 51));
+        jpBotoes.setBackground(new java.awt.Color(102, 102, 102));
+        jpBotoes.setForeground(new java.awt.Color(153, 153, 153));
         jpBotoes.setMaximumSize(new java.awt.Dimension(165, 502));
         jpBotoes.setMinimumSize(new java.awt.Dimension(165, 502));
         jpBotoes.setPreferredSize(new java.awt.Dimension(165, 502));
 
-        btnVenda.setBackground(new java.awt.Color(51, 51, 51));
+        btnVenda.setBackground(new java.awt.Color(102, 102, 102));
         btnVenda.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnVenda.setText("Venda");
@@ -93,7 +94,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroProduto.setBackground(new java.awt.Color(51, 51, 51));
+        btnCadastroProduto.setBackground(new java.awt.Color(102, 102, 102));
         btnCadastroProduto.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnCadastroProduto.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastroProduto.setText("Cadastra Produto");
@@ -104,7 +105,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnConsultaProduto.setBackground(new java.awt.Color(51, 51, 51));
+        btnConsultaProduto.setBackground(new java.awt.Color(102, 102, 102));
         btnConsultaProduto.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnConsultaProduto.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultaProduto.setText("Consulta Produto");
@@ -115,7 +116,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnCadastroCliente.setBackground(new java.awt.Color(102, 102, 102));
         btnCadastroCliente.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnCadastroCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastroCliente.setText("Cadastro Cliente");
@@ -126,7 +127,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnConsultaCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnConsultaCliente.setBackground(new java.awt.Color(102, 102, 102));
         btnConsultaCliente.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnConsultaCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultaCliente.setText("Consulta Cliente");
@@ -137,7 +138,7 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        btnRelatorioVendas.setBackground(new java.awt.Color(51, 51, 51));
+        btnRelatorioVendas.setBackground(new java.awt.Color(102, 102, 102));
         btnRelatorioVendas.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnRelatorioVendas.setForeground(new java.awt.Color(255, 255, 255));
         btnRelatorioVendas.setText("Relatório Vendas");
@@ -179,7 +180,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addComponent(btnConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpCorpo.setMaximumSize(new java.awt.Dimension(853, 514));
@@ -219,7 +220,7 @@ public class MenuView extends javax.swing.JFrame {
             jpTudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpTudoLayout.createSequentialGroup()
                 .addGroup(jpTudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpCabecario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jpTudoLayout.createSequentialGroup()
                         .addComponent(jpBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,14 +230,11 @@ public class MenuView extends javax.swing.JFrame {
         jpTudoLayout.setVerticalGroup(
             jpTudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpTudoLayout.createSequentialGroup()
-                .addComponent(jpCabecario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpTudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpTudoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jpCorpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpTudoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jpBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(jpCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpTudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jpCorpo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -328,6 +326,9 @@ public class MenuView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //retira o painel superior
+        ((BasicInternalFrameUI)produtoCadastroAlteracao.getUI()).setNorthPane(null);
     }//GEN-LAST:event_btnCadastroProdutoActionPerformed
     
     //BOTÃO CONSULTA DE PRODUTO
@@ -362,6 +363,9 @@ public class MenuView extends javax.swing.JFrame {
         
         //limpa tabela de pesquisa
         produtoConsulta.tableModelLimpar();
+        
+        //retira o painel superior
+        ((BasicInternalFrameUI)produtoConsulta.getUI()).setNorthPane(null);
     }//GEN-LAST:event_btnConsultaProdutoActionPerformed
     
     //BOTÃO DE SAIR DO SISTEMA
@@ -435,6 +439,9 @@ public class MenuView extends javax.swing.JFrame {
         
         //limpa tabela de pesquisa
         clienteConsulta.tableModelLimpar();
+        
+        //retira o painel superior
+        ((BasicInternalFrameUI)clienteConsulta.getUI()).setNorthPane(null);
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
     
     //BOTAO CONSULTA DE RELATORIO VENDAS
@@ -469,6 +476,9 @@ public class MenuView extends javax.swing.JFrame {
         
         //limpa tabela de pesquisa
         relatorioConsulta.tableModelLimpar();
+        
+        //retira o painel superior
+        ((BasicInternalFrameUI)relatorioConsulta.getUI()).setNorthPane(null);
     }//GEN-LAST:event_btnRelatorioVendasActionPerformed
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
@@ -488,7 +498,7 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton btnVenda;
     private javax.swing.JDesktopPane dskPainelPrincipal;
     private javax.swing.JPanel jpBotoes;
-    private javax.swing.JPanel jpCabecario;
+    private javax.swing.JPanel jpCabecalho;
     private javax.swing.JPanel jpCorpo;
     private javax.swing.JPanel jpTudo;
     // End of variables declaration//GEN-END:variables
