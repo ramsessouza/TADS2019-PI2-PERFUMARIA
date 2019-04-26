@@ -155,7 +155,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtDescricao.setRows(5);
         jScrollPane1.setViewportView(txtDescricao);
 
-        btnSair.setBackground(new java.awt.Color(17, 128, 216));
+        btnSair.setBackground(new java.awt.Color(102, 102, 102));
         btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
@@ -165,7 +165,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSalvar.setBackground(new java.awt.Color(17, 128, 216));
+        btnSalvar.setBackground(new java.awt.Color(0, 102, 51));
         btnSalvar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setText("OK");

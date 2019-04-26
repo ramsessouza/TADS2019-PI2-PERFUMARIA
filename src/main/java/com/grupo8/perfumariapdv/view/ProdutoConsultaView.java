@@ -22,20 +22,22 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtProdutoNome = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         produtoTabela = new javax.swing.JTable();
-        lbCabecario = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lbCabecario = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(710, 550));
-        setMinimumSize(new java.awt.Dimension(710, 550));
-        setPreferredSize(new java.awt.Dimension(710, 550));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(null);
+        setMaximumSize(new java.awt.Dimension(853, 514));
+        setMinimumSize(new java.awt.Dimension(853, 514));
+        setPreferredSize(new java.awt.Dimension(853, 514));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -55,10 +57,18 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Nome do Produto");
 
-        jLabel1.setText("Nome do produto");
+        txtProdutoNome.setBackground(new java.awt.Color(255, 255, 255));
+        txtProdutoNome.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
+        txtProdutoNome.setForeground(new java.awt.Color(0, 0, 0));
 
+        btnPesquisar.setBackground(new java.awt.Color(17, 128, 216));
+        btnPesquisar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
+        btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +76,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
+        produtoTabela.setBackground(new java.awt.Color(255, 255, 255));
+        produtoTabela.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
+        produtoTabela.setForeground(new java.awt.Color(255, 255, 255));
         produtoTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -113,6 +126,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        produtoTabela.setMinimumSize(new java.awt.Dimension(105, 400));
+        produtoTabela.setPreferredSize(new java.awt.Dimension(225, 400));
+        produtoTabela.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(produtoTabela);
         if (produtoTabela.getColumnModel().getColumnCount() > 0) {
             produtoTabela.getColumnModel().getColumn(0).setResizable(false);
@@ -127,44 +143,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             produtoTabela.getColumnModel().getColumn(5).setPreferredWidth(5);
         }
 
-        lbCabecario.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        lbCabecario.setText("Consulta de Produto");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtProdutoNome)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPesquisar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbCabecario, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbCabecario)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtProdutoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
+        btnSair.setBackground(new java.awt.Color(102, 102, 102));
+        btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +153,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
+        btnAlterar.setBackground(new java.awt.Color(0, 102, 51));
+        btnAlterar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
+        btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setText("Alterar");
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,6 +163,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
+        btnDeletar.setBackground(new java.awt.Color(153, 0, 0));
+        btnDeletar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
+        btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
         btnDeletar.setText("Deletar");
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,36 +173,73 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(17, 128, 216));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setMaximumSize(new java.awt.Dimension(853, 29));
+        jPanel2.setMinimumSize(new java.awt.Dimension(853, 29));
+        jPanel2.setPreferredSize(new java.awt.Dimension(853, 29));
+
+        lbCabecario.setBackground(new java.awt.Color(17, 128, 216));
+        lbCabecario.setFont(new java.awt.Font("Futura PT", 0, 20)); // NOI18N
+        lbCabecario.setForeground(new java.awt.Color(255, 255, 255));
+        lbCabecario.setText("Consulta de Produto");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbCabecario)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbCabecario, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 435, Short.MAX_VALUE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnDeletar)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtProdutoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 828, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(19, 19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSair)
-                        .addComponent(btnAlterar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnDeletar)
-                        .addContainerGap())))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProdutoNome))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAlterar)
+                    .addComponent(btnDeletar)
+                    .addComponent(btnSair))
+                .addContainerGap())
         );
 
         pack();
@@ -425,7 +449,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbCabecario;
     private javax.swing.JTable produtoTabela;

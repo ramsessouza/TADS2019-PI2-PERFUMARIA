@@ -757,7 +757,7 @@
     <Component class="javax.swing.JButton" name="btnSair">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d8" green="80" red="11" type="rgb"/>
+          <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Futura PT" size="16" style="0"/>
@@ -774,7 +774,7 @@
     <Component class="javax.swing.JButton" name="btnSalvar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d8" green="80" red="11" type="rgb"/>
+          <Color blue="33" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Futura PT" size="16" style="0"/>

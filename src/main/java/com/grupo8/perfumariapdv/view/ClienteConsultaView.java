@@ -26,11 +26,11 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtClienteNome = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        clienteTabela = new javax.swing.JTable();
         btnSair = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        clienteTabela = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -87,6 +87,7 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
 
         txtClienteNome.setBackground(java.awt.Color.white);
         txtClienteNome.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
+        txtClienteNome.setForeground(new java.awt.Color(0, 0, 0));
         txtClienteNome.setMinimumSize(new java.awt.Dimension(14, 24));
         txtClienteNome.setPreferredSize(new java.awt.Dimension(14, 24));
 
@@ -100,46 +101,76 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
-        clienteTabela.setBackground(java.awt.Color.white);
+        btnSair.setBackground(new java.awt.Color(102, 102, 102));
+        btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        btnAlterar.setBackground(new java.awt.Color(0, 102, 51));
+        btnAlterar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
+        btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterar.setText("Alterar");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+
+        btnDeletar.setBackground(new java.awt.Color(153, 0, 0));
+        btnDeletar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
+        btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeletar.setText("Deletar");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
+
+        clienteTabela.setBackground(new java.awt.Color(255, 255, 255));
         clienteTabela.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         clienteTabela.setForeground(new java.awt.Color(255, 255, 255));
         clienteTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Sexo", "CPF", "RG", "Logradouro", "Numero"
+                "Id", "Nome", "Sexo", "CPF", "Lagradouro", "Numero"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -150,55 +181,23 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        clienteTabela.setMinimumSize(new java.awt.Dimension(105, 400));
+        clienteTabela.setPreferredSize(new java.awt.Dimension(225, 400));
+        clienteTabela.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(clienteTabela);
         if (clienteTabela.getColumnModel().getColumnCount() > 0) {
             clienteTabela.getColumnModel().getColumn(0).setResizable(false);
-            clienteTabela.getColumnModel().getColumn(0).setPreferredWidth(3);
             clienteTabela.getColumnModel().getColumn(2).setResizable(false);
             clienteTabela.getColumnModel().getColumn(3).setResizable(false);
-            clienteTabela.getColumnModel().getColumn(3).setPreferredWidth(10);
             clienteTabela.getColumnModel().getColumn(4).setResizable(false);
-            clienteTabela.getColumnModel().getColumn(4).setPreferredWidth(5);
             clienteTabela.getColumnModel().getColumn(5).setResizable(false);
-            clienteTabela.getColumnModel().getColumn(5).setPreferredWidth(5);
-            clienteTabela.getColumnModel().getColumn(6).setResizable(false);
-            clienteTabela.getColumnModel().getColumn(6).setPreferredWidth(5);
         }
-
-        btnSair.setBackground(new java.awt.Color(17, 128, 216));
-        btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
-        btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
-
-        btnAlterar.setBackground(new java.awt.Color(17, 128, 216));
-        btnAlterar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
-        btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAlterar.setText("Alterar");
-        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarActionPerformed(evt);
-            }
-        });
-
-        btnDeletar.setBackground(new java.awt.Color(17, 128, 216));
-        btnDeletar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
-        btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeletar.setText("Deletar");
-        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeletarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +219,6 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnPesquisar)))
                         .addGap(14, 14, 14))))
-            .addComponent(jpCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
