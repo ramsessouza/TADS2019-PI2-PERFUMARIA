@@ -13,10 +13,10 @@ import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
-public class ProdutoConsultaView extends javax.swing.JInternalFrame {
+public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
 //==============================================================================       
     //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
-    public ProdutoConsultaView() {
+    public VendaConsultaProdutoView() {
         initComponents();
     }
 
@@ -33,8 +33,6 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         produtoTabela = new javax.swing.JTable();
         btnSair = new javax.swing.JButton();
-        btnAlterar = new javax.swing.JButton();
-        btnDeletar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -68,7 +66,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
 
         lbCabecalho.setBackground(new java.awt.Color(17, 128, 216));
         lbCabecalho.setForeground(new java.awt.Color(255, 255, 255));
-        lbCabecalho.setText("Consulta de Produto");
+        lbCabecalho.setText("Consulta produto da venda");
         lbCabecalho.setMaximumSize(new java.awt.Dimension(853, 29));
         lbCabecalho.setMinimumSize(new java.awt.Dimension(853, 29));
         lbCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
@@ -77,7 +75,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lbCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,41 +104,41 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
         produtoTabela.setForeground(new java.awt.Color(255, 255, 255));
         produtoTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Categoria", "Quantidade", "Custo", "Valor"
+                "Id", "Nome", "Quantidade", "Valor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -157,13 +157,9 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             produtoTabela.getColumnModel().getColumn(0).setResizable(false);
             produtoTabela.getColumnModel().getColumn(0).setPreferredWidth(3);
             produtoTabela.getColumnModel().getColumn(2).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(2).setPreferredWidth(10);
+            produtoTabela.getColumnModel().getColumn(2).setPreferredWidth(5);
             produtoTabela.getColumnModel().getColumn(3).setResizable(false);
             produtoTabela.getColumnModel().getColumn(3).setPreferredWidth(5);
-            produtoTabela.getColumnModel().getColumn(4).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(4).setPreferredWidth(5);
-            produtoTabela.getColumnModel().getColumn(5).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(5).setPreferredWidth(5);
         }
 
         btnSair.setBackground(new java.awt.Color(102, 102, 102));
@@ -178,54 +174,24 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnAlterar.setBackground(new java.awt.Color(0, 102, 51));
-        btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAlterar.setText("Alterar");
-        btnAlterar.setMaximumSize(new java.awt.Dimension(79, 32));
-        btnAlterar.setMinimumSize(new java.awt.Dimension(79, 32));
-        btnAlterar.setPreferredSize(new java.awt.Dimension(79, 32));
-        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarActionPerformed(evt);
-            }
-        });
-
-        btnDeletar.setBackground(new java.awt.Color(153, 0, 0));
-        btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeletar.setText("Deletar");
-        btnDeletar.setMaximumSize(new java.awt.Dimension(79, 32));
-        btnDeletar.setMinimumSize(new java.awt.Dimension(79, 32));
-        btnDeletar.setPreferredSize(new java.awt.Dimension(79, 32));
-        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeletarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtProdutoNome)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPesquisar)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(txtProdutoNome)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnPesquisar)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,17 +200,13 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtProdutoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtProdutoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -273,53 +235,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
-    //BOTÃO DELETAR PRODUTO 
-    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-        //verifica se tem dados na tabela visual
-        if (produtoTabela.getSelectedRow() >= 0) 
-        {
-            //Obtém a linha do item selecionado na tabela visual
-            final int row = produtoTabela.getSelectedRow();
-
-            //obtem nome do produto para confirmar exclusao
-            String nome = (String) produtoTabela.getValueAt(row, 1);
-
-            //Mostra o diálogo de confirmação de exclusão
-            int respostaConfirmacao = JOptionPane.showConfirmDialog(
-                    rootPane,
-                    "Excluir o produto \"" + nome + "\"?",
-                    "Confirmar exclusão", 
-                    JOptionPane.YES_NO_OPTION);
-
-            //verifica se sim ou nao para exclusao
-            if (respostaConfirmacao == JOptionPane.YES_OPTION) 
-            {
-                //Obtém o ID do produto da tabela visual
-                Integer idProduto = (Integer) produtoTabela.getValueAt(row, 0);
-
-                //Solicita ao serviço a exclusão do produto com o ID
-                String respostaController = ProdutoController.excluir(idProduto);
-                
-                //verifica se deu certo a exclusao
-                if (respostaController == null) 
-                {   
-                    //pesquisa novamente para exibir os dados modificados
-                    pesquisar();
-                } 
-                else 
-                {
-                    //Exibe a mensagem de erro ao usuário
-                    JOptionPane.showMessageDialog(
-                            rootPane, 
-                            respostaController 
-                                    +"\n Procure o administrador do sistema!",
-                            "Falha na Exclusão", 
-                            JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }
-    }//GEN-LAST:event_btnDeletarActionPerformed
-    
+   
     //BOTÃO PESQUISAR PRODUTO
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         pesquisar();
@@ -371,72 +287,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
         }
     }
     
-    //BOTÃO ALTERAR UM PRODUTO
-    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        
-        //obtem a linha da tabela
-        int row = produtoTabela.getSelectedRow();
-        
-        //obtem o id dessa linha
-        Integer idProduto = (Integer) produtoTabela.getValueAt(row, 0);
-        
-        //chama o controller para obter o produto do id selecionado (nova instancia de produto)
-        Produto produto = ProdutoController.obter(idProduto);
-        
-        //verifica se produto é válido
-        if(produto != null)
-        {
-            //verifica se a tela ja existe
-            if(produtoCadastroAlteracao == null )
-            {   
-                //se não existir faz uma tela
-                produtoCadastroAlteracao = new ProdutoCadastroAlteracaoView();
-            }
-            //seta o produto da tela de cadastro alteracao com o cliente obtido
-            produtoCadastroAlteracao.setProduto(produto);
-            
-            //Configura a tela de cadastro/alteracao como uma tela de alteracao
-            produtoCadastroAlteracao.setModoEdicao(true);
-            
-            //coloca a tela com cabecario e titulo de alteracao de produto
-            produtoCadastroAlteracao.setCabecario("Alteração do Produto: "
-                    +produto.getNome());
-            produtoCadastroAlteracao.setTitle("PDV Vendas / Consulta de Produto / Alteração de Produto");
-            
-            //mostro a tela no painel principal
-            this.getParent().add(produtoCadastroAlteracao);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
-            produtoCadastroAlteracao.setVisible(true);
-            
-            //coloco ela na frente de todas
-            produtoCadastroAlteracao.toFront();
-            
-            //coloco as informacoes do produto na tela
-            produtoCadastroAlteracao.carregarDadosTela();
-        
-            //redimensiona tela para tamanho do painel
-            try 
-            {
-                produtoCadastroAlteracao.setMaximum(true);
-            } 
-            catch (PropertyVetoException ex) 
-            {
-                Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-            //retira o painel superior
-            ((BasicInternalFrameUI)produtoCadastroAlteracao.getUI()).setNorthPane(null);
-        }
-        else
-        {
-            //informa ao usuário que não foi possível abrir o cliente para edição
-            JOptionPane.showMessageDialog(rootPane, 
-                    "Não foi possível localizar este produto para edição. "
-                            + "\n Procure o administrador do sistema!",
-                    "Erro", 
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnAlterarActionPerformed
-    
+   
     //QUANDO A INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Muda a cor do cabecalho da tabela
@@ -460,8 +311,6 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
 //==============================================================================       
     //NAO MEXER (ELEMENTOS DA TELA)
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;

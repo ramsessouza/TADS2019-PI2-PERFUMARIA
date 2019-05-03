@@ -40,7 +40,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         txtBairro = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtLagradouro = new javax.swing.JTextField();
+        txtLogradouro = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtNumero = new javax.swing.JFormattedTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -192,11 +192,11 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtBairro.setPreferredSize(new java.awt.Dimension(123123, 22));
 
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Lagradouro ");
+        jLabel12.setText("Logradouro ");
 
-        txtLagradouro.setBackground(java.awt.Color.white);
-        txtLagradouro.setMaximumSize(new java.awt.Dimension(2147483647, 22));
-        txtLagradouro.setPreferredSize(new java.awt.Dimension(123123, 22));
+        txtLogradouro.setBackground(java.awt.Color.white);
+        txtLogradouro.setMaximumSize(new java.awt.Dimension(2147483647, 22));
+        txtLogradouro.setPreferredSize(new java.awt.Dimension(123123, 22));
 
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Número");
@@ -325,7 +325,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel12)
-                                    .addComponent(txtLagradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
@@ -362,7 +362,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtNome)))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rdbMasculino)
@@ -393,7 +393,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLagradouro, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                            .addComponent(txtLogradouro, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                             .addComponent(txtNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -422,6 +422,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 //==============================================================================
      //INSTANCIA DE PRODUTO PARA CASO DE EDICAO
     private Produto produto = null;
@@ -647,7 +648,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtLagradouro;
+    private javax.swing.JTextField txtLogradouro;
     private javax.swing.JTextField txtNome;
     private javax.swing.JFormattedTextField txtNumero;
     private javax.swing.JTextArea txtObservacoes;

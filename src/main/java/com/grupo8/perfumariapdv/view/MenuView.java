@@ -1,5 +1,7 @@
 package com.grupo8.perfumariapdv.view;
 
+import com.grupo8.perfumariapdv.fonts.FontManager;
+import java.awt.Font;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,7 +9,9 @@ import javax.swing.UIManager;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class MenuView extends javax.swing.JFrame {
-//==============================================================================    
+//==============================================================================
+//NAO MEXER
+//==============================================================================   
     //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
     public MenuView() {
         initComponents();
@@ -21,20 +25,23 @@ public class MenuView extends javax.swing.JFrame {
 
         jpTudo = new javax.swing.JPanel();
         jpCabecalho = new javax.swing.JPanel();
+        lbGrupo8 = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
+        lbRelogio = new javax.swing.JLabel();
         jpBotoes = new javax.swing.JPanel();
+        lbVenda = new javax.swing.JLabel();
         btnVenda = new javax.swing.JButton();
+        lbCadastroProduto = new javax.swing.JLabel();
         btnCadastroProduto = new javax.swing.JButton();
+        lbConsultaProduto = new javax.swing.JLabel();
         btnConsultaProduto = new javax.swing.JButton();
+        lbCadastroCliente = new javax.swing.JLabel();
         btnCadastroCliente = new javax.swing.JButton();
+        lbConsultaCliente = new javax.swing.JLabel();
         btnConsultaCliente = new javax.swing.JButton();
+        lbRelatorioVendas = new javax.swing.JLabel();
         btnRelatorioVendas = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lbLogo = new javax.swing.JLabel();
         jpCorpo = new javax.swing.JPanel();
         dskPainelPrincipal = new javax.swing.JDesktopPane();
 
@@ -44,6 +51,11 @@ public class MenuView extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1024, 560));
         setMinimumSize(new java.awt.Dimension(1024, 560));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jpTudo.setBackground(new java.awt.Color(255, 255, 255));
         jpTudo.setMaximumSize(new java.awt.Dimension(1024, 560));
@@ -55,10 +67,12 @@ public class MenuView extends javax.swing.JFrame {
         jpCabecalho.setMinimumSize(new java.awt.Dimension(1024, 40));
         jpCabecalho.setPreferredSize(new java.awt.Dimension(1024, 40));
 
+        lbGrupo8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/groupo8 180x30.png"))); // NOI18N
+
         btnSair.setBackground(new java.awt.Color(17, 128, 216));
         btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/desligar.png"))); // NOI18N
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/power 25x25.png"))); // NOI18N
         btnSair.setBorder(null);
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,21 +80,34 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
+        lbRelogio.setBackground(new java.awt.Color(17, 128, 216));
+        lbRelogio.setForeground(new java.awt.Color(255, 255, 255));
+        lbRelogio.setText("03/05/2019 12:35:43");
+
         javax.swing.GroupLayout jpCabecalhoLayout = new javax.swing.GroupLayout(jpCabecalho);
         jpCabecalho.setLayout(jpCabecalhoLayout);
         jpCabecalhoLayout.setHorizontalGroup(
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecalhoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addComponent(lbGrupo8, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbRelogio)
+                .addGap(321, 321, 321)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jpCabecalhoLayout.setVerticalGroup(
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpCabecalhoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addGroup(jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jpCabecalhoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbRelogio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(lbGrupo8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jpBotoes.setBackground(new java.awt.Color(102, 102, 102));
@@ -89,6 +116,13 @@ public class MenuView extends javax.swing.JFrame {
         jpBotoes.setMinimumSize(new java.awt.Dimension(165, 502));
         jpBotoes.setPreferredSize(new java.awt.Dimension(165, 502));
 
+        lbVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/venda.png"))); // NOI18N
+        lbVenda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbVendaMouseClicked(evt);
+            }
+        });
+
         btnVenda.setBackground(new java.awt.Color(102, 102, 102));
         btnVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnVenda.setText("Venda");
@@ -96,6 +130,13 @@ public class MenuView extends javax.swing.JFrame {
         btnVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVendaActionPerformed(evt);
+            }
+        });
+
+        lbCadastroProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar_produto.png"))); // NOI18N
+        lbCadastroProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCadastroProdutoMouseClicked(evt);
             }
         });
 
@@ -109,6 +150,13 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
+        lbConsultaProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultar_produto.png"))); // NOI18N
+        lbConsultaProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbConsultaProdutoMouseClicked(evt);
+            }
+        });
+
         btnConsultaProduto.setBackground(new java.awt.Color(102, 102, 102));
         btnConsultaProduto.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultaProduto.setText("Consultar Produto");
@@ -116,6 +164,13 @@ public class MenuView extends javax.swing.JFrame {
         btnConsultaProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultaProdutoActionPerformed(evt);
+            }
+        });
+
+        lbCadastroCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar_cliente.png"))); // NOI18N
+        lbCadastroCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCadastroClienteMouseClicked(evt);
             }
         });
 
@@ -129,6 +184,13 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
+        lbConsultaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultar_cliente.png"))); // NOI18N
+        lbConsultaCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbConsultaClienteMouseClicked(evt);
+            }
+        });
+
         btnConsultaCliente.setBackground(new java.awt.Color(102, 102, 102));
         btnConsultaCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultaCliente.setText("Consultar Cliente");
@@ -136,6 +198,13 @@ public class MenuView extends javax.swing.JFrame {
         btnConsultaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultaClienteActionPerformed(evt);
+            }
+        });
+
+        lbRelatorioVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio_vendas.png"))); // NOI18N
+        lbRelatorioVendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbRelatorioVendasMouseClicked(evt);
             }
         });
 
@@ -149,31 +218,21 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/venda.png"))); // NOI18N
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar_produto.png"))); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultar_produto.png"))); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar_cliente.png"))); // NOI18N
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultar_cliente.png"))); // NOI18N
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio_vendas.png"))); // NOI18N
+        lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo150x150.png"))); // NOI18N
 
         javax.swing.GroupLayout jpBotoesLayout = new javax.swing.GroupLayout(jpBotoes);
         jpBotoes.setLayout(jpBotoesLayout);
         jpBotoesLayout.setHorizontalGroup(
             jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBotoesLayout.createSequentialGroup()
+            .addGroup(jpBotoesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -184,6 +243,9 @@ public class MenuView extends javax.swing.JFrame {
                     .addComponent(btnConsultaProduto)
                     .addComponent(btnRelatorioVendas))
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBotoesLayout.createSequentialGroup()
+                .addComponent(lbLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jpBotoesLayout.setVerticalGroup(
             jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,26 +259,28 @@ public class MenuView extends javax.swing.JFrame {
                                     .addGroup(jpBotoesLayout.createSequentialGroup()
                                         .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(jpBotoesLayout.createSequentialGroup()
-                                                .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(lbVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(18, 18, 18)
                                                 .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addComponent(btnConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(btnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(221, Short.MAX_VALUE))
+                    .addComponent(lbRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(lbLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jpCorpo.setMaximumSize(new java.awt.Dimension(853, 514));
@@ -236,7 +300,7 @@ public class MenuView extends javax.swing.JFrame {
         );
         dskPainelPrincipalLayout.setVerticalGroup(
             dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 514, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jpCorpoLayout = new javax.swing.GroupLayout(jpCorpo);
@@ -317,16 +381,52 @@ public class MenuView extends javax.swing.JFrame {
         
     }
 //==============================================================================
+//DECLARACOES
+//==============================================================================
+    private VendaView TelaDeVenda;
     private ProdutoCadastroAlteracaoView produtoCadastroAlteracao;
     private ProdutoConsultaView produtoConsulta;
     private ClienteCadastroAlteracaoView clienteCadastroAlteracao;
     private ClienteConsultaView clienteConsulta;
     private RelatorioConsultaView relatorioConsulta;
     
-    
-    //BOTÃO CADASTRO DE PRODUTO
-    private void btnCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutoActionPerformed
+//==============================================================================
+//FUNCOES
+//==============================================================================
+    //FUNCAO TELA DE VENDA
+    public void telaVenda(){
         //verifica se a tela ja existe
+        if(TelaDeVenda == null )
+        {   
+            //se não existir faz uma tela
+            TelaDeVenda = new VendaView();
+        }
+        
+        //verifico se a tela ja esta no painel
+        if(!TelaDeVenda.isVisible())
+        {    
+            //mostro a tela no painel principal caso nao esteja la
+            dskPainelPrincipal.add(TelaDeVenda);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
+            TelaDeVenda.setVisible(true);
+        }
+        
+        //coloco ela na frente de todas para todos os casos
+        TelaDeVenda.toFront();
+        
+        //redimensiona tela para tamanho do painel
+        try {
+            TelaDeVenda.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //retira o painel superior
+        ((BasicInternalFrameUI)TelaDeVenda.getUI()).setNorthPane(null);
+    }
+
+    //FUNCAO DE CADASTRAR PRODUTO
+    public void cadastrarProduto(){
+         //verifica se a tela ja existe
         if(produtoCadastroAlteracao == null )
         {   
             //se não existir faz uma tela
@@ -356,10 +456,10 @@ public class MenuView extends javax.swing.JFrame {
         
         //retira o painel superior
         ((BasicInternalFrameUI)produtoCadastroAlteracao.getUI()).setNorthPane(null);
-    }//GEN-LAST:event_btnCadastroProdutoActionPerformed
+    }
     
-    //BOTÃO CONSULTA DE PRODUTO
-    private void btnConsultaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaProdutoActionPerformed
+    //FUNCAO DE CONSULTAR PRODUTO
+    public void consultarProduto(){
         //verifica se a tela ja existe
         if(produtoConsulta == null )
         {   
@@ -390,15 +490,10 @@ public class MenuView extends javax.swing.JFrame {
         
         //retira o painel superior
         ((BasicInternalFrameUI)produtoConsulta.getUI()).setNorthPane(null);
-    }//GEN-LAST:event_btnConsultaProdutoActionPerformed
+    }
     
-    //BOTÃO DE SAIR DO SISTEMA
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnSairActionPerformed
-    
-    //BOTÃO CADASTRO DE CLIENTE
-    private void btnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClienteActionPerformed
+    //FUNCAO DE CADASTRAR CLIENTE
+    public void cadastrarCliente(){
         //verifica se a tela ja existe
         if(clienteCadastroAlteracao == null )
         {   
@@ -428,12 +523,11 @@ public class MenuView extends javax.swing.JFrame {
         }
         
         //retira o painel superior
-        ((BasicInternalFrameUI)clienteCadastroAlteracao.getUI()).setNorthPane(null); 
-        
-    }//GEN-LAST:event_btnCadastroClienteActionPerformed
-
-    //BOTÃO CONSULTA DE CLIENTE
-    private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
+        ((BasicInternalFrameUI)clienteCadastroAlteracao.getUI()).setNorthPane(null);
+    }
+    
+    //FUNCAO DE CONSULTAR CLIENTE
+    public void consultarCliente(){
         //verifica se a tela ja existe
         if(clienteConsulta == null )
         {   
@@ -464,10 +558,10 @@ public class MenuView extends javax.swing.JFrame {
         
         //retira o painel superior
         ((BasicInternalFrameUI)clienteConsulta.getUI()).setNorthPane(null);
-    }//GEN-LAST:event_btnConsultaClienteActionPerformed
+    }
     
-    //BOTAO CONSULTA DE RELATORIO VENDAS
-    private void btnRelatorioVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioVendasActionPerformed
+     //FUNCAO RELATORIO DE VENDAS
+    public void relatorioVendas(){
         //verifica se a tela ja existe
         if(relatorioConsulta == null )
         {   
@@ -498,11 +592,97 @@ public class MenuView extends javax.swing.JFrame {
         
         //retira o painel superior
         ((BasicInternalFrameUI)relatorioConsulta.getUI()).setNorthPane(null);
+    }
+
+//==============================================================================
+//BOTÕES
+//==============================================================================
+    //BOTÃO CADASTRO DE PRODUTO
+    private void btnCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutoActionPerformed
+       cadastrarProduto();
+    }//GEN-LAST:event_btnCadastroProdutoActionPerformed
+    
+    //BOTÃO CONSULTA DE PRODUTO
+    private void btnConsultaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaProdutoActionPerformed
+        consultarProduto();
+    }//GEN-LAST:event_btnConsultaProdutoActionPerformed
+    
+    //BOTÃO DE SAIR DO SISTEMA
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        System.exit(0);
+    }
+   
+    //BOTÃO CADASTRO DE CLIENTE
+    private void btnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClienteActionPerformed
+        cadastrarCliente();
+    }//GEN-LAST:event_btnCadastroClienteActionPerformed
+
+    //BOTÃO CONSULTA DE CLIENTE
+    private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
+        consultarCliente();
+    }//GEN-LAST:event_btnConsultaClienteActionPerformed
+    
+    //BOTAO CONSULTA DE RELATORIO VENDAS
+    private void btnRelatorioVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioVendasActionPerformed
+        relatorioVendas();
     }//GEN-LAST:event_btnRelatorioVendasActionPerformed
 
+    //BOTAO VENDA
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
-        // TODO add your handling code here:
+        telaVenda();
     }//GEN-LAST:event_btnVendaActionPerformed
+
+//==============================================================================
+//EVENTOS LABELS E DE COMPONENTES
+//==============================================================================
+    //AO INICIAR A INTERFACE
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        FontManager fontManager = new FontManager();
+        Font futuraPT14 = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.PLAIN, 14);
+        Font futuraPT16 = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.PLAIN, 16);
+        
+        btnCadastroCliente.setFont(futuraPT14);
+        btnConsultaCliente.setFont(futuraPT14);
+        btnCadastroProduto.setFont(futuraPT14);
+        btnConsultaProduto.setFont(futuraPT14);
+        btnVenda.setFont(futuraPT14);
+        btnRelatorioVendas.setFont(futuraPT14);
+        lbRelogio.setFont(futuraPT16);
+    }//GEN-LAST:event_formWindowOpened
+//GEN-FIRST:event_btnSairActionPerformed
+
+    //LABEL VENDA
+//GEN-LAST:event_btnSairActionPerformed
+    private void lbVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbVendaMouseClicked
+        telaVenda();
+    }//GEN-LAST:event_lbVendaMouseClicked
+    
+    //LABEL CADASTRAR PRODUTO
+    private void lbCadastroProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCadastroProdutoMouseClicked
+        cadastrarProduto();
+    }//GEN-LAST:event_lbCadastroProdutoMouseClicked
+    
+    //LABEL CONSULTAR PRODUTO
+    private void lbConsultaProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultaProdutoMouseClicked
+        consultarProduto();
+    }//GEN-LAST:event_lbConsultaProdutoMouseClicked
+
+    //LABEL CADASTRAR CLIENTE
+    private void lbCadastroClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCadastroClienteMouseClicked
+        cadastrarCliente();
+    }//GEN-LAST:event_lbCadastroClienteMouseClicked
+
+    //LABEL CONSULTAR CLIENTE
+    private void lbConsultaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultaClienteMouseClicked
+        consultarCliente();
+    }//GEN-LAST:event_lbConsultaClienteMouseClicked
+
+    //LABEL RELATORIO VENDAS
+    private void lbRelatorioVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRelatorioVendasMouseClicked
+        relatorioVendas();
+    }//GEN-LAST:event_lbRelatorioVendasMouseClicked
+    
+    
     
    
 //==============================================================================
@@ -516,16 +696,19 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVenda;
     private javax.swing.JDesktopPane dskPainelPrincipal;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jpBotoes;
     private javax.swing.JPanel jpCabecalho;
     private javax.swing.JPanel jpCorpo;
     private javax.swing.JPanel jpTudo;
+    private javax.swing.JLabel lbCadastroCliente;
+    private javax.swing.JLabel lbCadastroProduto;
+    private javax.swing.JLabel lbConsultaCliente;
+    private javax.swing.JLabel lbConsultaProduto;
+    private javax.swing.JLabel lbGrupo8;
+    private javax.swing.JLabel lbLogo;
+    private javax.swing.JLabel lbRelatorioVendas;
+    private javax.swing.JLabel lbRelogio;
+    private javax.swing.JLabel lbVenda;
     // End of variables declaration//GEN-END:variables
 //==============================================================================
 }

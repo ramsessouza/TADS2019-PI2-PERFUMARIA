@@ -15,6 +15,7 @@ public class Main
             Font futuraPT14Bold = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.BOLD, 14);
             Font futuraPT13 = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.PLAIN, 13);
             
+            UIManager.put("dateChooserCombo", futuraPT13);
             UIManager.put("Button.font", futuraPT16);
 //            UIManager.put("ToggleButton.font", ubuntuFonteBold);
             UIManager.put("RadioButton.font", futuraPT13);
