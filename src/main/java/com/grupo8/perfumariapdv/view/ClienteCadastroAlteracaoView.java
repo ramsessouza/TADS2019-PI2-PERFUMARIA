@@ -3,6 +3,8 @@ package com.grupo8.perfumariapdv.view;
 import com.grupo8.perfumariapdv.model.Produto;
 import com.grupo8.perfumariapdv.model.Validacao;
 import com.grupo8.perfumariapdv.controller.ProdutoController;
+import com.grupo8.perfumariapdv.fonts.FontManager;
+import java.awt.Font;
 import javax.swing.JOptionPane;
 
 public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
@@ -88,32 +90,30 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         jpCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
 
         lbCabecalho.setBackground(new java.awt.Color(17, 128, 216));
-        lbCabecalho.setFont(new java.awt.Font("Futura PT", 0, 20)); // NOI18N
         lbCabecalho.setForeground(new java.awt.Color(255, 255, 255));
         lbCabecalho.setText("Cadastro de Cliente");
+        lbCabecalho.setMaximumSize(new java.awt.Dimension(853, 29));
+        lbCabecalho.setMinimumSize(new java.awt.Dimension(853, 29));
+        lbCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
 
         javax.swing.GroupLayout jpCabecalhoLayout = new javax.swing.GroupLayout(jpCabecalho);
         jpCabecalho.setLayout(jpCabecalhoLayout);
         jpCabecalhoLayout.setHorizontalGroup(
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpCabecalhoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbCabecalho)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lbCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jpCabecalhoLayout.setVerticalGroup(
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbCabecalho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+            .addComponent(lbCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel2.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome");
 
         txtNome.setBackground(java.awt.Color.white);
-        txtNome.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("CPF");
 
@@ -132,7 +132,6 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Data de nascimento");
 
@@ -151,68 +150,54 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Sexo");
 
         rdbFeminino.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rdbFeminino);
-        rdbFeminino.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         rdbFeminino.setText("F");
 
         rdbMasculino.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rdbMasculino);
-        rdbMasculino.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         rdbMasculino.setText("M");
 
-        jLabel15.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Estado Civíl");
 
         cboEstadoCivil.setBackground(new java.awt.Color(255, 255, 255));
-        cboEstadoCivil.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         cboEstadoCivil.setForeground(new java.awt.Color(0, 0, 0));
         cboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Casado(a)", "Solteiro(a)", "Divorciado(a)", "Viúvo(a)" }));
         cboEstadoCivil.setMinimumSize(new java.awt.Dimension(103, 22));
         cboEstadoCivil.setPreferredSize(new java.awt.Dimension(103, 22));
 
-        jLabel9.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Estado");
 
         cboEstado.setBackground(new java.awt.Color(255, 255, 255));
-        cboEstado.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         cboEstado.setForeground(new java.awt.Color(0, 0, 0));
         cboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         cboEstado.setMinimumSize(new java.awt.Dimension(51, 22));
         cboEstado.setPreferredSize(new java.awt.Dimension(51, 22));
 
-        jLabel10.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Cidade");
 
         txtCidade.setBackground(java.awt.Color.white);
-        txtCidade.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
 
-        jLabel11.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Bairro");
 
         txtBairro.setBackground(java.awt.Color.white);
-        txtBairro.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         txtBairro.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtBairro.setPreferredSize(new java.awt.Dimension(123123, 22));
 
-        jLabel12.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Lagradouro ");
 
         txtLagradouro.setBackground(java.awt.Color.white);
-        txtLagradouro.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         txtLagradouro.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtLagradouro.setPreferredSize(new java.awt.Dimension(123123, 22));
 
-        jLabel13.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Número");
 
@@ -226,16 +211,13 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel17.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("E-mail");
 
         txtEmail.setBackground(java.awt.Color.white);
-        txtEmail.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         txtEmail.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtEmail.setPreferredSize(new java.awt.Dimension(123123, 22));
 
-        jLabel18.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Telefone Celular");
 
@@ -244,7 +226,6 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtTelefoneCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtTelefoneCelular.setPreferredSize(new java.awt.Dimension(4, 22));
 
-        jLabel19.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Telefone (Outros)");
 
@@ -254,19 +235,16 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtTelefoneOutros.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtTelefoneOutros.setPreferredSize(new java.awt.Dimension(123123, 22));
 
-        jLabel20.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Observações");
 
         txtObservacoes.setBackground(java.awt.Color.white);
         txtObservacoes.setColumns(20);
-        txtObservacoes.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         txtObservacoes.setRows(5);
         txtObservacoes.setMaximumSize(new java.awt.Dimension(2147483647, 843));
         jScrollPane1.setViewportView(txtObservacoes);
 
         btnSair.setBackground(new java.awt.Color(102, 102, 102));
-        btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +254,6 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         });
 
         btnSalvar.setBackground(new java.awt.Color(0, 102, 51));
-        btnSalvar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setText("OK");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -322,7 +299,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel15)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(cboEstadoCivil, 0, 125, Short.MAX_VALUE))
+                                    .addComponent(cboEstadoCivil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(6, 6, 6))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -416,7 +393,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLagradouro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtLagradouro, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                             .addComponent(txtNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -435,7 +412,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
@@ -609,10 +586,15 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
     
-    //QUANDO FORM INICIA
+    //QUANDO A INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Colocar a variavel cabecario no jlabel
         lbCabecalho.setText(cabecario);
+        
+        //Altera o tamanha da fonte do cabecalho do form
+        FontManager fontManager = new FontManager();
+        Font futuraPT20Bold = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.BOLD, 20);
+        lbCabecalho.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed

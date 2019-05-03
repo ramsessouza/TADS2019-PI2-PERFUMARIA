@@ -29,6 +29,12 @@ public class MenuView extends javax.swing.JFrame {
         btnCadastroCliente = new javax.swing.JButton();
         btnConsultaCliente = new javax.swing.JButton();
         btnRelatorioVendas = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jpCorpo = new javax.swing.JPanel();
         dskPainelPrincipal = new javax.swing.JDesktopPane();
 
@@ -52,7 +58,7 @@ public class MenuView extends javax.swing.JFrame {
         btnSair.setBackground(new java.awt.Color(17, 128, 216));
         btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/desligar.png"))); // NOI18N
         btnSair.setBorder(null);
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,15 +72,15 @@ public class MenuView extends javax.swing.JFrame {
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecalhoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jpCabecalhoLayout.setVerticalGroup(
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpCabecalhoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         jpBotoes.setBackground(new java.awt.Color(102, 102, 102));
@@ -84,7 +90,6 @@ public class MenuView extends javax.swing.JFrame {
         jpBotoes.setPreferredSize(new java.awt.Dimension(165, 502));
 
         btnVenda.setBackground(new java.awt.Color(102, 102, 102));
-        btnVenda.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnVenda.setText("Venda");
         btnVenda.setBorder(null);
@@ -95,9 +100,8 @@ public class MenuView extends javax.swing.JFrame {
         });
 
         btnCadastroProduto.setBackground(new java.awt.Color(102, 102, 102));
-        btnCadastroProduto.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnCadastroProduto.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastroProduto.setText("Cadastra Produto");
+        btnCadastroProduto.setText("Cadastrar Produto");
         btnCadastroProduto.setBorder(null);
         btnCadastroProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,9 +110,8 @@ public class MenuView extends javax.swing.JFrame {
         });
 
         btnConsultaProduto.setBackground(new java.awt.Color(102, 102, 102));
-        btnConsultaProduto.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnConsultaProduto.setForeground(new java.awt.Color(255, 255, 255));
-        btnConsultaProduto.setText("Consulta Produto");
+        btnConsultaProduto.setText("Consultar Produto");
         btnConsultaProduto.setBorder(null);
         btnConsultaProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,9 +120,8 @@ public class MenuView extends javax.swing.JFrame {
         });
 
         btnCadastroCliente.setBackground(new java.awt.Color(102, 102, 102));
-        btnCadastroCliente.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnCadastroCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastroCliente.setText("Cadastro Cliente");
+        btnCadastroCliente.setText("Cadastrar Cliente");
         btnCadastroCliente.setBorder(null);
         btnCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,9 +130,8 @@ public class MenuView extends javax.swing.JFrame {
         });
 
         btnConsultaCliente.setBackground(new java.awt.Color(102, 102, 102));
-        btnConsultaCliente.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnConsultaCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnConsultaCliente.setText("Consulta Cliente");
+        btnConsultaCliente.setText("Consultar Cliente");
         btnConsultaCliente.setBorder(null);
         btnConsultaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,9 +140,8 @@ public class MenuView extends javax.swing.JFrame {
         });
 
         btnRelatorioVendas.setBackground(new java.awt.Color(102, 102, 102));
-        btnRelatorioVendas.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnRelatorioVendas.setForeground(new java.awt.Color(255, 255, 255));
-        btnRelatorioVendas.setText("Relatório Vendas");
+        btnRelatorioVendas.setText("Relatório");
         btnRelatorioVendas.setBorder(null);
         btnRelatorioVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,12 +149,32 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/venda.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar_produto.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultar_produto.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar_cliente.png"))); // NOI18N
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultar_cliente.png"))); // NOI18N
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio_vendas.png"))); // NOI18N
+
         javax.swing.GroupLayout jpBotoesLayout = new javax.swing.GroupLayout(jpBotoes);
         jpBotoes.setLayout(jpBotoesLayout);
         jpBotoesLayout.setHorizontalGroup(
             jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBotoesLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnCadastroProduto)
@@ -169,18 +189,34 @@ public class MenuView extends javax.swing.JFrame {
             jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBotoesLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpBotoesLayout.createSequentialGroup()
+                        .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jpBotoesLayout.createSequentialGroup()
+                                .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jpBotoesLayout.createSequentialGroup()
+                                        .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jpBotoesLayout.createSequentialGroup()
+                                                .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jpBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRelatorioVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         jpCorpo.setMaximumSize(new java.awt.Dimension(853, 514));
@@ -273,14 +309,6 @@ public class MenuView extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-        //GLASS=================================================================
-//        try {
-//            UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        
-        //EM CASO DE USAR NIMBUS OU GLASS=======================================
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuView().setVisible(true);
@@ -401,6 +429,7 @@ public class MenuView extends javax.swing.JFrame {
         
         //retira o painel superior
         ((BasicInternalFrameUI)clienteCadastroAlteracao.getUI()).setNorthPane(null); 
+        
     }//GEN-LAST:event_btnCadastroClienteActionPerformed
 
     //BOTÃO CONSULTA DE CLIENTE
@@ -487,6 +516,12 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVenda;
     private javax.swing.JDesktopPane dskPainelPrincipal;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jpBotoes;
     private javax.swing.JPanel jpCabecalho;
     private javax.swing.JPanel jpCorpo;

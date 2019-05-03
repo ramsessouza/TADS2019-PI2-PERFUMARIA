@@ -1,7 +1,10 @@
 package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.controller.ProdutoController;
+import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.Produto;
+import java.awt.Color;
+import java.awt.Font;
 import java.beans.PropertyVetoException;
 import java.util.List;
 import java.util.logging.Level;
@@ -62,37 +65,31 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         jpCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
 
         lbCabecalho.setBackground(new java.awt.Color(17, 128, 216));
-        lbCabecalho.setFont(new java.awt.Font("Futura PT", 0, 20)); // NOI18N
         lbCabecalho.setForeground(new java.awt.Color(255, 255, 255));
         lbCabecalho.setText("Consulta de Cliente");
+        lbCabecalho.setMaximumSize(new java.awt.Dimension(853, 29));
+        lbCabecalho.setMinimumSize(new java.awt.Dimension(853, 29));
+        lbCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
 
         javax.swing.GroupLayout jpCabecalhoLayout = new javax.swing.GroupLayout(jpCabecalho);
         jpCabecalho.setLayout(jpCabecalhoLayout);
         jpCabecalhoLayout.setHorizontalGroup(
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpCabecalhoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbCabecalho)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lbCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpCabecalhoLayout.setVerticalGroup(
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+            .addComponent(lbCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Futura PT", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome do Cliente");
 
         txtClienteNome.setBackground(java.awt.Color.white);
-        txtClienteNome.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         txtClienteNome.setForeground(new java.awt.Color(0, 0, 0));
-        txtClienteNome.setMinimumSize(new java.awt.Dimension(14, 24));
-        txtClienteNome.setPreferredSize(new java.awt.Dimension(14, 24));
 
         btnPesquisar.setBackground(new java.awt.Color(17, 128, 216));
-        btnPesquisar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,9 +99,11 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         });
 
         btnSair.setBackground(new java.awt.Color(102, 102, 102));
-        btnSair.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
+        btnSair.setMaximumSize(new java.awt.Dimension(79, 32));
+        btnSair.setMinimumSize(new java.awt.Dimension(79, 32));
+        btnSair.setPreferredSize(new java.awt.Dimension(79, 32));
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -112,9 +111,11 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         });
 
         btnAlterar.setBackground(new java.awt.Color(0, 102, 51));
-        btnAlterar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setText("Alterar");
+        btnAlterar.setMaximumSize(new java.awt.Dimension(79, 32));
+        btnAlterar.setMinimumSize(new java.awt.Dimension(79, 32));
+        btnAlterar.setPreferredSize(new java.awt.Dimension(79, 32));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
@@ -122,9 +123,11 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         });
 
         btnDeletar.setBackground(new java.awt.Color(153, 0, 0));
-        btnDeletar.setFont(new java.awt.Font("Futura PT", 0, 16)); // NOI18N
         btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
         btnDeletar.setText("Deletar");
+        btnDeletar.setMaximumSize(new java.awt.Dimension(79, 32));
+        btnDeletar.setMinimumSize(new java.awt.Dimension(79, 32));
+        btnDeletar.setPreferredSize(new java.awt.Dimension(79, 32));
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeletarActionPerformed(evt);
@@ -132,7 +135,6 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         });
 
         clienteTabela.setBackground(new java.awt.Color(255, 255, 255));
-        clienteTabela.setFont(new java.awt.Font("Futura PT", 0, 13)); // NOI18N
         clienteTabela.setForeground(new java.awt.Color(255, 255, 255));
         clienteTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -201,24 +203,22 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addContainerGap(751, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtClienteNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnPesquisar)))
-                        .addGap(14, 14, 14))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtClienteNome)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisar)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,15 +228,15 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtClienteNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClienteNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeletar)
-                    .addComponent(btnSair)
-                    .addComponent(btnAlterar))
+                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -426,9 +426,19 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
     
-    //AO ABRIR
+    //QUANDO A INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        //NAO ESTA SENDO USADO
+        //Muda a cor do cabecalho da tabela
+        clienteTabela.getTableHeader().setBackground(new Color(017, 128, 216));
+        clienteTabela.getTableHeader().setForeground(Color.white);
+        
+        //Muda a cor da fonte da tabela
+        clienteTabela.setForeground(Color.black);
+
+        //Altera o tamanha da fonte do cabecalho do form
+        FontManager fontManager = new FontManager();
+        Font futuraPT20Bold = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.BOLD, 20);
+        lbCabecalho.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
     
     //AO ATIVAR

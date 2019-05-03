@@ -1,7 +1,10 @@
 package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.controller.ProdutoController;
+import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.Produto;
+import java.awt.Color;
+import java.awt.Font;
 import java.beans.PropertyVetoException;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,22 +24,24 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jpCabecalho = new javax.swing.JPanel();
+        lbCabecalho = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        produtoTabela = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
         dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
-        lbCabecario = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
+        dateChooserCombo3 = new datechooser.beans.DateChooserCombo();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        vendasTabela = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(null);
         setToolTipText("");
-        setMaximumSize(new java.awt.Dimension(710, 550));
-        setMinimumSize(new java.awt.Dimension(710, 550));
-        setPreferredSize(new java.awt.Dimension(710, 550));
+        setMaximumSize(new java.awt.Dimension(853, 514));
+        setMinimumSize(new java.awt.Dimension(853, 514));
+        setPreferredSize(new java.awt.Dimension(853, 514));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -56,10 +61,43 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jpCabecalho.setBackground(new java.awt.Color(17, 128, 216));
+        jpCabecalho.setMaximumSize(new java.awt.Dimension(853, 29));
+        jpCabecalho.setMinimumSize(new java.awt.Dimension(853, 29));
+        jpCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
 
+        lbCabecalho.setBackground(new java.awt.Color(17, 128, 216));
+        lbCabecalho.setForeground(new java.awt.Color(255, 255, 255));
+        lbCabecalho.setText("Consulta de Relatório de Vendas");
+        lbCabecalho.setMaximumSize(new java.awt.Dimension(853, 29));
+        lbCabecalho.setMinimumSize(new java.awt.Dimension(853, 29));
+        lbCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
+
+        javax.swing.GroupLayout jpCabecalhoLayout = new javax.swing.GroupLayout(jpCabecalho);
+        jpCabecalho.setLayout(jpCabecalhoLayout);
+        jpCabecalhoLayout.setHorizontalGroup(
+            jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 853, Short.MAX_VALUE)
+            .addGroup(jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpCabecalhoLayout.createSequentialGroup()
+                    .addComponent(lbCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jpCabecalhoLayout.setVerticalGroup(
+            jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 29, Short.MAX_VALUE)
+            .addGroup(jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpCabecalhoLayout.createSequentialGroup()
+                    .addComponent(lbCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Data inicial");
 
+        btnPesquisar.setBackground(new java.awt.Color(17, 128, 216));
+        btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,8 +105,48 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
-        produtoTabela.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Data Final");
+
+        dateChooserCombo2.setCalendarBackground(new java.awt.Color(255, 255, 255));
+        dateChooserCombo2.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
+
+        btnSair.setBackground(new java.awt.Color(102, 102, 102));
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setText("Sair");
+        btnSair.setMaximumSize(new java.awt.Dimension(79, 32));
+        btnSair.setMinimumSize(new java.awt.Dimension(79, 32));
+        btnSair.setPreferredSize(new java.awt.Dimension(79, 32));
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        btnDeletar.setBackground(new java.awt.Color(0, 102, 51));
+        btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeletar.setText("Detalhes");
+        btnDeletar.setMaximumSize(new java.awt.Dimension(79, 32));
+        btnDeletar.setMinimumSize(new java.awt.Dimension(79, 32));
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
+
+        dateChooserCombo3.setCalendarBackground(new java.awt.Color(255, 255, 255));
+        dateChooserCombo3.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
+
+        vendasTabela.setBackground(new java.awt.Color(255, 255, 255));
+        vendasTabela.setForeground(new java.awt.Color(255, 255, 255));
+        vendasTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -91,11 +169,11 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Data", "Cliente", "Total itens", "Valor total", "Pagamento"
+                "Id", "Data", "Cliente", "Total itens", "Valort total", "Pagamento"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
@@ -109,160 +187,75 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(produtoTabela);
-        if (produtoTabela.getColumnModel().getColumnCount() > 0) {
-            produtoTabela.getColumnModel().getColumn(0).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(0).setPreferredWidth(3);
-            produtoTabela.getColumnModel().getColumn(1).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(1).setPreferredWidth(10);
-            produtoTabela.getColumnModel().getColumn(2).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(3).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(3).setPreferredWidth(5);
-            produtoTabela.getColumnModel().getColumn(4).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(4).setPreferredWidth(5);
-            produtoTabela.getColumnModel().getColumn(5).setResizable(false);
-            produtoTabela.getColumnModel().getColumn(5).setPreferredWidth(5);
+        vendasTabela.setMinimumSize(new java.awt.Dimension(105, 400));
+        vendasTabela.setPreferredSize(new java.awt.Dimension(225, 400));
+        vendasTabela.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(vendasTabela);
+        if (vendasTabela.getColumnModel().getColumnCount() > 0) {
+            vendasTabela.getColumnModel().getColumn(0).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(1).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(2).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(3).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(4).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        jLabel2.setText("Data Final");
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jpCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jpCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPesquisar)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
-        dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
-            new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12),
-                    new java.awt.Color(187, 187, 187),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12),
-                    new java.awt.Color(187, 187, 187),
-                    new java.awt.Color(0, 0, 255),
-                    true,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12),
-                    new java.awt.Color(0, 0, 255),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12),
-                    new java.awt.Color(128, 128, 128),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12),
-                    new java.awt.Color(187, 187, 187),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12),
-                    new java.awt.Color(187, 187, 187),
-                    new java.awt.Color(255, 0, 0),
-                    false,
-                    false,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                (datechooser.view.BackRenderer)null,
-                false,
-                true)));
-    dateChooserCombo1.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
-
-    dateChooserCombo2.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
-
-    lbCabecario.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-    lbCabecario.setText("Consulta de Relatório de Vendas");
-
-    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-    jPanel1.setLayout(jPanel1Layout);
-    jPanel1Layout.setHorizontalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addContainerGap()
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dateChooserCombo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addComponent(btnPesquisar))
-                        .addComponent(lbCabecario, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addContainerGap())
-    );
-    jPanel1Layout.setVerticalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(lbCabecario)
-            .addGap(18, 18, 18)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(btnPesquisar)))
-            .addGap(18, 18, 18)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-            .addContainerGap())
-    );
-
-    btnSair.setText("Sair");
-    btnSair.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            btnSairActionPerformed(evt);
-        }
-    });
-
-    btnDeletar.setText("Detalhes");
-    btnDeletar.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            btnDeletarActionPerformed(evt);
-        }
-    });
-
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(btnDeletar))
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addContainerGap())
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(18, 18, 18)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnDeletar)
-                .addComponent(btnSair))
-            .addContainerGap())
-    );
-
-    pack();
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 //==============================================================================       
     //DECLARA O MODELO DE TABELA PARA SER USADO NA PESQUISA
@@ -276,7 +269,7 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         if(tableModel==null)
         {
             //Obtém a tabela para trabalhar nela
-            tableModel = (DefaultTableModel) produtoTabela.getModel();
+            tableModel = (DefaultTableModel) vendasTabela.getModel();
         }
         //Limpa resultados anteriores
         tableModel.setRowCount(0);
@@ -285,13 +278,13 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
     //BOTÃO DELETAR PRODUTO 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         //verifica se tem dados na tabela visual
-        if (produtoTabela.getSelectedRow() >= 0) 
+        if (vendasTabela.getSelectedRow() >= 0) 
         {
             //Obtém a linha do item selecionado na tabela visual
-            final int row = produtoTabela.getSelectedRow();
+            final int row = vendasTabela.getSelectedRow();
 
             //obtem nome do produto para confirmar exclusao
-            String nome = (String) produtoTabela.getValueAt(row, 1);
+            String nome = (String) vendasTabela.getValueAt(row, 1);
 
             //Mostra o diálogo de confirmação de exclusão
             int respostaConfirmacao = JOptionPane.showConfirmDialog(
@@ -304,7 +297,7 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
             if (respostaConfirmacao == JOptionPane.YES_OPTION) 
             {
                 //Obtém o ID do produto da tabela visual
-                Integer idProduto = (Integer) produtoTabela.getValueAt(row, 0);
+                Integer idProduto = (Integer) vendasTabela.getValueAt(row, 0);
 
                 //Solicita ao serviço a exclusão do produto com o ID
                 String respostaController = ProdutoController.excluir(idProduto);
@@ -381,9 +374,19 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
     }
     
    
-    //AO ABRIR
+    //QUANDO INICIAR A INTERFACE
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        //NAO ESTA SENDO USADO
+        //Muda a cor do cabecalho da tabela
+        vendasTabela.getTableHeader().setBackground(new Color(017, 128, 216));
+        vendasTabela.getTableHeader().setForeground(Color.white);
+        
+        //Muda a cor da fonte da tabela
+        vendasTabela.setForeground(Color.black);
+
+        //Altera o tamanha da fonte do cabecalho do form
+        FontManager fontManager = new FontManager();
+        Font futuraPT20Bold = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.BOLD, 20);
+        lbCabecalho.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
     
     //AO ATIVAR
@@ -402,14 +405,14 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
-    private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
+    private datechooser.beans.DateChooserCombo dateChooserCombo3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbCabecario;
-    private javax.swing.JTable produtoTabela;
+    private javax.swing.JPanel jpCabecalho;
+    private javax.swing.JLabel lbCabecalho;
+    private javax.swing.JTable vendasTabela;
     // End of variables declaration//GEN-END:variables
 //==============================================================================       
 }
