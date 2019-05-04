@@ -24,7 +24,8 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         jpCabecalho = new javax.swing.JPanel();
         lbCabecalho = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbVendaLogo = new javax.swing.JLabel();
+        lbSairVenda = new javax.swing.JLabel();
         lbProduto = new javax.swing.JLabel();
         txtProduto = new javax.swing.JTextField();
         lbQuantidade = new javax.swing.JLabel();
@@ -89,7 +90,15 @@ public class VendaView extends javax.swing.JInternalFrame {
         lbCabecalho.setMinimumSize(new java.awt.Dimension(853, 29));
         lbCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/venda.png"))); // NOI18N
+        lbVendaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/venda.png"))); // NOI18N
+
+        lbSairVenda.setForeground(new java.awt.Color(255, 255, 255));
+        lbSairVenda.setText("Sair");
+        lbSairVenda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbSairVendaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpCabecalhoLayout = new javax.swing.GroupLayout(jpCabecalho);
         jpCabecalho.setLayout(jpCabecalhoLayout);
@@ -97,16 +106,19 @@ public class VendaView extends javax.swing.JInternalFrame {
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecalhoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbVendaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lbCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(lbSairVenda)
+                .addContainerGap())
         );
         jpCabecalhoLayout.setVerticalGroup(
             jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lbCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lbCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbSairVenda))
+            .addComponent(lbVendaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         lbProduto.setText("Produto");
@@ -223,8 +235,8 @@ public class VendaView extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
@@ -315,10 +327,6 @@ public class VendaView extends javax.swing.JInternalFrame {
                             .addComponent(txtProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbProduto1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jsQuantidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbQuantidade, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
@@ -328,7 +336,11 @@ public class VendaView extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbValorTotal)
-                            .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbProduto1)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -377,16 +389,17 @@ public class VendaView extends javax.swing.JInternalFrame {
                                 .addComponent(lbValorTotal))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbProduto1)
-                                    .addComponent(lbProduto))
+                                .addComponent(lbProduto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jsQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lbProduto1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
@@ -403,6 +416,7 @@ public class VendaView extends javax.swing.JInternalFrame {
 //DECLARACOES
 //============================================================================== 
 private VendaConsultaProdutoView consultaProduto;
+public MenuView menuView;
     
 //==============================================================================
 //EVENTOS
@@ -434,13 +448,16 @@ private VendaConsultaProdutoView consultaProduto;
         {   
             //se não existir faz uma tela
             consultaProduto = new VendaConsultaProdutoView();
+            
+            //Centraliza o jInternalFrame no painel principal
+            consultaProduto.setLocation(170, 100);
         }
         
         //verifico se a tela ja esta no painel
         if(!consultaProduto.isVisible())
         {    
             //mostro a tela no painel principal caso nao esteja la
-            //dskPainelPrincipal.add(consultaProduto);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
+            menuView.getDskPainelPrincipal().add(consultaProduto);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
             consultaProduto.setVisible(true);
         }
         
@@ -451,10 +468,15 @@ private VendaConsultaProdutoView consultaProduto;
         ((BasicInternalFrameUI)consultaProduto.getUI()).setNorthPane(null);
                 
     }//GEN-LAST:event_txtProdutoMouseClicked
-
+        
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
+    
+    //SAIR
+    private void lbSairVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSairVendaMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_lbSairVendaMouseClicked
 
     
 //==============================================================================
@@ -466,7 +488,6 @@ private VendaConsultaProdutoView consultaProduto;
     private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -484,9 +505,11 @@ private VendaConsultaProdutoView consultaProduto;
     private javax.swing.JLabel lbProduto;
     private javax.swing.JLabel lbProduto1;
     private javax.swing.JLabel lbQuantidade;
+    private javax.swing.JLabel lbSairVenda;
     private javax.swing.JLabel lbSubtotal;
     private javax.swing.JLabel lbValorTotal;
     private javax.swing.JLabel lbValorUnitario;
+    private javax.swing.JLabel lbVendaLogo;
     private javax.swing.JTable tabelaVenda;
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextField txtProduto;

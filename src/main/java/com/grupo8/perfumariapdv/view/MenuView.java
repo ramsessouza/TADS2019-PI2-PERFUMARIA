@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDesktopPane;
 import javax.swing.UIManager;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -91,7 +92,7 @@ public class MenuView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCabecalhoLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(lbGrupo8, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 407, Short.MAX_VALUE)
                 .addComponent(lbRelogio)
                 .addGap(321, 321, 321)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,7 +297,7 @@ public class MenuView extends javax.swing.JFrame {
         dskPainelPrincipal.setLayout(dskPainelPrincipalLayout);
         dskPainelPrincipalLayout.setHorizontalGroup(
             dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         dskPainelPrincipalLayout.setVerticalGroup(
             dskPainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +308,7 @@ public class MenuView extends javax.swing.JFrame {
         jpCorpo.setLayout(jpCorpoLayout);
         jpCorpoLayout.setHorizontalGroup(
             jpCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dskPainelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpCorpoLayout.setVerticalGroup(
             jpCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,6 +390,16 @@ public class MenuView extends javax.swing.JFrame {
     private ClienteCadastroAlteracaoView clienteCadastroAlteracao;
     private ClienteConsultaView clienteConsulta;
     private RelatorioConsultaView relatorioConsulta;
+
+    public JDesktopPane getDskPainelPrincipal() {
+        return dskPainelPrincipal;
+    }
+
+    public void setDskPainelPrincipal(JDesktopPane dskPainelPrincipal) {
+        this.dskPainelPrincipal = dskPainelPrincipal;
+    }
+    
+    
     
 //==============================================================================
 //FUNCOES
@@ -400,6 +411,7 @@ public class MenuView extends javax.swing.JFrame {
         {   
             //se não existir faz uma tela
             TelaDeVenda = new VendaView();
+            TelaDeVenda.menuView = this;
         }
         
         //verifico se a tela ja esta no painel
