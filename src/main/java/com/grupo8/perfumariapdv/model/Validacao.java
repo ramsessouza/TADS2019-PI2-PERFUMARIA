@@ -35,32 +35,71 @@ public class Validacao
       }
     
     //VALIDACAO DE CLIENTE
-    public static String Cliente(String nome, Integer cpf, String rg,
-    String sexo, String estadoCivil, Date dataNascimento, String estado,
-    String cidade, String bairro, String lagradouro, Integer numero, String email,
+    public static String Cliente(String nome, String cpf, String rg,
+    String sexo, String estadoCivil, String dataNascimento, String estado,
+    String cidade, String bairro, String logradouro, String numero, String email,
     String telefoneCelular, String telefoneOutros, String observacoes)
     {
         String retorno = "";
         
-//         if(Nome.equalsIgnoreCase("") || Nome == "")
-//        {
-//            retorno += "Nome\n";
-//        }
-//        nome
-//        cpf
-//        rg
-//        sexo
-//        estadoCivil
-//        dataNascimento
-//        estado
-//        cidade
-//        bairro
-//        lagradouro
-//        numero
-//        email
-//        telefoneCelular
-//        telefoneOutros
-//        observacoes
+         if(nome.equalsIgnoreCase("") || nome == "")
+        {
+            retorno += "Nome\n";
+        }
+        if(cpf.equalsIgnoreCase("") || cpf == "")
+        {
+            retorno += "CPF\n";
+        }
+        if(sexo.equalsIgnoreCase("") || sexo == "")
+        {
+            retorno += "Sexo\n";
+        }
+        if(estadoCivil.equalsIgnoreCase("") || estadoCivil == "")
+        {
+            retorno += "Estado Civil\n";
+        }
+        if(dataNascimento.equalsIgnoreCase("") || dataNascimento == "")
+        {
+            retorno += "Data de Nascimento\n";
+        }
+        if(estado.equalsIgnoreCase("") || estado == "")
+        {
+            retorno += "Estado\n";
+        }
+        if(cidade.equalsIgnoreCase("") || cidade == "")
+        {
+            retorno += "Cidade\n";
+        }
+        if(bairro.equalsIgnoreCase("") || bairro == "")
+        {
+            retorno += "Bairro\n";
+        }
+        if(logradouro.equalsIgnoreCase("") || logradouro == "")
+        {
+            retorno += "Logradouro\n";
+        }
+        if(numero.equalsIgnoreCase("") || numero == "")
+        {
+            retorno += "Número\n";
+        }
+        if(email.equalsIgnoreCase("") || email == "")
+        {
+            retorno += "E-mail\n";
+        }
+        if(telefoneCelular.equalsIgnoreCase("") || telefoneCelular == "")
+        {
+            retorno += "Telefone Celular\n";
+        }
+        
+        if(telefoneOutros.equalsIgnoreCase("") || telefoneOutros == "")
+        {
+            retorno += "Telefone (Outros)\n";
+        }
+        
+        if(observacoes.equalsIgnoreCase("") || observacoes == "")
+        {
+            retorno += "Observações\n";
+        }
         
         return retorno;
     }
