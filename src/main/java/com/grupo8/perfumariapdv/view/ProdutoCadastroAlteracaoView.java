@@ -340,9 +340,8 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
         //validacao dos campos
-        String produtoOK = Validacao.Produto(txtNome.getText(),
-            cboCategoria.getSelectedItem().toString(), txtQuantidade.getText(),
-            txtCusto.getText(), txtValor.getText());
+        String produtoOK = Validacao.ProdutoCamposVazios(txtNome.getText(),
+            txtQuantidade.getText(), txtCusto.getText(), txtValor.getText());
         
         //Se os campos obrigatórios estiverem okay
         if (produtoOK.equalsIgnoreCase("") || produtoOK == "")
