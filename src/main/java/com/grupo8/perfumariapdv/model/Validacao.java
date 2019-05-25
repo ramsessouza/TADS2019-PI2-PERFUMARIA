@@ -110,17 +110,17 @@ public class Validacao
         
         if (nome.length()>40){
             
-            resposta += "\nModelo (tamanho máximo: 40)";
+            resposta += "\nNome (tamanho máximo: 40)";
         }
         
         if (quantidade.length()>3){
             
-            resposta += "\nAno (tamanho máximo: 3)";
+            resposta += "\nQuantidade (tamanho máximo: 3)";
         }
         
         if (custo.length()>8){
             
-            resposta += "\nValor (tamanho máximo: 8)";
+            resposta += "\n (tamanho máximo: 8)";
         }
         
         if (valor.length()>8){
