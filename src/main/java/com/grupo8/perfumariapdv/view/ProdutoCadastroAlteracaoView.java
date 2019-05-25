@@ -339,74 +339,92 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     //BOTÃO SALVAR ALTERAÇÃO/CADASTRO DE PRODUTO
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
-        //validacao dos campos
-        String produtoOK = Validacao.ProdutoCamposVazios(txtNome.getText(),
+        //validacao dos campos se foram preenchidos
+        String produtoPreenchido = Validacao.ProdutoCamposVazios(txtNome.getText(),
             txtQuantidade.getText(), txtCusto.getText(), txtValor.getText());
         
         //Se os campos obrigatórios estiverem okay
-        if (produtoOK.equalsIgnoreCase("") || produtoOK == "")
+        if (produtoPreenchido.equalsIgnoreCase("") || produtoPreenchido == "")
         {
-            String respostaController = null;
             
-            //verifica se nao esta em modo de edicao
-            if (!modoEdicao){
-                //caso nao esteja cria um novo objeto
-                produto = new Produto();
-            }
+            //valida se os campos foram preenchidos com o tamanho correto
+            String produtoTamanhoOK = Validacao.ProdutoCamposTamanho(txtNome.getText(),
+            txtQuantidade.getText(), txtCusto.getText(), txtValor.getText());
             
-            //coloca dados nos atributos (instancia ocorre no inicio da classe)
-            produto.setNome(txtNome.getText());
-            produto.setCategoria(cboCategoria.getSelectedItem().toString());
-            produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
-            produto.setCusto(Float.parseFloat(txtCusto.getText().replaceAll(",", ".")));
-            produto.setValor(Float.parseFloat(txtValor.getText().replaceAll(",", ".")));
-            produto.setDescricao(txtDescricao.getText());
-                
-            if (!modoEdicao)//for modo de cadastro
+            //Se os campos forem preenchidos com o tamanho correto
+            if (produtoTamanhoOK.equalsIgnoreCase("") || produtoTamanhoOK == "")
             {
-                //envia produto para salvar para o controller
-                respostaController = ProdutoController.salvar(produto);
-            }
-            else//caso for mode de alteracao
-            {
-                respostaController = ProdutoController.atualizar(produto);
-            }
             
-            //verifica resposta do controller
-            if (respostaController == null)//se a resposta for positiva
-            {
-                if (!modoEdicao)//se for modo de cadastro
-                {
-                    JOptionPane.showMessageDialog(rootPane,
-                        "Produto cadastrado com sucesso!",
-                        "Confirmação",
-                        JOptionPane.INFORMATION_MESSAGE);
-                } 
-                else//caso for modo de alteracao
-                {
-                    JOptionPane.showMessageDialog(rootPane,
-                        "Produto atualizado com sucesso!",
-                        "Confirmação",
-                        JOptionPane.INFORMATION_MESSAGE);    
-                    this.dispose();
+                String respostaController = null;
+
+                //verifica se nao esta em modo de edicao
+                if (!modoEdicao){
+                    //caso nao esteja cria um novo objeto
+                    produto = new Produto();
                 }
-                //Limpa o formulário
-                limparFormulario();
+
+                //coloca dados nos atributos (instancia ocorre no inicio da classe)
+                produto.setNome(txtNome.getText());
+                produto.setCategoria(cboCategoria.getSelectedItem().toString());
+                produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
+                produto.setCusto(Float.parseFloat(txtCusto.getText().replaceAll(",", ".")));
+                produto.setValor(Float.parseFloat(txtValor.getText().replaceAll(",", ".")));
+                produto.setDescricao(txtDescricao.getText());
+
+                if (!modoEdicao)//for modo de cadastro
+                {
+                    //envia produto para salvar para o controller
+                    respostaController = ProdutoController.salvar(produto);
+                }
+                else//caso for mode de alteracao
+                {
+                    respostaController = ProdutoController.atualizar(produto);
+                }
+
+                //verifica resposta do controller
+                if (respostaController == null)//se a resposta for positiva
+                {
+                    if (!modoEdicao)//se for modo de cadastro
+                    {
+                        JOptionPane.showMessageDialog(rootPane,
+                            "Produto cadastrado com sucesso!",
+                            "Confirmação",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    } 
+                    else//caso for modo de alteracao
+                    {
+                        JOptionPane.showMessageDialog(rootPane,
+                            "Produto atualizado com sucesso!",
+                            "Confirmação",
+                            JOptionPane.INFORMATION_MESSAGE);    
+                        this.dispose();
+                    }
+                    //Limpa o formulário
+                    limparFormulario();
+                }
+                else//se a resposta do controller for negativa
+                {
+                    //Exibe mensagens de erro para o usuário
+                    JOptionPane.showMessageDialog(rootPane, 
+                            respostaController
+                                +"\n Procure o administrador do sistema!",
+                            "Erro", 
+                            JOptionPane.ERROR_MESSAGE);
+                }
             }
-            else//se a resposta do controller for negativa
+            else//se os campos foram preenchidos com tamanhos incorretos 
             {
-                //Exibe mensagens de erro para o usuário
                 JOptionPane.showMessageDialog(rootPane, 
-                        respostaController
-                            +"\n Procure o administrador do sistema!",
-                        "Erro", 
-                        JOptionPane.ERROR_MESSAGE);
+                    "Os campos abaixo ultrapassaram os limites de caracteres:" 
+                            + produtoTamanhoOK + 
+                            "\nPreencha os campo corretamente e tente novamente!",
+                    "Erro", JOptionPane.INFORMATION_MESSAGE);
             }
             
         }
         else//se os campos obrigatorios nao foram preenchidos
         {
-            JOptionPane.showMessageDialog(this,"O(s) campo(s) abaixo:\n"+produtoOK+
+            JOptionPane.showMessageDialog(this,"O(s) campo(s) abaixo:\n"+produtoPreenchido+
                 "Não foram preenchidos, preencha-os e tente novamente!");
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
