@@ -12,7 +12,7 @@ public class Cliente {
     private String estado;
     private String cidade;
     private String bairro;
-    private String lagradouro;
+    private String logradouro;
     private Integer numero;
     private String email;
     private String telefoneCelular;
@@ -91,12 +91,12 @@ public class Cliente {
         this.bairro = bairro;
     }
 
-    public String getLagradouro() {
-        return lagradouro;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setLagradouro(String lagradouro) {
-        this.lagradouro = lagradouro;
+    public void setLogradouro(String lagradouro) {
+        this.logradouro = lagradouro;
     }
 
     public Integer getNumero() {

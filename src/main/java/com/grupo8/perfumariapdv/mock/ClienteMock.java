@@ -133,8 +133,8 @@ public class ClienteMock
                             clienteAtualizado.getEstado());
                     clienteDesatualizado.setEstadoCivil(
                             clienteAtualizado.getEstadoCivil());
-                    clienteDesatualizado.setLagradouro(
-                            clienteAtualizado.getLagradouro());
+                    clienteDesatualizado.setLogradouro(
+                            clienteAtualizado.getLogradouro());
                     clienteDesatualizado.setNumero(
                             clienteAtualizado.getNumero());
                     clienteDesatualizado.setObservacoes(

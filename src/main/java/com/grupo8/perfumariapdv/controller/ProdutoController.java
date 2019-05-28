@@ -49,7 +49,7 @@ public class ProdutoController {
 
         try
         {
-            //tenta fazer a inserção
+            //tenta fazer a atualização
             ProdutoMock.atualizar(produto);
         } 
         catch (Exception e) 

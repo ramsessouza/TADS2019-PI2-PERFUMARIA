@@ -49,7 +49,7 @@ public class ClienteController {
 
         try
         {
-            //tenta fazer a inserção
+            //tenta fazer a atualização
             ClienteMock.atualizar(cliente);
         } 
         catch (Exception e) 

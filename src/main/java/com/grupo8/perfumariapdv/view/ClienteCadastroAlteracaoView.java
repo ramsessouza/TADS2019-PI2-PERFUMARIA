@@ -1,10 +1,15 @@
 package com.grupo8.perfumariapdv.view;
 
-import com.grupo8.perfumariapdv.model.Produto;
+import com.grupo8.perfumariapdv.model.Cliente;
 import com.grupo8.perfumariapdv.model.Validacao;
-import com.grupo8.perfumariapdv.controller.ProdutoController;
+import com.grupo8.perfumariapdv.controller.ClienteController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
 import java.awt.Font;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
@@ -424,25 +429,25 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 //==============================================================================
-     //INSTANCIA DE PRODUTO PARA CASO DE EDICAO
-    private Produto produto = null;
+     //INSTANCIA DE CLIENTE PARA CASO DE EDICAO
+    private Cliente cliente = null;
     
     //MODO DA TELA CRIAÇÃO E EDICAO
     private boolean modoEdicao = false;
     
-    //ID DE PRODUTO PARA CASO DE EDICAO
-    private Integer idProduto;
+    //ID DE CLIENTE PARA CASO DE EDICAO
+    private Integer idCliente;
     
     //TEXTO DO CABECARIO
     private String cabecario = "Cadastro de Cliente";
     
     //GETERS E SETERS DA PÁGINA
-     public Produto getProduto() {
-        return produto;
+     public Cliente getCliente() {
+        return cliente;
     }
     
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     
     public boolean isModoEdicao() {
@@ -453,12 +458,12 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         this.modoEdicao = modoEdicao;
     }
 
-    public Integer getIdProduto() {
-        return idProduto;
+    public Integer getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdProduto(Integer idProduto) {
-        this.idProduto = idProduto;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getCabecario() {
@@ -470,119 +475,187 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     }
     
     
-    //FUNÇÃO DE LIMPAR FORMULÁRIO CADASTRAR/ALTERAR PRODUTO
+    //FUNÇÃO DE LIMPAR FORMULÁRIO CADASTRAR/ALTERAR CLIENTE
     public void limparFormulario(){
         txtNome.setText("");
-//        cboCategoria.setSelectedIndex(0); 
-//        txtQuantidade.setText("");
-//        txtCusto.setText("");
-//        txtValor.setText("");
-//        txtDescricao.setText("");
+        txtCpf.setText("");
+        txtDataNascimento.setText("");
+        buttonGroup1.clearSelection();
+//        rdbFeminino
+//        rdbMasculino
+        cboEstadoCivil.setSelectedIndex(0);
+        cboEstado.setSelectedIndex(0);
+        txtCidade.setText("");
+        txtBairro.setText("");
+        txtLogradouro.setText("");
+        txtNumero.setText("");
+        txtEmail.setText("");
+        txtTelefoneCelular.setText("");
+        txtTelefoneOutros.setText("");
+        txtObservacoes.setText("");
     }
     
-    //FUNCAO PARA CARREGAR DADOS DO PRODUTO NA TELA
+    //FUNCAO PARA CARREGAR DADOS DO CLIENTE NA TELA
     public void carregarDadosTela(){
-//        //verifica se está no modo de edição e há um produto para edição
-//        if (modoEdicao && produto != null) 
-//        {
-//            txtNome.setText(produto.getNome());
-//            
-//            //combobox fazer for e achar item 
-//            for (int i = 0; i < cboCategoria.getItemCount(); i++) 
-//            {
-//                if (cboCategoria.getItemAt(i).equals(produto.getCategoria())) 
-//                {
-//                    cboCategoria.setSelectedIndex(i);
-//                    break;
-//                }
-//            }
-//            
-//            //campos formatados usar "setValue"
-//            txtQuantidade.setValue(produto.getQuantidade());
-//            txtCusto.setValue(produto.getCusto());
-//            txtValor.setValue(produto.getValor());
-//            
-//            txtDescricao.setText(produto.getDescricao());
-//        }
+        //verifica se está no modo de edição e há um cliente para edição
+        if (modoEdicao && cliente != null) 
+        {
+            //campos normais usar "setText"
+            //campos formatados usar "setValue"
+            txtNome.setText(cliente.getNome());
+            txtCpf.setValue(cliente.getCpf());
+            txtDataNascimento.setValue(cliente.getDataNascimento());
+            
+            //Para radio buttons fazer a validação abaixo
+            if (cliente.getSexo() == rdbMasculino.getText()){
+                rdbMasculino.setSelected(true);
+           }else{
+                rdbFeminino.setSelected(true);
+            }
+                        
+            //combobox fazer for e achar item 
+            for (int i = 0; i < cboEstadoCivil.getItemCount(); i++){
+                if (cboEstadoCivil.getItemAt(i).equals(cliente.getEstadoCivil())){
+                    cboEstadoCivil.setSelectedIndex(i);
+                    break;
+                }
+            }
+            for (int i = 0; i < cboEstado.getItemCount(); i++){
+                if (cboEstado.getItemAt(i).equals(cliente.getEstado())){
+                    cboEstado.setSelectedIndex(i);
+                    break;
+                }
+            }
+            
+            //campos normais usar "setText"
+            //campos formatados usar "setValue"
+            txtCidade.setText(cliente.getCidade());
+            txtBairro.setText(cliente.getBairro());
+            txtLogradouro.setText(cliente.getLogradouro());
+            txtNumero.setValue(cliente.getNumero());
+            txtEmail.setText(cliente.getEmail());
+            txtTelefoneCelular.setValue(cliente.getTelefoneCelular());
+            txtTelefoneOutros.setValue(cliente.getTelefoneOutros());
+            txtObservacoes.setText(cliente.getObservacoes());
+        }
     }
     
-    //BOTÃO SALVAR ALTERAÇÃO/CADASTRO DE PRODUTO
+    //BOTÃO SALVAR ALTERAÇÃO/CADASTRO DE CLIENTE
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
-//        //validacao dos campos
-//        String produtoOK = ProdutoValidacao.ValidarProduto(txtNome.getText(),
-//            cboCategoria.getSelectedItem().toString(), txtQuantidade.getText(),
-//            txtCusto.getText(), txtValor.getText());
-//        
-//        //Se os campos obrigatórios estiverem okay
-//        if (produtoOK.equalsIgnoreCase("") || produtoOK == "")
-//        {
-//            String respostaController = null;
-//            
-//            //verifica se nao esta em modo de edicao
-//            if (!modoEdicao){
-//                //caso nao esteja cria um novo objeto
-//                produto = new Produto();
-//            }
-//            
-//            //coloca dados nos atributos (instancia ocorre no inicio da classe)
-//            produto.setNome(txtNome.getText());
-//            produto.setCategoria(cboCategoria.getSelectedItem().toString());
-//            produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
-//            produto.setCusto(Float.parseFloat(txtCusto.getText().replaceAll(",", ".")));
-//            produto.setValor(Float.parseFloat(txtValor.getText().replaceAll(",", ".")));
-//            produto.setDescricao(txtDescricao.getText());
-//                
-//            if (!modoEdicao)//for modo de cadastro
-//            {
-//                //envia produto para salvar para o controller
-//                respostaController = ProdutoController.salvar(produto);
-//            }
-//            else//caso for mode de alteracao
-//            {
-//                respostaController = ProdutoController.atualizar(produto);
-//            }
-//            
-//            //verifica resposta do controller
-//            if (respostaController == null)//se a resposta for positiva
-//            {
-//                if (!modoEdicao)//se for modo de cadastro
-//                {
-//                    JOptionPane.showMessageDialog(rootPane,
-//                        "Cliente cadastrado com sucesso!",
-//                        "Confirmação",
-//                        JOptionPane.INFORMATION_MESSAGE);
-//                } 
-//                else//caso for modo de alteracao
-//                {
-//                    JOptionPane.showMessageDialog(rootPane,
-//                        "Cliente atualizado com sucesso!",
-//                        "Confirmação",
-//                        JOptionPane.INFORMATION_MESSAGE);    
-//                    this.dispose();
-//                }
-//                //Limpa o formulário
-//                limparFormulario();
-//            }
-//            else//se a resposta do controller for negativa
-//            {
-//                //Exibe mensagens de erro para o usuário
-//                JOptionPane.showMessageDialog(rootPane, 
-//                        respostaController
-//                            +"\n Procure o administrador do sistema!",
-//                        "Erro", 
-//                        JOptionPane.ERROR_MESSAGE);
-//            }
-//            
-//        }
-//        else//se os campos obrigatorios nao foram preenchidos
-//        {
-//            JOptionPane.showMessageDialog(this,"O(s) campo(s) abaixo:\n"+produtoOK+
-//                "Não foram preenchidos, preencha-os e tente novamente!");
-//        }
+        //validacao dos campos se foram preenchidos
+        String clientePreenchido = Validacao.ClienteCamposVazios(txtNome.getText(),
+            txtCpf.getText().replaceAll(".", "").replaceAll("-", ""), 
+            txtDataNascimento.getText().replaceAll("/", "").replaceAll(" ", ""), cboEstado.getSelectedItem().toString(),
+            txtCidade.getText(), txtBairro.getText(), txtLogradouro.getText(), txtNumero.getText());
+        
+        //Se os campos obrigatórios estiverem okay
+        if (clientePreenchido.equalsIgnoreCase("") || clientePreenchido == "")
+        {
+            
+            //valida se os campos foram preenchidos com o tamanho correto
+            String clienteTamanhoOK = Validacao.ClienteCamposTamanho(txtNome.getText(),
+            txtCpf.getText().replaceAll(".", "").replaceAll("-", ""), 
+            txtDataNascimento.getText().replaceAll("/", "").replaceAll(" ", ""), cboEstado.getSelectedItem().toString(),
+            txtCidade.getText(), txtBairro.getText(), txtLogradouro.getText(), txtNumero.getText());
+            
+            //Se os campos forem preenchidos com o tamanho correto
+            if (clienteTamanhoOK.equalsIgnoreCase("") || clienteTamanhoOK == "")
+            {
+            
+                String respostaController = null;
+
+                //verifica se nao esta em modo de edicao
+                if (!modoEdicao){
+                    //caso nao esteja cria um novo objeto
+                    cliente = new Cliente();
+                }
+
+                //coloca dados nos atributos (instancia ocorre no inicio da classe)
+                cliente.setNome(txtNome.getText());
+                cliente.setCpf(Integer.parseInt(txtCpf.getValue().toString().replaceAll(".", "").replaceAll("-", "")));
+                
+                //converte data do campo para formato correto usar "getValue"
+                Date dataConvertida = (Date) txtDataNascimento.getValue();
+                cliente.setDataNascimento(dataConvertida);
+                
+                //para radio button usar "isSelected"
+                if(rdbMasculino.isSelected()){
+                    cliente.setSexo(rdbMasculino.getText());
+                }else{
+                    cliente.setSexo(rdbFeminino.getText());
+                }       
+                
+                cliente.setEstadoCivil(cboEstadoCivil.getSelectedItem().toString());
+                cliente.setEstado(cboEstado.getSelectedItem().toString());
+                cliente.setCidade(txtCidade.getText());
+                cliente.setBairro(txtBairro.getText());
+                cliente.setLogradouro(txtLogradouro.getText());
+                cliente.setNumero(Integer.parseInt(txtNumero.getText()));
+                cliente.setEmail(txtEmail.getText());
+                cliente.setTelefoneCelular(txtTelefoneCelular.getValue().toString());
+                cliente.setTelefoneOutros(txtTelefoneOutros.getValue().toString());
+                cliente.setObservacoes(txtObservacoes.getText());
+
+                if (!modoEdicao)//for modo de cadastro
+                {
+                    //envia cliente para salvar para o controller
+                    respostaController = ClienteController.salvar(cliente);
+                }
+                else//caso for mode de alteracao
+                {
+                    respostaController = ClienteController.atualizar(cliente);
+                }
+
+                //verifica resposta do controller
+                if (respostaController == null)//se a resposta for positiva
+                {
+                    if (!modoEdicao)//se for modo de cadastro
+                    {
+                        JOptionPane.showMessageDialog(rootPane,
+                            "Cliente cadastrado com sucesso!",
+                            "Confirmação",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    } 
+                    else//caso for modo de alteracao
+                    {
+                        JOptionPane.showMessageDialog(rootPane,
+                            "Cliente atualizado com sucesso!",
+                            "Confirmação",
+                            JOptionPane.INFORMATION_MESSAGE);    
+                        this.dispose();
+                    }
+                    //Limpa o formulário
+                    limparFormulario();
+                }
+                else//se a resposta do controller for negativa
+                {
+                    //Exibe mensagens de erro para o usuário
+                    JOptionPane.showMessageDialog(rootPane, 
+                            respostaController
+                                +"\n Procure o administrador do sistema!",
+                            "Erro", 
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            else//se os campos foram preenchidos com tamanhos incorretos 
+            {
+                JOptionPane.showMessageDialog(rootPane, 
+                    "Os campos abaixo ultrapassaram os limites de caracteres:" 
+                            + clienteTamanhoOK + 
+                            "\nPreencha os campo corretamente e tente novamente!",
+                    "Erro", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        }
+        else//se os campos obrigatorios nao foram preenchidos
+        {
+            JOptionPane.showMessageDialog(this,"O(s) campo(s) abaixo:\n"+clientePreenchido+
+                "Não foram preenchidos, preencha-os e tente novamente!");
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
     
-    //BOTÃO SAIR DA TELA DE CADASTRO/ALTERACAO DE PRODUTOS
+    //BOTÃO SAIR DA TELA DE CADASTRO/ALTERACAO DE CLIENTES
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
