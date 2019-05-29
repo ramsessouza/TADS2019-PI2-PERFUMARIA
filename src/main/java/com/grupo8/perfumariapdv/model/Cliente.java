@@ -5,7 +5,7 @@ import java.util.Date;
 public class Cliente {
     private Integer id;
     private String nome;
-    private Integer cpf;
+    private String cpf;
     private String sexo;
     private String estadoCivil;
     private Date dataNascimento;
@@ -35,11 +35,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -95,8 +95,8 @@ public class Cliente {
         return logradouro;
     }
 
-    public void setLogradouro(String lagradouro) {
-        this.logradouro = lagradouro;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
     public Integer getNumero() {
@@ -138,6 +138,6 @@ public class Cliente {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
-    
-    
+
+       
 }

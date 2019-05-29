@@ -481,8 +481,6 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtCpf.setText("");
         txtDataNascimento.setText("");
         buttonGroup1.clearSelection();
-//        rdbFeminino
-//        rdbMasculino
         cboEstadoCivil.setSelectedIndex(0);
         cboEstado.setSelectedIndex(0);
         txtCidade.setText("");
@@ -545,8 +543,9 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         
         //validacao dos campos se foram preenchidos
         String clientePreenchido = Validacao.ClienteCamposVazios(txtNome.getText(),
-            txtCpf.getText().replaceAll(".", "").replaceAll("-", ""), 
-            txtDataNascimento.getText().replaceAll("/", "").replaceAll(" ", ""), cboEstado.getSelectedItem().toString(),
+            txtCpf.getText().replace(".", "").replace("-", "").replaceAll(" ", ""), 
+            txtDataNascimento.getText().replaceAll("/", "").replaceAll(" ", ""), 
+            cboEstado.getSelectedItem().toString().replaceAll(" ", ""),
             txtCidade.getText(), txtBairro.getText(), txtLogradouro.getText(), txtNumero.getText());
         
         //Se os campos obrigatórios estiverem okay
@@ -555,9 +554,8 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             
             //valida se os campos foram preenchidos com o tamanho correto
             String clienteTamanhoOK = Validacao.ClienteCamposTamanho(txtNome.getText(),
-            txtCpf.getText().replaceAll(".", "").replaceAll("-", ""), 
-            txtDataNascimento.getText().replaceAll("/", "").replaceAll(" ", ""), cboEstado.getSelectedItem().toString(),
-            txtCidade.getText(), txtBairro.getText(), txtLogradouro.getText(), txtNumero.getText());
+            txtCidade.getText(), txtBairro.getText(), txtLogradouro.getText(), txtNumero.getText(),
+            txtEmail.getText(), txtTelefoneCelular.getText(), txtTelefoneOutros.getText(), txtObservacoes.getText());
             
             //Se os campos forem preenchidos com o tamanho correto
             if (clienteTamanhoOK.equalsIgnoreCase("") || clienteTamanhoOK == "")
@@ -573,7 +571,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
 
                 //coloca dados nos atributos (instancia ocorre no inicio da classe)
                 cliente.setNome(txtNome.getText());
-                cliente.setCpf(Integer.parseInt(txtCpf.getValue().toString().replaceAll(".", "").replaceAll("-", "")));
+                cliente.setCpf(txtCpf.getText());
                 
                 //converte data do campo para formato correto usar "getValue"
                 Date dataConvertida = (Date) txtDataNascimento.getValue();

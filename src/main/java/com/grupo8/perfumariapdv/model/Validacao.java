@@ -49,6 +49,10 @@ public class Validacao
         {
             retorno += "CPF\n";
         }
+        if(dataNascimento.equalsIgnoreCase("") || dataNascimento == "")
+        {
+            retorno += "Data de Nascimento\n";
+        }
 //        if(sexo.equalsIgnoreCase("") || sexo == "")
 //        {
 //            retorno += "Sexo\n";
@@ -57,10 +61,7 @@ public class Validacao
 //        {
 //            retorno += "Estado Civil\n";
 //        }
-        if(dataNascimento.equalsIgnoreCase("") || dataNascimento == "")
-        {
-            retorno += "Data de Nascimento\n";
-        }
+        
         if(estado.equalsIgnoreCase("") || estado == "")
         {
             retorno += "Estado\n";
@@ -132,49 +133,54 @@ public class Validacao
     }
     
     //VALIDACAO DE CLIENTE (TAMANHO DOS CAMPOS)
-    public static String ClienteCamposTamanho(String nome, String cpf, 
-    String dataNascimento, String estado, String cidade, String bairro, 
-    String logradouro, String numero){
+    public static String ClienteCamposTamanho(String nome, String cidade, 
+    String bairro, String logradouro, String numero, String email, 
+    String telefoneCelular, String telefoneOutros, String observacoes){
         String resposta = "";
         
-        if (nome.length()>40){
+        if (nome.length()>50){
             
-            resposta += "\nNome (tamanho máximo: 40)";
+            resposta += "\nNome (tamanho máximo: 50)";
         }
         
-        if (cpf.length()>14){
+        if (cidade.length()>50){
             
-            resposta += "\nCPF (tamanho máximo: 14)";
+            resposta += "\nCidade (tamanho máximo: 50)";
         }
         
-        if (dataNascimento.length()>10){
+        if (bairro.length()>50){
             
-            resposta += "\nData Nascimento (tamanho máximo: 10)";
+            resposta += "\nBairro (tamanho máximo: 50)";
         }
         
-        if (estado.length()>30){
+        if (logradouro.length()>50){
             
-            resposta += "\nEstado (tamanho máximo: 30)";
+            resposta += "\nLogradouro (tamanho máximo: 50)";
         }
         
-        if (cidade.length()>30){
+        if (numero.length()>6){
             
-            resposta += "\nCidade (tamanho máximo: 30)";
+            resposta += "\nNumero (tamanho máximo: 6)";
         }
         
-        if (bairro.length()>30){
+        if (email.length()>50){
             
-            resposta += "\nBairro (tamanho máximo: 30)";
+            resposta += "\nE-mail (tamanho máximo: 50)";
         }
         
-        if (logradouro.length()>30){
+        if (telefoneCelular.length()>15){
             
-            resposta += "\nLogradouro (tamanho máximo: 30)";
+            resposta += "\nTelefone Celular (tamanho máximo: 15)";
         }
         
-        if (numero.length()>5){
+        if (telefoneOutros.length()>15){
             
-            resposta += "\nNúmero (tamanho máximo: 5)";
+            resposta += "\nTelefone (Outros) (tamanho máximo: 15)";
+        }
+        
+        if (observacoes.length()> 500){
+            
+            resposta += "\nObservações (tamanho máximo: 500)";
         }
         
         return resposta;
