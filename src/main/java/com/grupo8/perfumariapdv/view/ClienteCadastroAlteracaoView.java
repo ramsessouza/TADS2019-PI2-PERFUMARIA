@@ -577,7 +577,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 //coloca dados nos atributos (instancia ocorre no inicio da classe)
                 cliente.setNome(txtNome.getText());
                 cliente.setCpf(txtCpf.getText());
-                cliente.setDataNascimento(txtDataNascimento.getValue().toString());
+                cliente.setDataNascimento(txtDataNascimento.getText());
                 
                 //para radio button usar "isSelected"
                 if(rdbMasculino.isSelected()){
@@ -591,10 +591,10 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 cliente.setCidade(txtCidade.getText());
                 cliente.setBairro(txtBairro.getText());
                 cliente.setLogradouro(txtLogradouro.getText());
-                cliente.setNumero(Integer.parseInt(txtNumero.getText()));
+                cliente.setNumero(txtNumero.getText());
                 cliente.setEmail(txtEmail.getText());
-                cliente.setTelefoneCelular(txtTelefoneCelular.getValue().toString());
-                cliente.setTelefoneOutros(txtTelefoneOutros.getValue().toString());
+                cliente.setTelefoneCelular(txtTelefoneCelular.getText());
+                cliente.setTelefoneOutros(txtTelefoneOutros.getText());
                 cliente.setObservacoes(txtObservacoes.getText());
 
                 if (!modoEdicao)//for modo de cadastro
@@ -691,18 +691,27 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     
     //EVENTO PARA VERIFICAR SE A DATA DE NASCIMENTO É VÁLIDA
     private void txtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusLost
-        Cliente cliente = new Cliente();
-        cliente.setDataNascimento(txtDataNascimento.getText());
-        String dia = cliente.getDataNascimento().substring(0, 2);
-        String mes = cliente.getDataNascimento().substring(3, 5);
-        String ano = cliente.getDataNascimento().substring(6, 10);
-        
-        if(Integer.parseInt(dia) > 31 || Integer.parseInt(mes) > 12 || Integer.parseInt(ano) < 1900){
+        try{
+            Cliente cliente = new Cliente();
+            cliente.setDataNascimento(txtDataNascimento.getText());
+            String dia = cliente.getDataNascimento().substring(0, 2);
+            String mes = cliente.getDataNascimento().substring(3, 5);
+            String ano = cliente.getDataNascimento().substring(6, 10);
+
+            if(Integer.parseInt(dia) > 31 || Integer.parseInt(mes) > 12 || Integer.parseInt(ano) < 1900){
+                JOptionPane.showMessageDialog(rootPane,
+                    "A data inserida no campo não é uma data válida. \n"
+                            + "Preencha-o novamente com uma data válida!",
+                    "Erro",
+                    JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        catch(Exception e){
             JOptionPane.showMessageDialog(rootPane,
-                "A data inserida não é uma data válida. \n"
-                        + "Preencha-a novamente com uma data válida!",
-                "Erro",
-                JOptionPane.INFORMATION_MESSAGE);
+                    "Você tentou inserir uma data inválida ou não preencheu o campo. \n"
+                            + "Preencha-o novamente com uma data válida!",
+                    "Erro",
+                    JOptionPane.INFORMATION_MESSAGE);
         }
         
     }//GEN-LAST:event_txtDataNascimentoFocusLost

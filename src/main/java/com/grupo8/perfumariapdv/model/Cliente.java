@@ -13,7 +13,7 @@ public class Cliente {
     private String cidade;
     private String bairro;
     private String logradouro;
-    private Integer numero;
+    private String numero;
     private String email;
     private String telefoneCelular;
     private String telefoneOutros;
@@ -99,11 +99,11 @@ public class Cliente {
         this.logradouro = logradouro;
     }
 
-    public Integer getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
