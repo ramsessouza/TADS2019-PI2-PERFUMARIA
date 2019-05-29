@@ -149,6 +149,11 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtDataNascimento.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtDataNascimento.setMinimumSize(new java.awt.Dimension(4, 22));
         txtDataNascimento.setPreferredSize(new java.awt.Dimension(34, 22));
+        txtDataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDataNascimentoFocusLost(evt);
+            }
+        });
         txtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataNascimentoActionPerformed(evt);
@@ -572,10 +577,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 //coloca dados nos atributos (instancia ocorre no inicio da classe)
                 cliente.setNome(txtNome.getText());
                 cliente.setCpf(txtCpf.getText());
-                
-                //converte data do campo para formato correto usar "getValue"
-                Date dataConvertida = (Date) txtDataNascimento.getValue();
-                cliente.setDataNascimento(dataConvertida);
+                cliente.setDataNascimento(txtDataNascimento.getValue().toString());
                 
                 //para radio button usar "isSelected"
                 if(rdbMasculino.isSelected()){
@@ -686,6 +688,24 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         //Colocar a variavel cabecario no jlabel
         lbCabecalho.setText(cabecario);
     }//GEN-LAST:event_formComponentShown
+    
+    //EVENTO PARA VERIFICAR SE A DATA DE NASCIMENTO É VÁLIDA
+    private void txtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusLost
+        Cliente cliente = new Cliente();
+        cliente.setDataNascimento(txtDataNascimento.getText());
+        String dia = cliente.getDataNascimento().substring(0, 2);
+        String mes = cliente.getDataNascimento().substring(3, 5);
+        String ano = cliente.getDataNascimento().substring(6, 10);
+        
+        if(Integer.parseInt(dia) > 31 || Integer.parseInt(mes) > 12 || Integer.parseInt(ano) < 1900){
+            JOptionPane.showMessageDialog(rootPane,
+                "A data inserida não é uma data válida. \n"
+                        + "Preencha-a novamente com uma data válida!",
+                "Erro",
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_txtDataNascimentoFocusLost
 
 //==============================================================================
     //NAO MEXER (ELEMENTOS DA TELA)

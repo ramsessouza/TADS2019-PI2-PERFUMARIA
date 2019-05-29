@@ -8,7 +8,7 @@ public class Cliente {
     private String cpf;
     private String sexo;
     private String estadoCivil;
-    private Date dataNascimento;
+    private String dataNascimento;
     private String estado;
     private String cidade;
     private String bairro;
@@ -59,11 +59,11 @@ public class Cliente {
         this.estadoCivil = estadoCivil;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
