@@ -5,11 +5,6 @@ import com.grupo8.perfumariapdv.model.Validacao;
 import com.grupo8.perfumariapdv.controller.ClienteController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
 import java.awt.Font;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
@@ -535,10 +530,10 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             txtCidade.setText(cliente.getCidade());
             txtBairro.setText(cliente.getBairro());
             txtLogradouro.setText(cliente.getLogradouro());
-            txtNumero.setValue(cliente.getNumero());
+            txtNumero.setValue(Integer.parseInt(cliente.getNumero()));
             txtEmail.setText(cliente.getEmail());
-            txtTelefoneCelular.setValue(cliente.getTelefoneCelular());
-            txtTelefoneOutros.setValue(cliente.getTelefoneOutros());
+            txtTelefoneCelular.setValue(Integer.parseInt(cliente.getTelefoneCelular()));
+            txtTelefoneOutros.setValue(Integer.parseInt(cliente.getTelefoneOutros()));
             txtObservacoes.setText(cliente.getObservacoes());
         }
     }

@@ -401,7 +401,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
             //coloca a tela com cabecario e titulo de alteracao de produto
             produtoCadastroAlteracao.setCabecario("Alteração do Produto: "
                     +produto.getNome());
-            produtoCadastroAlteracao.setTitle("PDV Vendas / Consulta de Produto / Alteração de Produto");
+            //produtoCadastroAlteracao.setTitle("PDV Vendas / Consulta de Produto / Alteração de Produto");
             
             //mostro a tela no painel principal
             this.getParent().add(produtoCadastroAlteracao);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR

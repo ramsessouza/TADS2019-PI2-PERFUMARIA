@@ -1,8 +1,8 @@
 package com.grupo8.perfumariapdv.view;
 
-import com.grupo8.perfumariapdv.controller.ProdutoController;
+import com.grupo8.perfumariapdv.controller.ClienteController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
-import com.grupo8.perfumariapdv.model.Produto;
+import com.grupo8.perfumariapdv.model.Cliente;
 import java.awt.Color;
 import java.awt.Font;
 import java.beans.PropertyVetoException;
@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class ClienteConsultaView extends javax.swing.JInternalFrame {
@@ -165,11 +166,11 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Sexo", "CPF", "Lagradouro", "Numero"
+                "Id", "Nome", "CPF", "Celular", "Lagradouro", "Numero"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
@@ -189,10 +190,14 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(clienteTabela);
         if (clienteTabela.getColumnModel().getColumnCount() > 0) {
             clienteTabela.getColumnModel().getColumn(0).setResizable(false);
+            clienteTabela.getColumnModel().getColumn(0).setPreferredWidth(5);
+            clienteTabela.getColumnModel().getColumn(1).setResizable(false);
             clienteTabela.getColumnModel().getColumn(2).setResizable(false);
+            clienteTabela.getColumnModel().getColumn(2).setPreferredWidth(17);
             clienteTabela.getColumnModel().getColumn(3).setResizable(false);
             clienteTabela.getColumnModel().getColumn(4).setResizable(false);
             clienteTabela.getColumnModel().getColumn(5).setResizable(false);
+            clienteTabela.getColumnModel().getColumn(5).setPreferredWidth(6);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,10 +238,11 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -246,8 +252,8 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
     //DECLARA O MODELO DE TABELA PARA SER USADO NA PESQUISA
     private DefaultTableModel tableModel;
     
-    //INSTANCIA DA TELA DE CADASTRO/ALTERACAO DE PRODUTO
-    ProdutoCadastroAlteracaoView produtoCadastroAlteracao;
+    //INSTANCIA DA TELA DE CADASTRO/ALTERACAO DE CLIENTE
+    ClienteCadastroAlteracaoView clienteCadastroAlteracao;
     
     public void tableModelLimpar(){
         //NAO ESTA SENDO USADO
@@ -265,7 +271,7 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
-    //BOTÃO DELETAR PRODUTO 
+    //BOTÃO DELETAR CLIENTE 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         //verifica se tem dados na tabela visual
         if (clienteTabela.getSelectedRow() >= 0) 
@@ -273,24 +279,24 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
             //Obtém a linha do item selecionado na tabela visual
             final int row = clienteTabela.getSelectedRow();
 
-            //obtem nome do produto para confirmar exclusao
+            //obtem nome do cliente para confirmar exclusao
             String nome = (String) clienteTabela.getValueAt(row, 1);
 
             //Mostra o diálogo de confirmação de exclusão
             int respostaConfirmacao = JOptionPane.showConfirmDialog(
                     rootPane,
-                    "Excluir o produto \"" + nome + "\"?",
+                    "Excluir o cliente \"" + nome + "\"?",
                     "Confirmar exclusão", 
                     JOptionPane.YES_NO_OPTION);
 
             //verifica se sim ou nao para exclusao
             if (respostaConfirmacao == JOptionPane.YES_OPTION) 
             {
-                //Obtém o ID do produto da tabela visual
-                Integer idProduto = (Integer) clienteTabela.getValueAt(row, 0);
+                //Obtém o ID do cliente da tabela visual
+                Integer idCliente = (Integer) clienteTabela.getValueAt(row, 0);
 
-                //Solicita ao serviço a exclusão do produto com o ID
-                String respostaController = ProdutoController.excluir(idProduto);
+                //Solicita ao serviço a exclusão do cliente com o ID
+                String respostaController = ClienteController.excluir(idCliente);
                 
                 //verifica se deu certo a exclusao
                 if (respostaController == null) 
@@ -312,14 +318,14 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
     
-    //BOTÃO PESQUISAR PRODUTO
+    //BOTÃO PESQUISAR CLIENTE
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         pesquisar();
     }//GEN-LAST:event_btnPesquisarActionPerformed
     
-    //FUNCAO PESQUISAR PRODUTO
+    //FUNCAO PESQUISAR CLIENTE
     public void pesquisar(){
-        List<Produto> resultado = ProdutoController.procurar(
+        List<Cliente> resultado = ClienteController.procurar(
                 txtClienteNome.getText());
         
         //Obtém a tabela para trabalhar nela
@@ -335,19 +341,19 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
             {
                 
                 //Obtém cada item da lista de resultados
-                Produto produto = resultado.get(i);
+                Cliente cliente = resultado.get(i);
 
-                if (produto != null) 
+                if (cliente != null) 
                 {
-                    //Cria arrai com resultados
+                    //Cria array com resultados
                     Object[] dadosTabela = new Object[6];
                     //Cada dado na coluna correspondente
-                    dadosTabela[0] = produto.getId();
-                    dadosTabela[1] = produto.getNome();
-                    dadosTabela[2] = produto.getCategoria();
-                    dadosTabela[3] = produto.getQuantidade();
-                    dadosTabela[4] = produto.getCusto();
-                    dadosTabela[5] = produto.getValor();
+                    dadosTabela[0] = cliente.getId();
+                    dadosTabela[1] = cliente.getNome();
+                    dadosTabela[2] = cliente.getCpf();
+                    dadosTabela[3] = cliente.getTelefoneCelular();
+                    dadosTabela[4] = cliente.getLogradouro();
+                    dadosTabela[5] = cliente.getNumero();
 
                     //Adiciona a linha de dados na tabela
                     tableModel.addRow(dadosTabela);
@@ -363,63 +369,66 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         }
     }
     
-    //BOTÃO ALTERAR UM PRODUTO
+    //BOTÃO ALTERAR UM CLIENTE
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         
         //obtem a linha da tabela
         int row = clienteTabela.getSelectedRow();
         
         //obtem o id dessa linha
-        Integer idProduto = (Integer) clienteTabela.getValueAt(row, 0);
+        Integer idCliente = (Integer) clienteTabela.getValueAt(row, 0);
         
-        //chama o controller para obter o produto do id selecionado (nova instancia de produto)
-        Produto produto = ProdutoController.obter(idProduto);
+        //chama o controller para obter o cliente do id selecionado (nova instancia de cliente)
+        Cliente cliente = ClienteController.obter(idCliente);
         
-        //verifica se produto é válido
-        if(produto != null)
+        //verifica se cliente é válido
+        if(cliente != null)
         {
             //verifica se a tela ja existe
-            if(produtoCadastroAlteracao == null )
+            if(clienteCadastroAlteracao == null )
             {   
                 //se não existir faz uma tela
-                produtoCadastroAlteracao = new ProdutoCadastroAlteracaoView();
+                clienteCadastroAlteracao = new ClienteCadastroAlteracaoView();
             }
-            //seta o produto da tela de cadastro alteracao com o cliente obtido
-            produtoCadastroAlteracao.setProduto(produto);
+            //seta o cliente da tela de cadastro alteracao com o cliente obtido
+            clienteCadastroAlteracao.setCliente(cliente);
             
             //Configura a tela de cadastro/alteracao como uma tela de alteracao
-            produtoCadastroAlteracao.setModoEdicao(true);
+            clienteCadastroAlteracao.setModoEdicao(true);
             
-            //coloca a tela com cabecario e titulo de alteracao de produto
-            produtoCadastroAlteracao.setCabecario("Alteração do Produto: "
-                    +produto.getNome());
-            produtoCadastroAlteracao.setTitle("PDV Vendas / Consulta de Produto / Alteração de Produto");
+            //coloca a tela com cabecario e titulo de alteracao de cliente
+            clienteCadastroAlteracao.setCabecario("Alteração do Cliente: "
+                    +cliente.getNome());
+            //clienteCadastroAlteracao.setTitle("PDV Vendas / Consulta de Cliente / Alteração de Cliente");
             
             //mostro a tela no painel principal
-            this.getParent().add(produtoCadastroAlteracao);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
-            produtoCadastroAlteracao.setVisible(true);
+            this.getParent().add(clienteCadastroAlteracao);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
+            clienteCadastroAlteracao.setVisible(true);
             
             //coloco ela na frente de todas
-            produtoCadastroAlteracao.toFront();
+            clienteCadastroAlteracao.toFront();
             
-            //coloco as informacoes do produto na tela
-            produtoCadastroAlteracao.carregarDadosTela();
+            //coloco as informacoes do cliente na tela
+            clienteCadastroAlteracao.carregarDadosTela();
         
             //redimensiona tela para tamanho do painel
             try 
             {
-                produtoCadastroAlteracao.setMaximum(true);
+                clienteCadastroAlteracao.setMaximum(true);
             } 
             catch (PropertyVetoException ex) 
             {
                 Logger.getLogger(MenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            //retira o painel superior
+            ((BasicInternalFrameUI)clienteCadastroAlteracao.getUI()).setNorthPane(null);
         }
         else
         {
             //informa ao usuário que não foi possível abrir o cliente para edição
             JOptionPane.showMessageDialog(rootPane, 
-                    "Não foi possível localizar este produto para edição. "
+                    "Não foi possível localizar este cliente para edição. "
                             + "\n Procure o administrador do sistema!",
                     "Erro", 
                     JOptionPane.ERROR_MESSAGE);
