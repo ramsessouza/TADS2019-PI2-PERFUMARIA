@@ -8,13 +8,15 @@ import java.awt.Font;
 import javax.swing.JOptionPane;
 
 public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
-//==============================================================================       
-    //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
+//==============================================================================
+//NAO MEXER
+//==============================================================================         
+    //INICIALIZAÇÃO DOS COMPONENTES
     public ProdutoCadastroAlteracaoView() {
         initComponents();
     }
 
-    //NAO MEXER NO METODO ABAIXO (CÓDIGO GERADOR)
+    //CÓDIGO GERADOR DA INTERFACE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -252,8 +254,11 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 //==============================================================================
-     //INSTANCIA DE PRODUTO PARA CASO DE EDICAO
+//DECLARAÇÕES
+//==============================================================================   
+    //INSTANCIA DE PRODUTO PARA CASO DE EDICAO
     private Produto produto = null;
     
     //MODO DA TELA CRIAÇÃO E EDICAO
@@ -265,7 +270,9 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     //TEXTO DO CABECARIO
     private String cabecario;
     
-    //GETERS E SETERS DA PÁGINA
+//==============================================================================
+//GETERS E SETERS
+//============================================================================== 
      public Produto getProduto() {
         return produto;
     }
@@ -298,9 +305,10 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         this.cabecario = cabecario;
     }
     
-    
-    
-    //FUNÇÃO DE LIMPAR FORMULÁRIO CADASTRAR/ALTERAR PRODUTO
+//==============================================================================
+//FUNÇÕES
+//==============================================================================
+    //LIMPA FORMULÁRIO
     public void limparFormulario(){
         txtNome.setText("");
         cboCategoria.setSelectedIndex(0); 
@@ -310,7 +318,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtDescricao.setText("");
     }
     
-    //FUNCAO PARA CARREGAR DADOS DO PRODUTO NA TELA
+    //CARREGA DADOS DO PRODUTO
     public void carregarDadosTela(){
         //verifica se está no modo de edição e há um produto para edição
         if (modoEdicao && produto != null) 
@@ -335,8 +343,11 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
             txtDescricao.setText(produto.getDescricao());
         }
     }
-    
-    //BOTÃO SALVAR ALTERAÇÃO/CADASTRO DE PRODUTO
+
+//==============================================================================
+//EVENTOS
+//============================================================================== 
+    //SALVAR/ALTERAR PRODUTO
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
         //validacao dos campos se foram preenchidos
@@ -429,12 +440,12 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
     
-    //BOTÃO SAIR DA TELA DE CADASTRO/ALTERACAO DE PRODUTOS
+    //SAIR DA TELA
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
     
-    //QUANDO A INTERFACE INICIA
+    //INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Colocar a variavel cabecario no jlabel
         lbCabecalho.setText(cabecario);
@@ -445,14 +456,15 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         lbCabecalho.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
     
-    //QUANDO FORM É EXIBIDO
+    //INTERFACE EXIBIDA
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         //Colocar a variavel cabecario no jlabel
         lbCabecalho.setText(cabecario);
     }//GEN-LAST:event_formComponentShown
 
 //==============================================================================
-    //NAO MEXER (ELEMENTOS DA TELA)
+//NAO MEXER
+//============================================================================== 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
@@ -474,5 +486,4 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtQuantidade;
     private javax.swing.JFormattedTextField txtValor;
     // End of variables declaration//GEN-END:variables
-//==============================================================================       
 }

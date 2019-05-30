@@ -2,24 +2,21 @@ package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.controller.ProdutoController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
-import com.grupo8.perfumariapdv.model.Produto;
 import java.awt.Color;
 import java.awt.Font;
-import java.beans.PropertyVetoException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class RelatorioConsultaView extends javax.swing.JInternalFrame {
+//==============================================================================
+//NAO MEXER
 //==============================================================================       
-    //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
+    //INICIALIZAÇÃO DOS COMPONENTES
     public RelatorioConsultaView() {
         initComponents();
     }
 
-    //NAO MEXER NO METODO ABAIXO (CÓDIGO GERADOR)
+    //CÓDIGO GERADOR DA INTERFACE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -44,7 +41,6 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(853, 514));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -255,15 +251,22 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//==============================================================================       
+
+//==============================================================================
+//DECLARAÇÕES
+//============================================================================== 
     //DECLARA O MODELO DE TABELA PARA SER USADO NA PESQUISA
     private DefaultTableModel tableModel;
     
     //INSTANCIA DA TELA DE CADASTRO/ALTERACAO DE PRODUTO
     ProdutoCadastroAlteracaoView produtoCadastroAlteracao;
-    
+
+//==============================================================================
+//FUNÇÕES
+//==============================================================================
+    //NAO ESTA SENDO USADO
     public void tableModelLimpar(){
-        //NAO ESTA SENDO USADO
+        
         if(tableModel==null)
         {
             //Obtém a tabela para trabalhar nela
@@ -273,7 +276,56 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         tableModel.setRowCount(0);
     }
     
-    //BOTÃO DELETAR PRODUTO 
+    //PESQUISAR PRODUTO
+    public void pesquisar(){
+//        List<Produto> resultado = ProdutoController.procurar(
+//                txtProdutoNome.getText());
+//        
+//        //Obtém a tabela para trabalhar nela
+//        tableModel = (DefaultTableModel) produtoTabela.getModel();
+//        
+//        //Limpa resultados anteriores
+//        tableModel.setRowCount(0);
+//        
+//        if (resultado != null && resultado.size() > 0)
+//        {
+//            //Percorre a lista de resultados e os adiciona na tabela
+//            for (int i = 0; i < resultado.size(); i++) 
+//            {
+//                
+//                //Obtém cada item da lista de resultados
+//                Produto produto = resultado.get(i);
+//
+//                if (produto != null) 
+//                {
+//                    //Cria arrai com resultados
+//                    Object[] dadosTabela = new Object[6];
+//                    //Cada dado na coluna correspondente
+//                    dadosTabela[0] = produto.getId();
+//                    dadosTabela[1] = produto.getNome();
+//                    dadosTabela[2] = produto.getCategoria();
+//                    dadosTabela[3] = produto.getQuantidade();
+//                    dadosTabela[4] = produto.getCusto();
+//                    dadosTabela[5] = produto.getValor();
+//
+//                    //Adiciona a linha de dados na tabela
+//                    tableModel.addRow(dadosTabela);
+//                }
+//            }
+//        }else{
+//
+//            //Caso a pesquisa não tenha retornado resultados
+//            JOptionPane.showMessageDialog(rootPane,
+//                    "Não existem resultados para a sua pesquisa!",
+//                    "Não há dados",
+//                    JOptionPane.ERROR_MESSAGE);
+//        }
+    }
+    
+//==============================================================================
+//EVENTOS
+//============================================================================== 
+    //DELETAR PRODUTO 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         //verifica se tem dados na tabela visual
         if (vendasTabela.getSelectedRow() >= 0) 
@@ -320,59 +372,12 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
     
-    //BOTÃO PESQUISAR PRODUTO
+    //PESQUISAR PRODUTO
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         pesquisar();
     }//GEN-LAST:event_btnPesquisarActionPerformed
-    
-    //FUNCAO PESQUISAR PRODUTO
-    public void pesquisar(){
-//        List<Produto> resultado = ProdutoController.procurar(
-//                txtProdutoNome.getText());
-//        
-//        //Obtém a tabela para trabalhar nela
-//        tableModel = (DefaultTableModel) produtoTabela.getModel();
-//        
-//        //Limpa resultados anteriores
-//        tableModel.setRowCount(0);
-//        
-//        if (resultado != null && resultado.size() > 0)
-//        {
-//            //Percorre a lista de resultados e os adiciona na tabela
-//            for (int i = 0; i < resultado.size(); i++) 
-//            {
-//                
-//                //Obtém cada item da lista de resultados
-//                Produto produto = resultado.get(i);
-//
-//                if (produto != null) 
-//                {
-//                    //Cria arrai com resultados
-//                    Object[] dadosTabela = new Object[6];
-//                    //Cada dado na coluna correspondente
-//                    dadosTabela[0] = produto.getId();
-//                    dadosTabela[1] = produto.getNome();
-//                    dadosTabela[2] = produto.getCategoria();
-//                    dadosTabela[3] = produto.getQuantidade();
-//                    dadosTabela[4] = produto.getCusto();
-//                    dadosTabela[5] = produto.getValor();
-//
-//                    //Adiciona a linha de dados na tabela
-//                    tableModel.addRow(dadosTabela);
-//                }
-//            }
-//        }else{
-//
-//            //Caso a pesquisa não tenha retornado resultados
-//            JOptionPane.showMessageDialog(rootPane,
-//                    "Não existem resultados para a sua pesquisa!",
-//                    "Não há dados",
-//                    JOptionPane.ERROR_MESSAGE);
-//        }
-    }
-    
    
-    //QUANDO INICIAR A INTERFACE
+    //INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Muda a cor do cabecalho da tabela
         vendasTabela.getTableHeader().setBackground(new Color(017, 128, 216));
@@ -387,18 +392,14 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         lbCabecalho.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
     
-    //AO ATIVAR
-    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        //NAO ESTA SENDO USADO
-    }//GEN-LAST:event_formInternalFrameActivated
-
-    //BOTÃO SAIR DA TELA
+    //SAIR DA TELA
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
-//==============================================================================       
-    //NAO MEXER (ELEMENTOS DA TELA)
+//==============================================================================
+//NAO MEXER
+//==============================================================================
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnPesquisar;
@@ -412,5 +413,4 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbCabecalho;
     private javax.swing.JTable vendasTabela;
     // End of variables declaration//GEN-END:variables
-//==============================================================================       
 }

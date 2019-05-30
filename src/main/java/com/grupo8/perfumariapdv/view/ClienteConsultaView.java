@@ -14,13 +14,15 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class ClienteConsultaView extends javax.swing.JInternalFrame {
-//==============================================================================       
-    //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
+//==============================================================================
+//NAO MEXER
+//==============================================================================     
+    //INICIALIZAÇÃO DOS COMPONENTES
     public ClienteConsultaView() {
         initComponents();
     }
 
-    //NAO MEXER NO METODO ABAIXO (CÓDIGO GERADOR)
+    //CÓDIGO GERADOR DA INTERFACE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,7 +45,6 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(853, 514));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -248,15 +249,21 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//==============================================================================       
+
+//==============================================================================
+//DECLARAÇÕES
+//============================================================================== 
     //DECLARA O MODELO DE TABELA PARA SER USADO NA PESQUISA
     private DefaultTableModel tableModel;
     
     //INSTANCIA DA TELA DE CADASTRO/ALTERACAO DE CLIENTE
     ClienteCadastroAlteracaoView clienteCadastroAlteracao;
-    
+
+//==============================================================================
+//FUNÇÕES
+//============================================================================== 
+    //NAO ESTA SENDO USADO
     public void tableModelLimpar(){
-        //NAO ESTA SENDO USADO
         if(tableModel==null)
         {
             //Obtém a tabela para trabalhar nela
@@ -266,12 +273,61 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         tableModel.setRowCount(0);
     }
     
-    //BOTÃO SAIR DA TELA
+    //PESQUISA CLIENTE
+    public void pesquisar(){
+        List<Cliente> resultado = ClienteController.procurar(
+                txtClienteNome.getText());
+        
+        //Obtém a tabela para trabalhar nela
+        tableModel = (DefaultTableModel) clienteTabela.getModel();
+        
+        //Limpa resultados anteriores
+        tableModel.setRowCount(0);
+        
+        if (resultado != null && resultado.size() > 0)
+        {
+            //Percorre a lista de resultados e os adiciona na tabela
+            for (int i = 0; i < resultado.size(); i++) 
+            {
+                
+                //Obtém cada item da lista de resultados
+                Cliente cliente = resultado.get(i);
+
+                if (cliente != null) 
+                {
+                    //Cria array com resultados
+                    Object[] dadosTabela = new Object[6];
+                    //Cada dado na coluna correspondente
+                    dadosTabela[0] = cliente.getId();
+                    dadosTabela[1] = cliente.getNome();
+                    dadosTabela[2] = cliente.getCpf();
+                    dadosTabela[3] = cliente.getTelefoneCelular();
+                    dadosTabela[4] = cliente.getLogradouro();
+                    dadosTabela[5] = cliente.getNumero();
+
+                    //Adiciona a linha de dados na tabela
+                    tableModel.addRow(dadosTabela);
+                }
+            }
+        }else{
+
+            //Caso a pesquisa não tenha retornado resultados
+            JOptionPane.showMessageDialog(rootPane,
+                    "Não existem resultados para a sua pesquisa!",
+                    "Não há dados",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+//==============================================================================
+//EVENTOS
+//==============================================================================
+    //SAI DA TELA DE CONSULTA
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
-    //BOTÃO DELETAR CLIENTE 
+    //DELETA CLIENTE 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         //verifica se tem dados na tabela visual
         if (clienteTabela.getSelectedRow() >= 0) 
@@ -318,58 +374,12 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
     
-    //BOTÃO PESQUISAR CLIENTE
+    //PESQUISA CLIENTE
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         pesquisar();
     }//GEN-LAST:event_btnPesquisarActionPerformed
-    
-    //FUNCAO PESQUISAR CLIENTE
-    public void pesquisar(){
-        List<Cliente> resultado = ClienteController.procurar(
-                txtClienteNome.getText());
         
-        //Obtém a tabela para trabalhar nela
-        tableModel = (DefaultTableModel) clienteTabela.getModel();
-        
-        //Limpa resultados anteriores
-        tableModel.setRowCount(0);
-        
-        if (resultado != null && resultado.size() > 0)
-        {
-            //Percorre a lista de resultados e os adiciona na tabela
-            for (int i = 0; i < resultado.size(); i++) 
-            {
-                
-                //Obtém cada item da lista de resultados
-                Cliente cliente = resultado.get(i);
-
-                if (cliente != null) 
-                {
-                    //Cria array com resultados
-                    Object[] dadosTabela = new Object[6];
-                    //Cada dado na coluna correspondente
-                    dadosTabela[0] = cliente.getId();
-                    dadosTabela[1] = cliente.getNome();
-                    dadosTabela[2] = cliente.getCpf();
-                    dadosTabela[3] = cliente.getTelefoneCelular();
-                    dadosTabela[4] = cliente.getLogradouro();
-                    dadosTabela[5] = cliente.getNumero();
-
-                    //Adiciona a linha de dados na tabela
-                    tableModel.addRow(dadosTabela);
-                }
-            }
-        }else{
-
-            //Caso a pesquisa não tenha retornado resultados
-            JOptionPane.showMessageDialog(rootPane,
-                    "Não existem resultados para a sua pesquisa!",
-                    "Não há dados",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-    //BOTÃO ALTERAR UM CLIENTE
+    //ALTERA CLIENTE
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         
         //obtem a linha da tabela
@@ -435,7 +445,7 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
     
-    //QUANDO A INTERFACE INICIA
+    //INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Muda a cor do cabecalho da tabela
         clienteTabela.getTableHeader().setBackground(new Color(017, 128, 216));
@@ -450,13 +460,9 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
         lbCabecalho.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
     
-    //AO ATIVAR
-    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        //NAO ESTA SENDO USADO
-    }//GEN-LAST:event_formInternalFrameActivated
-
-//==============================================================================       
-    //NAO MEXER (ELEMENTOS DA TELA)
+//==============================================================================
+//NAO MEXER
+//==============================================================================         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnDeletar;
@@ -469,5 +475,4 @@ public class ClienteConsultaView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbCabecalho;
     private javax.swing.JTextField txtClienteNome;
     // End of variables declaration//GEN-END:variables
-//==============================================================================       
 }

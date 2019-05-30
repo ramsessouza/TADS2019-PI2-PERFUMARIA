@@ -8,13 +8,15 @@ import java.awt.Font;
 import javax.swing.JOptionPane;
 
 public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
-//==============================================================================       
-    //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
+//==============================================================================
+//NAO MEXER
+//==============================================================================     
+    //INICIALIZAÇÃO DOS COMPONENTES
     public ClienteCadastroAlteracaoView() {
         initComponents();
     }
 
-    //NAO MEXER NO METODO ABAIXO (CÓDIGO GERADOR)
+    //CÓDIGO GERADOR DA INTERFACE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -126,11 +128,6 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtCpf.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtCpf.setMinimumSize(new java.awt.Dimension(4, 22));
         txtCpf.setPreferredSize(new java.awt.Dimension(47, 22));
-        txtCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfActionPerformed(evt);
-            }
-        });
 
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Data de nascimento");
@@ -147,11 +144,6 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtDataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtDataNascimentoFocusLost(evt);
-            }
-        });
-        txtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDataNascimentoActionPerformed(evt);
             }
         });
 
@@ -210,11 +202,6 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         txtNumero.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtNumero.setPreferredSize(new java.awt.Dimension(123123, 22));
-        txtNumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroActionPerformed(evt);
-            }
-        });
 
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("E-mail");
@@ -429,6 +416,8 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 //==============================================================================
+//DECLARAÇÕES
+//============================================================================== 
      //INSTANCIA DE CLIENTE PARA CASO DE EDICAO
     private Cliente cliente = null;
     
@@ -441,7 +430,9 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     //TEXTO DO CABECARIO
     private String cabecario = "Cadastro de Cliente";
     
-    //GETERS E SETERS DA PÁGINA
+//==============================================================================
+//GETERS E SETERS
+//============================================================================== 
      public Cliente getCliente() {
         return cliente;
     }
@@ -474,7 +465,9 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         this.cabecario = cabecario;
     }
     
-    
+//==============================================================================
+//FUNÇÕES
+//==============================================================================    
     //FUNÇÃO DE LIMPAR FORMULÁRIO CADASTRAR/ALTERAR CLIENTE
     public void limparFormulario(){
         txtNome.setText("");
@@ -537,8 +530,11 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             txtObservacoes.setText(cliente.getObservacoes());
         }
     }
-    
-    //BOTÃO SALVAR ALTERAÇÃO/CADASTRO DE CLIENTE
+
+//==============================================================================
+//EVENTOS
+//============================================================================== 
+    //SALVAR/ALTERAR CADASTRO DE CLIENTE
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
         //validacao dos campos se foram preenchidos
@@ -555,7 +551,8 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             //valida se os campos foram preenchidos com o tamanho correto
             String clienteTamanhoOK = Validacao.ClienteCamposTamanho(txtNome.getText(),
             txtCidade.getText(), txtBairro.getText(), txtLogradouro.getText(), txtNumero.getText(),
-            txtEmail.getText(), txtTelefoneCelular.getText(), txtTelefoneOutros.getText(), txtObservacoes.getText());
+            txtEmail.getText(), txtTelefoneCelular.getText(), txtTelefoneOutros.getText(), 
+            txtObservacoes.getText());
             
             //Se os campos forem preenchidos com o tamanho correto
             if (clienteTamanhoOK.equalsIgnoreCase("") || clienteTamanhoOK == "")
@@ -650,12 +647,12 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
     
-    //BOTÃO SAIR DA TELA DE CADASTRO/ALTERACAO DE CLIENTES
+    //SAIR DA TELA DE CADASTRO/ALTERACAO DE CLIENTES
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
     
-    //QUANDO A INTERFACE INICIA
+    //INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Colocar a variavel cabecario no jlabel
         lbCabecalho.setText(cabecario);
@@ -665,26 +662,14 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         Font futuraPT20Bold = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.BOLD, 20);
         lbCabecalho.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
-
-    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpfActionPerformed
-
-    private void txtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDataNascimentoActionPerformed
-
-    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroActionPerformed
-    
-    //QUANDO FORM É EXIBIDO
+      
+    //FORM EXIBIDO
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         //Colocar a variavel cabecario no jlabel
         lbCabecalho.setText(cabecario);
     }//GEN-LAST:event_formComponentShown
     
-    //EVENTO PARA VERIFICAR SE A DATA DE NASCIMENTO É VÁLIDA
+    //VERIFICA SE DATA DE NASCIMENTO É VÁLIDA
     private void txtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusLost
         try{
             Cliente cliente = new Cliente();
@@ -712,7 +697,8 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtDataNascimentoFocusLost
 
 //==============================================================================
-    //NAO MEXER (ELEMENTOS DA TELA)
+//NAO MEXER
+//==============================================================================   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
@@ -750,5 +736,4 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtTelefoneCelular;
     private javax.swing.JFormattedTextField txtTelefoneOutros;
     // End of variables declaration//GEN-END:variables
-//==============================================================================       
 }

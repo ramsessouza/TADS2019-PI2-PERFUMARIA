@@ -9,7 +9,6 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,12 +16,12 @@ public class VendaView extends javax.swing.JInternalFrame {
 //==============================================================================
 //NAO MEXER
 //==============================================================================  
-    //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
+    //INICIALIZAÇÃO DOS COMPONENTES
     public VendaView() {
         initComponents();
     }
 
-    //NAO MEXER NO METODO ABAIXO (CÓDIGO GERADOR)
+    //CÓDIGO GERADOR DA INTERFACE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,6 +66,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(853, 514));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -80,11 +80,6 @@ public class VendaView extends javax.swing.JInternalFrame {
             }
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameOpened(evt);
-            }
-        });
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                formComponentShown(evt);
             }
         });
 
@@ -170,11 +165,6 @@ public class VendaView extends javax.swing.JInternalFrame {
         txtCpf.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtCpfFocusLost(evt);
-            }
-        });
-        txtCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfActionPerformed(evt);
             }
         });
 
@@ -457,22 +447,7 @@ public MenuView menuView;
 //    public void setListaProdutos(ArrayList<Produto> listaProdutos) {
 //        this.listaProdutos = listaProdutos;
 //    }
-    public JTextField getTxtProdutoNome() {    
-        return txtProdutoNome;
-    }
-
-    public void setTxtProdutoNome(JTextField txtProdutoNome) {
-        this.txtProdutoNome = txtProdutoNome;
-    }
-
-    public JTextField getTxtProdutoValorUnitario() {
-        return txtProdutoValorUnitario;
-    }
     
-    public void setTxtProdutoValorUnitario(JTextField txtProdutoValorUnitario) {
-        this.txtProdutoValorUnitario = txtProdutoValorUnitario;    
-    }
-
 //==============================================================================
 //FUNÇÕES
 //==============================================================================     
@@ -526,7 +501,7 @@ public MenuView menuView;
 //==============================================================================
 //EVENTOS
 //============================================================================== 
-    //AO INICIAR INTERFACE
+    //INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Muda a cor do cabecalho da tabela
         tabelaVenda.getTableHeader().setBackground(new Color(017, 128, 216));
@@ -543,10 +518,9 @@ public MenuView menuView;
         txtSubtotal.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
     
-    //AO CLICAR NO CAMPO DE PESQUISA DE PRODUTO
+    //PESQUISA PRODUTO
     private void txtProdutoNomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProdutoNomeMouseClicked
-        
-        
+                
         //verifica se a tela ja existe
         if(consultaProduto == null )
         {   
@@ -569,21 +543,15 @@ public MenuView menuView;
         consultaProduto.toFront();
         
         //retira o painel superior
-        ((BasicInternalFrameUI)consultaProduto.getUI()).setNorthPane(null);    
-        this.dispose();
+        ((BasicInternalFrameUI)consultaProduto.getUI()).setNorthPane(null);        
     }//GEN-LAST:event_txtProdutoNomeMouseClicked
-    
-    //NÃO ESTÁ SENDO USADO
-    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
-        
-    }//GEN-LAST:event_txtCpfActionPerformed
-    
-    //SAIR
+       
+    //SAIR DA TELA DE VENDA
     private void lbSairVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSairVendaMouseClicked
         this.dispose();
     }//GEN-LAST:event_lbSairVendaMouseClicked
     
-    //EVENTO / PROCURAR CLIENTE POR CPF
+    //PROCURAR CLIENTE POR CPF
     private void txtCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCpfFocusLost
         
         //chama o controller para obter o cliente do id selecionado (nova instancia de cliente)
@@ -617,11 +585,25 @@ public MenuView menuView;
         
     }//GEN-LAST:event_txtCpfFocusLost
     
-    //NÃO ESTÁ USANDO
-    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-             
-    }//GEN-LAST:event_formComponentShown
-       
+   //INTERFACE ATIVADA
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        Produto produto = new Produto();
+        
+        try{
+            produto.setId(consultaProduto.getProduto().getId());
+            produto.setNome(consultaProduto.getProduto().getNome());
+            produto.setQuantidade(consultaProduto.getProduto().getQuantidade());
+            produto.setValor(consultaProduto.getProduto().getValor());
+
+            txtProdutoNome.setText(produto.getNome());
+            txtProdutoValorUnitario.setText(produto.getNome());
+            txtProdutoNome.setText(produto.getNome());
+        }
+        catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_formInternalFrameActivated
+    
 //==============================================================================
 //NAO MEXER
 //==============================================================================  

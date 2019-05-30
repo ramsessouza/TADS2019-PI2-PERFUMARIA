@@ -6,20 +6,19 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
-import javax.swing.UIManager;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class MenuView extends javax.swing.JFrame {
 //==============================================================================
 //NAO MEXER
 //==============================================================================   
-    //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
+    //INICIALIZAÇÃO DOS COMPONENTES
     public MenuView() {
         initComponents();
         setLocationRelativeTo(null);
     }
     
-    //NAO MEXER NO METODO ABAIXO (PARA INICIALIZAR O FORMULÁRIO)
+    //CÓDIGO GERADOR DA INTERFACE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -391,6 +390,9 @@ public class MenuView extends javax.swing.JFrame {
     private ClienteConsultaView clienteConsulta;
     private RelatorioConsultaView relatorioConsulta;
 
+//==============================================================================
+//GETERS E SETERS
+//============================================================================== 
     public JDesktopPane getDskPainelPrincipal() {
         return dskPainelPrincipal;
     }
@@ -398,13 +400,11 @@ public class MenuView extends javax.swing.JFrame {
     public void setDskPainelPrincipal(JDesktopPane dskPainelPrincipal) {
         this.dskPainelPrincipal = dskPainelPrincipal;
     }
-    
-    
-    
+       
 //==============================================================================
 //FUNCOES
 //==============================================================================
-    //FUNCAO TELA DE VENDA
+    //TELA DE VENDA
     public void telaVenda(){
         //verifica se a tela ja existe
         if(TelaDeVenda == null )
@@ -436,7 +436,7 @@ public class MenuView extends javax.swing.JFrame {
         ((BasicInternalFrameUI)TelaDeVenda.getUI()).setNorthPane(null);
     }
 
-    //FUNCAO DE CADASTRAR PRODUTO
+    //CADASTRAR PRODUTO
     public void cadastrarProduto(){
          //verifica se a tela ja existe
         if(produtoCadastroAlteracao == null )
@@ -470,7 +470,7 @@ public class MenuView extends javax.swing.JFrame {
         ((BasicInternalFrameUI)produtoCadastroAlteracao.getUI()).setNorthPane(null);
     }
     
-    //FUNCAO DE CONSULTAR PRODUTO
+    //CONSULTAR PRODUTO
     public void consultarProduto(){
         //verifica se a tela ja existe
         if(produtoConsulta == null )
@@ -504,7 +504,7 @@ public class MenuView extends javax.swing.JFrame {
         ((BasicInternalFrameUI)produtoConsulta.getUI()).setNorthPane(null);
     }
     
-    //FUNCAO DE CADASTRAR CLIENTE
+    //CADASTRAR CLIENTE
     public void cadastrarCliente(){
         //verifica se a tela ja existe
         if(clienteCadastroAlteracao == null )
@@ -538,7 +538,7 @@ public class MenuView extends javax.swing.JFrame {
         ((BasicInternalFrameUI)clienteCadastroAlteracao.getUI()).setNorthPane(null);
     }
     
-    //FUNCAO DE CONSULTAR CLIENTE
+    //CONSULTAR CLIENTE
     public void consultarCliente(){
         //verifica se a tela ja existe
         if(clienteConsulta == null )
@@ -572,7 +572,7 @@ public class MenuView extends javax.swing.JFrame {
         ((BasicInternalFrameUI)clienteConsulta.getUI()).setNorthPane(null);
     }
     
-     //FUNCAO RELATORIO DE VENDAS
+     //RELATORIO DE VENDAS
     public void relatorioVendas(){
         //verifica se a tela ja existe
         if(relatorioConsulta == null )
@@ -607,47 +607,44 @@ public class MenuView extends javax.swing.JFrame {
     }
 
 //==============================================================================
-//BOTÕES
+//EVENTOS
 //==============================================================================
-    //BOTÃO CADASTRO DE PRODUTO
+    //CADASTRO DE PRODUTO
     private void btnCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutoActionPerformed
        cadastrarProduto();
     }//GEN-LAST:event_btnCadastroProdutoActionPerformed
     
-    //BOTÃO CONSULTA DE PRODUTO
+    //CONSULTA DE PRODUTO
     private void btnConsultaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaProdutoActionPerformed
         consultarProduto();
     }//GEN-LAST:event_btnConsultaProdutoActionPerformed
     
-    //BOTÃO DE SAIR DO SISTEMA
+    //FECHAR APLICAÇÃO
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {                                     
         System.exit(0);
     }
    
-    //BOTÃO CADASTRO DE CLIENTE
+    //CADASTRO DE CLIENTE
     private void btnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClienteActionPerformed
         cadastrarCliente();
     }//GEN-LAST:event_btnCadastroClienteActionPerformed
 
-    //BOTÃO CONSULTA DE CLIENTE
+    //CONSULTA DE CLIENTE
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         consultarCliente();
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
     
-    //BOTAO CONSULTA DE RELATORIO VENDAS
+    //RELATORIO VENDAS
     private void btnRelatorioVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioVendasActionPerformed
         relatorioVendas();
     }//GEN-LAST:event_btnRelatorioVendasActionPerformed
 
-    //BOTAO VENDA
+    //VENDA
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
         telaVenda();
     }//GEN-LAST:event_btnVendaActionPerformed
 
-//==============================================================================
-//EVENTOS LABELS E DE COMPONENTES
-//==============================================================================
-    //AO INICIAR A INTERFACE
+    //INTERFACE INICIA
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         FontManager fontManager = new FontManager();
         Font futuraPT14 = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.PLAIN, 14);
@@ -662,43 +659,40 @@ public class MenuView extends javax.swing.JFrame {
         lbRelogio.setFont(futuraPT16);
     }//GEN-LAST:event_formWindowOpened
 //GEN-FIRST:event_btnSairActionPerformed
-
-    //LABEL VENDA
+    //VENDA
 //GEN-LAST:event_btnSairActionPerformed
     private void lbVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbVendaMouseClicked
         telaVenda();
     }//GEN-LAST:event_lbVendaMouseClicked
     
-    //LABEL CADASTRAR PRODUTO
+    //CADASTRAR PRODUTO
     private void lbCadastroProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCadastroProdutoMouseClicked
         cadastrarProduto();
     }//GEN-LAST:event_lbCadastroProdutoMouseClicked
     
-    //LABEL CONSULTAR PRODUTO
+    //CONSULTAR PRODUTO
     private void lbConsultaProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultaProdutoMouseClicked
         consultarProduto();
     }//GEN-LAST:event_lbConsultaProdutoMouseClicked
 
-    //LABEL CADASTRAR CLIENTE
+    //CADASTRAR CLIENTE
     private void lbCadastroClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCadastroClienteMouseClicked
         cadastrarCliente();
     }//GEN-LAST:event_lbCadastroClienteMouseClicked
 
-    //LABEL CONSULTAR CLIENTE
+    //CONSULTAR CLIENTE
     private void lbConsultaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultaClienteMouseClicked
         consultarCliente();
     }//GEN-LAST:event_lbConsultaClienteMouseClicked
 
-    //LABEL RELATORIO VENDAS
+    //RELATORIO VENDAS
     private void lbRelatorioVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRelatorioVendasMouseClicked
         relatorioVendas();
     }//GEN-LAST:event_lbRelatorioVendasMouseClicked
     
-    
-    
-   
 //==============================================================================
-    //NAO MEXER (ELEMENTOS DA TELA)
+//NAO MEXER
+//==============================================================================  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastroCliente;
     private javax.swing.JButton btnCadastroProduto;
@@ -722,5 +716,4 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JLabel lbRelogio;
     private javax.swing.JLabel lbVenda;
     // End of variables declaration//GEN-END:variables
-//==============================================================================
 }

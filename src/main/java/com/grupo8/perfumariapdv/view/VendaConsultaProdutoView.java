@@ -7,7 +7,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,12 +14,12 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
 //==============================================================================
 //NAO MEXER
 //==============================================================================         
-    //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
+    //INICIALIZAÇÃO DOS COMPONENTES
     public VendaConsultaProdutoView() {
         initComponents();
     }
 
-    //NAO MEXER NO METODO ABAIXO (CÓDIGO GERADOR)
+    //CÓDIGO GERADOR DA INTERFACE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -41,7 +40,6 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(414, 353));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -232,22 +230,21 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
     private DefaultTableModel tableModel;
     private VendaView vendaView;
     public MenuView menuView;
-//==============================================================================
-//BOTÕES
-//==============================================================================     
-   
-//BOTÃO SAIR DA TELA
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnSairActionPerformed
-   
-    //BOTÃO PESQUISAR PRODUTO
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        pesquisar();
-    }//GEN-LAST:event_btnPesquisarActionPerformed
+    Produto produto;
 
 //==============================================================================
-//MÉTODOS
+//GETS E SETERS
+//============================================================================== 
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+    
+//==============================================================================
+//FUNÇÕES
 //==============================================================================     
     //FUNCAO PESQUISAR PRODUTO
     public void pesquisar(){
@@ -292,11 +289,21 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
 //==============================================================================
 //EVENTOS
 //==============================================================================     
-    //QUANDO A INTERFACE INICIA
+    //SAIR DA TELA
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
+   
+    //PESQUISAR PRODUTO
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        pesquisar();
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+  
+    //INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Muda a cor do cabecalho da tabela
         produtoTabela.getTableHeader().setBackground(new Color(017, 128, 216));
@@ -310,53 +317,26 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
         Font futuraPT20Bold = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.BOLD, 20);
         lbCabecalho.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
-    
-    //AO ATIVAR
-    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        //NAO ESTA SENDO USADO
-    }//GEN-LAST:event_formInternalFrameActivated
-    
-    //FUNÇÃO DE SELECIONAR PRODUTO PARA VENDA
+       
+    //SELECIONA PRODUTO PARA VENDA
     private void produtoTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_produtoTabelaMouseClicked
         //obtem a linha da tabela
         int row = produtoTabela.getSelectedRow();
         
-        Produto produto = new Produto();
+        produto = new Produto();
         
         //coloca valores na instancia de produto
+        produto.setId((Integer) produtoTabela.getValueAt(row, 0));
         produto.setNome((String) produtoTabela.getValueAt(row, 1));
         produto.setQuantidade((Integer) produtoTabela.getValueAt(row, 2));
         produto.setValor((Float) produtoTabela.getValueAt(row, 3));
         
-        //verifica se a tela ja existe
-        if(vendaView == null )
-        {   
-            //se não existir faz uma tela
-            vendaView = new VendaView();
-        }
-        
-        //mostro a tela no painel principal
-        vendaView.setVisible(true);
-        menuView.getDskPainelPrincipal().add(vendaView);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
-            
-        
-        //coloco ela na frente de todas para todos os casos
-        vendaView.toFront();
-        
-        //retira o painel superior
-        ((BasicInternalFrameUI)vendaView.getUI()).setNorthPane(null);
-            
-        vendaView.getTxtProdutoNome().setText(produto.getNome());
-        vendaView.getTxtProdutoValorUnitario().setText(produto.getValor().toString());
-        
-        //me fecho / fecho objeto atual
-        this.setDefaultCloseOperation(VendaConsultaProdutoView.DISPOSE_ON_CLOSE);
-        doDefaultCloseAction();
         this.dispose();        
     }//GEN-LAST:event_produtoTabelaMouseClicked
 
-//==============================================================================       
-    //NAO MEXER (ELEMENTOS DA TELA)
+//==============================================================================
+//NAO MEXER
+//==============================================================================
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
@@ -367,5 +347,4 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JTable produtoTabela;
     private javax.swing.JTextField txtProdutoNome;
     // End of variables declaration//GEN-END:variables
-//==============================================================================       
 }
