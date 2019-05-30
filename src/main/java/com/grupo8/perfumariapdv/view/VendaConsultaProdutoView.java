@@ -5,17 +5,16 @@ import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.Produto;
 import java.awt.Color;
 import java.awt.Font;
-import static java.awt.Frame.MAXIMIZED_BOTH;
-import java.beans.PropertyVetoException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
-//==============================================================================       
+//==============================================================================
+//NAO MEXER
+//==============================================================================         
     //NAO MEXER NO METODO ABAIXO (INICIALIZAÇÃO DOS COMPONENTES)
     public VendaConsultaProdutoView() {
         initComponents();
@@ -151,10 +150,16 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
         produtoTabela.setMinimumSize(new java.awt.Dimension(105, 400));
         produtoTabela.setPreferredSize(new java.awt.Dimension(225, 400));
         produtoTabela.getTableHeader().setReorderingAllowed(false);
+        produtoTabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                produtoTabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(produtoTabela);
         if (produtoTabela.getColumnModel().getColumnCount() > 0) {
             produtoTabela.getColumnModel().getColumn(0).setResizable(false);
             produtoTabela.getColumnModel().getColumn(0).setPreferredWidth(3);
+            produtoTabela.getColumnModel().getColumn(1).setResizable(false);
             produtoTabela.getColumnModel().getColumn(2).setResizable(false);
             produtoTabela.getColumnModel().getColumn(2).setPreferredWidth(5);
             produtoTabela.getColumnModel().getColumn(3).setResizable(false);
@@ -179,7 +184,7 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -219,35 +224,31 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//==============================================================================       
+
+//==============================================================================
+//DECLARACOES
+//==============================================================================     
     //DECLARA O MODELO DE TABELA PARA SER USADO NA PESQUISA
     private DefaultTableModel tableModel;
-    
-    //INSTANCIA DA TELA DE CADASTRO/ALTERACAO DE PRODUTO
-    ProdutoCadastroAlteracaoView produtoCadastroAlteracao;
-    
-    public void tableModelLimpar(){
-        //NAO ESTA SENDO USADO
-        if(tableModel==null)
-        {
-            //Obtém a tabela para trabalhar nela
-            tableModel = (DefaultTableModel) produtoTabela.getModel();
-        }
-        //Limpa resultados anteriores
-        tableModel.setRowCount(0);
-    }
-    
-    //BOTÃO SAIR DA TELA
+    private VendaView vendaView;
+    public MenuView menuView;
+//==============================================================================
+//BOTÕES
+//==============================================================================     
+   
+//BOTÃO SAIR DA TELA
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
-
    
     //BOTÃO PESQUISAR PRODUTO
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         pesquisar();
     }//GEN-LAST:event_btnPesquisarActionPerformed
-    
+
+//==============================================================================
+//MÉTODOS
+//==============================================================================     
     //FUNCAO PESQUISAR PRODUTO
     public void pesquisar(){
         List<Produto> resultado = ProdutoController.procurar(
@@ -271,14 +272,12 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
                 if (produto != null) 
                 {
                     //Cria arrai com resultados
-                    Object[] dadosTabela = new Object[6];
+                    Object[] dadosTabela = new Object[4];
                     //Cada dado na coluna correspondente
                     dadosTabela[0] = produto.getId();
                     dadosTabela[1] = produto.getNome();
-                    dadosTabela[2] = produto.getCategoria();
-                    dadosTabela[3] = produto.getQuantidade();
-                    dadosTabela[4] = produto.getCusto();
-                    dadosTabela[5] = produto.getValor();
+                    dadosTabela[2] = produto.getQuantidade();
+                    dadosTabela[3] = produto.getValor();
 
                     //Adiciona a linha de dados na tabela
                     tableModel.addRow(dadosTabela);
@@ -293,8 +292,10 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-   
+
+//==============================================================================
+//EVENTOS
+//==============================================================================     
     //QUANDO A INTERFACE INICIA
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Muda a cor do cabecalho da tabela
@@ -304,7 +305,7 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
         //Muda a cor da fonte da tabela
         produtoTabela.setForeground(Color.black);
         
-        //Altera o tamanha da fonte do cabecalho do form
+        //Altera o tamanhO da fonte do cabecalho do form
         FontManager fontManager = new FontManager();
         Font futuraPT20Bold = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.BOLD, 20);
         lbCabecalho.setFont(futuraPT20Bold);
@@ -314,6 +315,45 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         //NAO ESTA SENDO USADO
     }//GEN-LAST:event_formInternalFrameActivated
+    
+    //FUNÇÃO DE SELECIONAR PRODUTO PARA VENDA
+    private void produtoTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_produtoTabelaMouseClicked
+        //obtem a linha da tabela
+        int row = produtoTabela.getSelectedRow();
+        
+        Produto produto = new Produto();
+        
+        //coloca valores na instancia de produto
+        produto.setNome((String) produtoTabela.getValueAt(row, 1));
+        produto.setQuantidade((Integer) produtoTabela.getValueAt(row, 2));
+        produto.setValor((Float) produtoTabela.getValueAt(row, 3));
+        
+        //verifica se a tela ja existe
+        if(vendaView == null )
+        {   
+            //se não existir faz uma tela
+            vendaView = new VendaView();
+        }
+        
+        //mostro a tela no painel principal
+        vendaView.setVisible(true);
+        menuView.getDskPainelPrincipal().add(vendaView);//ESTAAAAA DANDO ERRRRROOOOOOO VER COM PROFESSOR
+            
+        
+        //coloco ela na frente de todas para todos os casos
+        vendaView.toFront();
+        
+        //retira o painel superior
+        ((BasicInternalFrameUI)vendaView.getUI()).setNorthPane(null);
+            
+        vendaView.getTxtProdutoNome().setText(produto.getNome());
+        vendaView.getTxtProdutoValorUnitario().setText(produto.getValor().toString());
+        
+        //me fecho / fecho objeto atual
+        this.setDefaultCloseOperation(VendaConsultaProdutoView.DISPOSE_ON_CLOSE);
+        doDefaultCloseAction();
+        this.dispose();        
+    }//GEN-LAST:event_produtoTabelaMouseClicked
 
 //==============================================================================       
     //NAO MEXER (ELEMENTOS DA TELA)

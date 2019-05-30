@@ -3,14 +3,15 @@ package com.grupo8.perfumariapdv.view;
 import com.grupo8.perfumariapdv.controller.ClienteController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.Cliente;
+import com.grupo8.perfumariapdv.model.Produto;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.beans.PropertyVetoException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
 
 public class VendaView extends javax.swing.JInternalFrame {
 //==============================================================================
@@ -79,6 +80,11 @@ public class VendaView extends javax.swing.JInternalFrame {
             }
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameOpened(evt);
+            }
+        });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
             }
         });
 
@@ -178,36 +184,36 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         tabelaVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Categoria", "Quantidade", "Valor unitário", "Valor total"
+                "Id", "Nome", "Quantidade", "Valor unitário", "Valor total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -224,12 +230,11 @@ public class VendaView extends javax.swing.JInternalFrame {
             tabelaVenda.getColumnModel().getColumn(0).setPreferredWidth(3);
             tabelaVenda.getColumnModel().getColumn(1).setResizable(false);
             tabelaVenda.getColumnModel().getColumn(2).setResizable(false);
+            tabelaVenda.getColumnModel().getColumn(2).setPreferredWidth(3);
             tabelaVenda.getColumnModel().getColumn(3).setResizable(false);
-            tabelaVenda.getColumnModel().getColumn(3).setPreferredWidth(3);
+            tabelaVenda.getColumnModel().getColumn(3).setPreferredWidth(6);
             tabelaVenda.getColumnModel().getColumn(4).setResizable(false);
             tabelaVenda.getColumnModel().getColumn(4).setPreferredWidth(6);
-            tabelaVenda.getColumnModel().getColumn(5).setResizable(false);
-            tabelaVenda.getColumnModel().getColumn(5).setPreferredWidth(6);
         }
 
         jpDadosCliente.setBackground(new java.awt.Color(204, 204, 204));
@@ -439,11 +444,88 @@ public class VendaView extends javax.swing.JInternalFrame {
 //============================================================================== 
 private VendaConsultaProdutoView consultaProduto;
 public MenuView menuView;
+//private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();    
+//private DefaultTableModel tableModel;
+    
+//==============================================================================
+//GETS E SETERS
+//============================================================================== 
+//    public ArrayList<Produto> getListaProdutos() {
+//        return listaProdutos;
+//    }
+//
+//    public void setListaProdutos(ArrayList<Produto> listaProdutos) {
+//        this.listaProdutos = listaProdutos;
+//    }
+    public JTextField getTxtProdutoNome() {    
+        return txtProdutoNome;
+    }
+
+    public void setTxtProdutoNome(JTextField txtProdutoNome) {
+        this.txtProdutoNome = txtProdutoNome;
+    }
+
+    public JTextField getTxtProdutoValorUnitario() {
+        return txtProdutoValorUnitario;
+    }
+    
+    public void setTxtProdutoValorUnitario(JTextField txtProdutoValorUnitario) {
+        this.txtProdutoValorUnitario = txtProdutoValorUnitario;    
+    }
+
+//==============================================================================
+//FUNÇÕES
+//==============================================================================     
+    //FIZ ESSA PORRA TODA E NAO ERA AGORA PQP
+    public void mosquei(){
+//        //Obtém a tabela para trabalhar nela
+//            tableModel = (DefaultTableModel) tabelaVenda.getModel();
+//
+//            //Limpa resultados anteriores
+//            tableModel.setRowCount(0);
+//
+//            if (listaProdutos != null && listaProdutos.size() > 0)
+//            {
+//                Float valorTotal = 0f;
+//                //Percorre a lista de resultados e os adiciona na tabela
+//                for (int i = 0; i < listaProdutos.size(); i++) 
+//                {
+//
+//                    //Obtém cada item da lista de resultados
+//                    Produto produto = listaProdutos.get(i);
+//
+//                    if (produto != null) 
+//                    {
+//                        //Cria array com resultados
+//                        Object[] dadosTabela = new Object[6];
+//                        //Cada dado na coluna correspondente
+//                        dadosTabela[0] = produto.getId();
+//                        dadosTabela[1] = produto.getNome();
+//                        dadosTabela[2] = produto.getCategoria();
+//                        dadosTabela[3] = produto.getQuantidade();
+//                        dadosTabela[4] = produto.getValor();
+//                        //realiza cálculo de valor total
+//                        valorTotal = produto.getValor()*produto.getQuantidade();
+//                        dadosTabela[5] = valorTotal;
+//
+//                        //Adiciona a linha de dados na tabela
+//                        tableModel.addRow(dadosTabela);
+//                    }
+//                }
+//            }else{
+//
+//                //Caso os produtos nao foram inseridos na tabela temporária
+//                JOptionPane.showMessageDialog(rootPane,
+//                        "Aconteceu algum erro ao tentar inserir um produto na lista!\n"
+//                                + "Entre em contato com o administrador do sistema.",
+//                        "Erro",
+//                        JOptionPane.ERROR_MESSAGE);
+//            }
+    }
     
 //==============================================================================
 //EVENTOS
 //============================================================================== 
-
     //AO INICIAR INTERFACE
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Muda a cor do cabecalho da tabela
@@ -487,12 +569,13 @@ public MenuView menuView;
         consultaProduto.toFront();
         
         //retira o painel superior
-        ((BasicInternalFrameUI)consultaProduto.getUI()).setNorthPane(null);
-                
+        ((BasicInternalFrameUI)consultaProduto.getUI()).setNorthPane(null);    
+        this.dispose();
     }//GEN-LAST:event_txtProdutoNomeMouseClicked
-        
+    
+    //NÃO ESTÁ SENDO USADO
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtCpfActionPerformed
     
     //SAIR
@@ -529,12 +612,16 @@ public MenuView menuView;
                 "O Cliente não foi encontrado! \n\n"
                         + "Para cadastrar o Cliente vá para Menu > Cadastrar Cliente.",
                 "Não encontrado", 
-                JOptionPane.ERROR_MESSAGE);
+                JOptionPane.INFORMATION_MESSAGE);
         }
         
     }//GEN-LAST:event_txtCpfFocusLost
-
     
+    //NÃO ESTÁ USANDO
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+             
+    }//GEN-LAST:event_formComponentShown
+       
 //==============================================================================
 //NAO MEXER
 //==============================================================================  
