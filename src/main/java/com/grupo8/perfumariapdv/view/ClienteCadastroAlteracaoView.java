@@ -530,10 +530,10 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             txtCidade.setText(cliente.getCidade());
             txtBairro.setText(cliente.getBairro());
             txtLogradouro.setText(cliente.getLogradouro());
-            txtNumero.setValue(Integer.parseInt(cliente.getNumero()));
+            txtNumero.setText(cliente.getNumero());
             txtEmail.setText(cliente.getEmail());
-            txtTelefoneCelular.setValue(Integer.parseInt(cliente.getTelefoneCelular()));
-            txtTelefoneOutros.setValue(Integer.parseInt(cliente.getTelefoneOutros()));
+            txtTelefoneCelular.setText(cliente.getTelefoneCelular());
+            txtTelefoneOutros.setText(cliente.getTelefoneOutros());
             txtObservacoes.setText(cliente.getObservacoes());
         }
     }

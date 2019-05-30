@@ -79,7 +79,7 @@ public class ClienteController {
         return resposta;
     }
     
-    //OBTER
+    //OBTER POR ID
     public static Cliente obter(Integer id) {
         
         //Instancia cliente para retornar no fim da funcao
@@ -97,6 +97,24 @@ public class ClienteController {
         }
 
         return cliente;
+    }
+    
+    //OBTER POR CPF
+    public static Cliente obter2(String cpf) {
         
+        //Instancia cliente para retornar no fim da funcao
+        Cliente cliente =  new Cliente();
+        
+        try 
+        {
+            //tenta obter o cliente procurado
+            cliente = ClienteMock.obter2(cpf);
+        } 
+        catch (Exception e) 
+        {
+            return cliente = null;
+        }
+
+        return cliente;
     }
 }

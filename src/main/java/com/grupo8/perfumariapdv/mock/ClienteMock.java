@@ -63,7 +63,7 @@ public class ClienteMock
         return listaResultado;
     }
     
-    //OBTER UM CLIENTE
+    //OBTER UM CLIENTE POR ID
     public static Cliente obter(int id) throws Exception {
         //verifica se a lista tem dados
         if (listaClientes.size() > 0) {
@@ -81,6 +81,37 @@ public class ClienteMock
                     //retorna o cliente procurado
                     return clienteAuxilizr;
                 }
+                contadorPosicao++;
+            }
+        }
+        else 
+        {
+            //se a lista nao tiver dados retorna erro, usar try catch
+            throw new Exception("Não há dados para pesquisa");
+        }
+        //caso nao achar o cliente desejado
+        return null;
+    }
+    
+    //OBTER UM CLIENTE POR CPF
+    public static Cliente obter2(String cpf) throws Exception {
+        //verifica se a lista tem dados
+        if (listaClientes.size() > 0) {
+            //percorre a lista
+            int contadorPosicao = 0;
+            while (contadorPosicao < listaClientes.size()) 
+            {
+                //obtém um cliente da lista
+                Cliente clienteAuxilizr = listaClientes.get(contadorPosicao);
+                //verifica se é um cliente válido com id desejado
+                if (clienteAuxilizr != null
+                        && clienteAuxilizr.getCpf()!= null
+                        && clienteAuxilizr.getCpf().equals(cpf)) 
+                {
+                    //retorna o cliente procurado
+                    return clienteAuxilizr;
+                }
+                
                 contadorPosicao++;
             }
         }
