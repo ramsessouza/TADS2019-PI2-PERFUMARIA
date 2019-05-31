@@ -72,14 +72,14 @@ public class ProdutoMock
             while (contadorPosicao < listaProdutos.size()) 
             {
                 //obtém um produto da lista
-                Produto produtoAuxilizr = listaProdutos.get(contadorPosicao);
+                Produto produtoAuxiliar = listaProdutos.get(contadorPosicao);
                 //verifica se é um produto válido com id desejado
-                if (produtoAuxilizr != null
-                        && produtoAuxilizr.getId() != null
-                        && produtoAuxilizr.getId() == id) 
+                if (produtoAuxiliar != null
+                        && produtoAuxiliar.getId() != null
+                        && produtoAuxiliar.getId() == id) 
                 {
                     //retorna o produto procurado
-                    return produtoAuxilizr;
+                    return produtoAuxiliar;
                 }
                 contadorPosicao++;
             }

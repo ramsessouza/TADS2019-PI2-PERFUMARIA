@@ -1,7 +1,5 @@
 package com.grupo8.perfumariapdv.model;
 
-import java.util.Date;
-
 public class Cliente {
     private Integer id;
     private String nome;

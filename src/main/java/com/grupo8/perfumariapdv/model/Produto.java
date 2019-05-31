@@ -8,6 +8,7 @@ public class Produto
     private Integer quantidade;
     private Float custo;
     private Float valor;
+    private Float valorTotal;
     private String descricao;
 
     public Integer getId() {

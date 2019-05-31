@@ -1,12 +1,15 @@
 package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.controller.ClienteController;
+import com.grupo8.perfumariapdv.controller.VendaController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.Cliente;
 import com.grupo8.perfumariapdv.model.Produto;
+import com.grupo8.perfumariapdv.model.Venda;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -492,6 +495,7 @@ public MenuView menuView;
 //private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();    
 private DefaultTableModel tableModel;
 private Produto produto;
+private Venda venda;
     
 //==============================================================================
 //GETS E SETERS
@@ -766,9 +770,81 @@ private Produto produto;
     
     //REGISTRA A VENDA
     private void btRegistrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVendaActionPerformed
-        if(cbDinheiro.isSelected()){
-            
+        venda = new Venda();
+        Produto produtoAuxiliar = new Produto();
+        Float valorTotal = 0f;
+        Float faltante = 0f;
+        String respostaController = null;
+        
+        //coloca dados da venda na instancia
+        venda.setPagamentoCartao(Float.parseFloat(txtPagamentoCartao.getText()));
+        venda.setPagamentoDinheiro(Float.parseFloat(txtPagamentoDinheiro.getText()));
+        venda.setSubtotal(Float.parseFloat(txtSubtotal.getText()));
+        java.util.Date data = new Date();
+        venda.setData(data);
+        //coloca dados do cliente da venda na instancia
+        venda.getCliente().setNome(txtClienteNomeInfo.getText());
+        venda.getCliente().setCpf(txtClienteCpfInfo.getText());
+        venda.getCliente().setCidade(txtClienteCidadeInfo.getText());
+        venda.getCliente().setLogradouro(txtClienteLogradouroInfo.getText());
+        venda.getCliente().setNumero(txtClienteNumeroInfo.getText());
+        //coloca dados dos itens da venda na instancia
+        for(int i = 1; i <=tableModel.getRowCount(); i++){
+            //obtem o id dessa linha
+            produtoAuxiliar.setId((Integer) tabelaVenda.getValueAt(i, 0));
+            produtoAuxiliar.setNome((String) tabelaVenda.getValueAt(i, 1)); 
+            produtoAuxiliar.setQuantidade((Integer) tabelaVenda.getValueAt(i, 2));
+            produtoAuxiliar.setValor((Float) tabelaVenda.getValueAt(i, 3));
+            valorTotal = produtoAuxiliar.getQuantidade()*produtoAuxiliar.getValor();
         }
+        venda.getItensVenda().add(produto);
+        
+        //se o valor pago for menor que o valor da compra
+        if(venda.getPagamentoCartao()+venda.getPagamentoDinheiro() < venda.getSubtotal()){
+            
+            //envia venda para salvar para o controller
+            respostaController = VendaController.salvar(venda);
+
+             //verifica resposta do controller
+            if (respostaController == null)//se a resposta for positiva
+            {
+                JOptionPane.showMessageDialog(rootPane,
+                    "Venda registrada!\n\n"+
+                        "Subtotal da compra "+venda.getSubtotal()+"\n"+
+                        "Total em Dinheiro "+venda.getPagamentoDinheiro()+"\n"+
+                        "Total em Cartão"+venda.getPagamentoCartao()+"\n\n"    
+                        + "Agora você pode consultar sua venda em:\n"
+                        + "Menu > Relatório",
+                    "Confirmação",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+                //Limpa o formulário
+                limpaTelaVenda();
+
+                //Atualiza número da venda
+                atualizaIndiceVenda();
+            }
+            else//se a resposta do controller for negativa
+            {
+                //Exibe mensagens de erro para o usuário
+                JOptionPane.showMessageDialog(rootPane, 
+                    respostaController
+                        +"\n Procure o administrador do sistema!",
+                    "Erro", 
+                    JOptionPane.ERROR_MESSAGE);
+            } 
+        }else{
+            faltante = venda.getSubtotal()-(venda.getPagamentoCartao()+venda.getPagamentoDinheiro());
+            //Exibe mensagens de erro para o usuário
+            JOptionPane.showMessageDialog(rootPane, 
+                "Subtotal da compra "+venda.getSubtotal()+"\n"+
+                "Total em Dinheiro "+venda.getPagamentoDinheiro()+"\n"+
+                "Total em Cartão"+venda.getPagamentoCartao()+"\n\n"+
+                "Faltante "+faltante,
+                "Confirmação", 
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+        
     }//GEN-LAST:event_btRegistrarVendaActionPerformed
     
     //SELECIONA TIPO PAGAMENTO DINHEIRO
@@ -794,7 +870,6 @@ private Produto produto;
     //PAGAMENTO DINHEIRO QUANTIDADE CARACTERES
     private void txtPagamentoDinheiroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPagamentoDinheiroFocusLost
         if (txtPagamentoDinheiro.getText().length()>10){
-            
             txtPagamentoDinheiro.setValue(0);
         }
     }//GEN-LAST:event_txtPagamentoDinheiroFocusLost
@@ -802,7 +877,6 @@ private Produto produto;
     //PAGAMENTO CARTÃO QUANTIDADE CARACTERES
     private void txtPagamentoCartaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPagamentoCartaoFocusLost
         if (txtPagamentoCartao.getText().length()>10){
-            
             txtPagamentoCartao.setValue(0);
         }
     }//GEN-LAST:event_txtPagamentoCartaoFocusLost
