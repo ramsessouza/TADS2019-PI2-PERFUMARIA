@@ -21,6 +21,7 @@
   <Events>
     <EventHandler event="internalFrameActivated" listener="javax.swing.event.InternalFrameListener" parameters="javax.swing.event.InternalFrameEvent" handler="formInternalFrameActivated"/>
     <EventHandler event="internalFrameOpened" listener="javax.swing.event.InternalFrameListener" parameters="javax.swing.event.InternalFrameEvent" handler="formInternalFrameOpened"/>
+    <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentShown"/>
   </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -74,23 +75,28 @@
                   <Component id="jpSubtotal" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btAdicionarItem" max="32767" attributes="0"/>
                   <Component id="btRegistrarVenda" max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cbDinheiro" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbCartão" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtPagamentoDinheiro" max="32767" attributes="0"/>
-                          <Component id="txtPagamentoCartão" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Component id="jpDadosCliente" alignment="0" max="32767" attributes="0"/>
                   <Component id="btRemoverItem" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbDinheiro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbCartão" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtPagamentoDinheiro" max="32767" attributes="0"/>
+                                  <Component id="txtPagamentoCartao" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -141,14 +147,14 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cbCartão" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtPagamentoCartão" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPagamentoCartao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btRegistrarVenda" pref="51" max="32767" attributes="0"/>
+                  <Component id="btRegistrarVenda" pref="53" max="32767" attributes="0"/>
                   <Component id="jpSubtotal" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -245,6 +251,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtProdutoNome">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="Clique aqui para pesquisar o produto..."/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[14, 25]"/>
@@ -283,6 +290,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtProdutoValorUnitario">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[14, 25]"/>
         </Property>
@@ -298,6 +306,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtProdutoValorTotal">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[14, 25]"/>
         </Property>
@@ -439,7 +448,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                  <EmptySpace pref="11" max="32767" attributes="0"/>
                   <Component id="txtClienteNomeInfo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtClienteCpfInfo" min="-2" max="-2" attributes="0"/>
@@ -457,6 +466,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtClienteNomeInfo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[172, 15]"/>
             </Property>
@@ -470,6 +480,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtClienteCpfInfo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[172, 15]"/>
             </Property>
@@ -483,6 +494,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtClienteCidadeInfo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[172, 15]"/>
             </Property>
@@ -496,6 +508,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtClienteLogradouroInfo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[172, 15]"/>
             </Property>
@@ -509,6 +522,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtClienteNumeroInfo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[172, 15]"/>
             </Property>
@@ -540,11 +554,29 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Dinheiro"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbDinheiroActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPagamentoDinheiro">
+    <Component class="javax.swing.JFormattedTextField" name="txtPagamentoDinheiro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="R$ 100,00"/>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 24]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 24]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 24]"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPagamentoDinheiroFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="cbCart&#xe3;o">
       <Properties>
@@ -556,11 +588,29 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cart&#xe3;o"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbCart&#xe3;oActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPagamentoCart&#xe3;o">
+    <Component class="javax.swing.JFormattedTextField" name="txtPagamentoCartao">
       <Properties>
-        <Property name="text" type="java.lang.String" value="R$ 450,50"/>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 24]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 24]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[101, 24]"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPagamentoCartaoFocusLost"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jpSubtotal">
       <Properties>
@@ -573,15 +623,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="lbSubtotal" min="-2" pref="454" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtSubtotal" max="32767" attributes="0"/>
+                  <Component id="lbSubtotal" min="-2" pref="231" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
+                  <Component id="txtSubtotal" pref="181" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lbSubtotal" pref="51" max="32767" attributes="0"/>
+              <Component id="lbSubtotal" pref="53" max="32767" attributes="0"/>
               <Component id="txtSubtotal" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
@@ -616,6 +666,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Registrar Venda"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRegistrarVendaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btRemoverItem">
       <Properties>
