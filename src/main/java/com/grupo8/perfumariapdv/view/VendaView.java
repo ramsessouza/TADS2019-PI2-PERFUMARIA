@@ -339,9 +339,12 @@ public class VendaView extends javax.swing.JInternalFrame {
         jpSubtotal.setBackground(new java.awt.Color(153, 153, 153));
 
         lbSubtotal.setForeground(new java.awt.Color(0, 0, 0));
+        lbSubtotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbSubtotal.setText("SUBTOTAL DA COMPRA");
 
         txtSubtotal.setEditable(false);
+        txtSubtotal.setBackground(new java.awt.Color(153, 153, 153));
+        txtSubtotal.setForeground(new java.awt.Color(0, 0, 0));
         txtSubtotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSubtotal.setBorder(null);
 
@@ -350,8 +353,8 @@ public class VendaView extends javax.swing.JInternalFrame {
         jpSubtotalLayout.setHorizontalGroup(
             jpSubtotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpSubtotalLayout.createSequentialGroup()
-                .addComponent(lbSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(229, 229, 229)
+                .addComponent(lbSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
         );
         jpSubtotalLayout.setVerticalGroup(
