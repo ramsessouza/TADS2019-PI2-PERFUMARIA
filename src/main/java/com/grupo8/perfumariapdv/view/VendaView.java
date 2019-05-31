@@ -49,7 +49,6 @@ public class VendaView extends javax.swing.JInternalFrame {
         txtClienteCidadeInfo = new javax.swing.JTextField();
         txtClienteLogradouroInfo = new javax.swing.JTextField();
         txtClienteNumeroInfo = new javax.swing.JTextField();
-        btRemoverItem = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         cbDinheiro = new javax.swing.JCheckBox();
         txtPagamentoDinheiro = new javax.swing.JTextField();
@@ -59,6 +58,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         lbSubtotal = new javax.swing.JLabel();
         txtSubtotal = new javax.swing.JTextField();
         btRegistrarVenda = new javax.swing.JButton();
+        btRemoverItem = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -128,6 +128,7 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         lbProdutoNome.setText("Produto");
 
+        txtProdutoNome.setText("Clique aqui para pesquisar o produto...");
         txtProdutoNome.setMinimumSize(new java.awt.Dimension(14, 25));
         txtProdutoNome.setPreferredSize(new java.awt.Dimension(14, 25));
         txtProdutoNome.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,6 +141,16 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         jsProdutoQuantidade.setMinimumSize(new java.awt.Dimension(14, 25));
         jsProdutoQuantidade.setPreferredSize(new java.awt.Dimension(14, 25));
+        jsProdutoQuantidade.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jsProdutoQuantidadeStateChanged(evt);
+            }
+        });
+        jsProdutoQuantidade.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jsProdutoQuantidadeFocusLost(evt);
+            }
+        });
 
         lbProdutoValorUnitario.setText("Valor unitario");
 
@@ -171,29 +182,15 @@ public class VendaView extends javax.swing.JInternalFrame {
         btAdicionarItem.setBackground(new java.awt.Color(17, 128, 216));
         btAdicionarItem.setForeground(new java.awt.Color(255, 255, 255));
         btAdicionarItem.setText("Adicionar Item");
+        btAdicionarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarItemActionPerformed(evt);
+            }
+        });
 
         tabelaVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "Nome", "Quantidade", "Valor unitário", "Valor total"
@@ -281,10 +278,6 @@ public class VendaView extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btRemoverItem.setBackground(new java.awt.Color(153, 0, 0));
-        btRemoverItem.setForeground(new java.awt.Color(255, 255, 255));
-        btRemoverItem.setText("Remover Item");
-
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Pagamento em:");
 
@@ -305,27 +298,37 @@ public class VendaView extends javax.swing.JInternalFrame {
         lbSubtotal.setForeground(new java.awt.Color(0, 0, 0));
         lbSubtotal.setText("SUBTOTAL DA COMPRA");
 
-        txtSubtotal.setForeground(new java.awt.Color(0, 0, 0));
-        txtSubtotal.setText("R$ 540,50");
+        txtSubtotal.setEditable(false);
+        txtSubtotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSubtotal.setBorder(null);
 
         javax.swing.GroupLayout jpSubtotalLayout = new javax.swing.GroupLayout(jpSubtotal);
         jpSubtotal.setLayout(jpSubtotalLayout);
         jpSubtotalLayout.setHorizontalGroup(
             jpSubtotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpSubtotalLayout.createSequentialGroup()
-                .addComponent(lbSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lbSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSubtotal))
         );
         jpSubtotalLayout.setVerticalGroup(
             jpSubtotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtSubtotal, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(lbSubtotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lbSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(txtSubtotal)
         );
 
         btRegistrarVenda.setBackground(new java.awt.Color(0, 102, 51));
         btRegistrarVenda.setForeground(new java.awt.Color(255, 255, 255));
         btRegistrarVenda.setText("Registrar Venda");
+
+        btRemoverItem.setBackground(new java.awt.Color(153, 0, 0));
+        btRemoverItem.setForeground(new java.awt.Color(255, 255, 255));
+        btRemoverItem.setText("Remover Item");
+        btRemoverItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRemoverItemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -361,11 +364,9 @@ public class VendaView extends javax.swing.JInternalFrame {
                     .addComponent(jpSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jpDadosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btRegistrarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAdicionarItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btRegistrarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2)
-                    .addComponent(btRemoverItem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbDinheiro)
@@ -373,7 +374,9 @@ public class VendaView extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPagamentoDinheiro)
-                            .addComponent(txtPagamentoCartão, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(txtPagamentoCartão, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(jpDadosCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btRemoverItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -382,12 +385,30 @@ public class VendaView extends javax.swing.JInternalFrame {
                 .addComponent(jpCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbProdutoValorUnitario)
+                        .addComponent(lbProdutoQuantidade)
+                        .addComponent(lbProdutoValorTotal))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(lbProdutoNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtProdutoValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jsProdutoQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProdutoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProdutoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbVendaClienteCpf)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btAdicionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jpDadosCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btRemoverItem, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -398,27 +419,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbCartão)
                             .addComponent(txtPagamentoCartão, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lbProdutoValorUnitario)
-                                .addComponent(lbProdutoQuantidade)
-                                .addComponent(lbProdutoValorTotal))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(lbProdutoNome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtProdutoValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jsProdutoQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtProdutoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtProdutoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lbVendaClienteCpf)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btRegistrarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
@@ -435,67 +436,34 @@ public class VendaView extends javax.swing.JInternalFrame {
 private VendaConsultaProdutoView consultaProduto;
 public MenuView menuView;
 //private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();    
-//private DefaultTableModel tableModel;
+private DefaultTableModel tableModel;
+private Produto produto;
     
 //==============================================================================
 //GETS E SETERS
-//============================================================================== 
-//    public ArrayList<Produto> getListaProdutos() {
-//        return listaProdutos;
-//    }
-//
-//    public void setListaProdutos(ArrayList<Produto> listaProdutos) {
-//        this.listaProdutos = listaProdutos;
-//    }
+//==============================================================================
     
 //==============================================================================
 //FUNÇÕES
 //==============================================================================     
-    //FIZ ESSA PORRA TODA E NAO ERA AGORA PQP
-    public void mosquei(){
-//        //Obtém a tabela para trabalhar nela
-//            tableModel = (DefaultTableModel) tabelaVenda.getModel();
-//
-//            //Limpa resultados anteriores
-//            tableModel.setRowCount(0);
-//
-//            if (listaProdutos != null && listaProdutos.size() > 0)
-//            {
-//                Float valorTotal = 0f;
-//                //Percorre a lista de resultados e os adiciona na tabela
-//                for (int i = 0; i < listaProdutos.size(); i++) 
-//                {
-//
-//                    //Obtém cada item da lista de resultados
-//                    Produto produto = listaProdutos.get(i);
-//
-//                    if (produto != null) 
-//                    {
-//                        //Cria array com resultados
-//                        Object[] dadosTabela = new Object[6];
-//                        //Cada dado na coluna correspondente
-//                        dadosTabela[0] = produto.getId();
-//                        dadosTabela[1] = produto.getNome();
-//                        dadosTabela[2] = produto.getCategoria();
-//                        dadosTabela[3] = produto.getQuantidade();
-//                        dadosTabela[4] = produto.getValor();
-//                        //realiza cálculo de valor total
-//                        valorTotal = produto.getValor()*produto.getQuantidade();
-//                        dadosTabela[5] = valorTotal;
-//
-//                        //Adiciona a linha de dados na tabela
-//                        tableModel.addRow(dadosTabela);
-//                    }
-//                }
-//            }else{
-//
-//                //Caso os produtos nao foram inseridos na tabela temporária
-//                JOptionPane.showMessageDialog(rootPane,
-//                        "Aconteceu algum erro ao tentar inserir um produto na lista!\n"
-//                                + "Entre em contato com o administrador do sistema.",
-//                        "Erro",
-//                        JOptionPane.ERROR_MESSAGE);
-//            }
+    //ATUALIZA QUANTIDADE DE PRODUTO
+    public void alteraQuantidade(){
+        Integer quantidadeAtual = (Integer) jsProdutoQuantidade.getValue();
+        Float valorTotal = 0f;
+        
+        if (quantidadeAtual<1 || quantidadeAtual >999){
+            jsProdutoQuantidade.setValue(1);
+            quantidadeAtual = 1;
+        }
+        
+        //verifica se tem valor no campo "Valor Unitário"
+        if(!txtProdutoValorUnitario.getText().equals("")){
+            Float valorUnitario = Float.parseFloat(txtProdutoValorUnitario.getText());
+            valorTotal = quantidadeAtual*valorUnitario;
+        }
+        
+        txtProdutoValorTotal.setText(valorTotal.toString());
+        
     }
     
 //==============================================================================
@@ -516,6 +484,31 @@ public MenuView menuView;
         lbCabecalho.setFont(futuraPT20Bold);
         lbSubtotal.setFont(futuraPT20Bold);
         txtSubtotal.setFont(futuraPT20Bold);
+        
+        //coloca quantidade = 1 para quantidade de produto
+        jsProdutoQuantidade.setValue(1);
+        
+        //desabilita campos produto
+        txtProdutoNome.setEditable(false);
+        txtProdutoValorUnitario.setEditable(false);
+        txtProdutoValorTotal.setEditable(false);
+        
+        //desabilita campos produto cliente
+        txtClienteNomeInfo.setEditable(false);
+        txtClienteCpfInfo.setEditable(false);
+        txtClienteCidadeInfo.setEditable(false);
+        txtClienteLogradouroInfo.setEditable(false);
+        txtClienteNumeroInfo.setEditable(false);
+        
+        //informa no cabecario o número da venda
+        Integer venda = null;//procura qual o numero da venda
+        
+        if(venda == null){
+            lbCabecalho.setText("Venda nº 1");
+        }
+        else{
+            lbCabecalho.setText("Venda nº "+venda);
+        }
     }//GEN-LAST:event_formInternalFrameOpened
     
     //PESQUISA PRODUTO
@@ -560,17 +553,12 @@ public MenuView menuView;
         //se cliente foi encontrado
         if(cliente != null)
         {
+            //limpa os campos de cliente
             txtClienteNomeInfo.setText(cliente.getNome());
             txtClienteCpfInfo.setText(cliente.getCpf());
             txtClienteCidadeInfo.setText(cliente.getCidade());
             txtClienteLogradouroInfo.setText(cliente.getLogradouro());
             txtClienteNumeroInfo.setText(cliente.getNumero());
-
-            txtClienteNomeInfo.setEditable(false);
-            txtClienteCpfInfo.setEditable(false);
-            txtClienteCidadeInfo.setEditable(false);
-            txtClienteLogradouroInfo.setEditable(false);
-            txtClienteNumeroInfo.setEditable(false);
             
         }
         else
@@ -581,29 +569,103 @@ public MenuView menuView;
                         + "Para cadastrar o Cliente vá para Menu > Cadastrar Cliente.",
                 "Não encontrado", 
                 JOptionPane.INFORMATION_MESSAGE);
+            
+            //limpa os campos de cliente
+            txtClienteNomeInfo.setText("");
+            txtClienteCpfInfo.setText("");
+            txtClienteCidadeInfo.setText("");
+            txtClienteLogradouroInfo.setText("");
+            txtClienteNumeroInfo.setText("");
         }
         
     }//GEN-LAST:event_txtCpfFocusLost
     
    //INTERFACE ATIVADA
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        Produto produto = new Produto();
+        produto = new Produto();
         
         try{
+            //coloca dados do produto a partir do produto selecionado 
+            //na tela de consulta de produto da venda
             produto.setId(consultaProduto.getProduto().getId());
             produto.setNome(consultaProduto.getProduto().getNome());
             produto.setQuantidade(consultaProduto.getProduto().getQuantidade());
             produto.setValor(consultaProduto.getProduto().getValor());
 
+            //coloca na tela de venda nome e valor do produto
             txtProdutoNome.setText(produto.getNome());
-            txtProdutoValorUnitario.setText(produto.getNome());
-            txtProdutoNome.setText(produto.getNome());
+            txtProdutoValorUnitario.setText(produto.getValor().toString());
+            
+            //atualiza o textbox com subtotal da compra
+            alteraQuantidade();
+            
         }
         catch(Exception e){
             
         }
     }//GEN-LAST:event_formInternalFrameActivated
     
+    //ALTERA QUANTIDADE
+    private void jsProdutoQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jsProdutoQuantidadeStateChanged
+       alteraQuantidade();
+    }//GEN-LAST:event_jsProdutoQuantidadeStateChanged
+    //ALTERA QUANTIDADE
+    private void jsProdutoQuantidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jsProdutoQuantidadeFocusLost
+        alteraQuantidade();
+    }//GEN-LAST:event_jsProdutoQuantidadeFocusLost
+    
+    //ADICIONA ITEM NA VENDA
+    private void btAdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarItemActionPerformed
+        Float subtotal =0f;
+        
+        //Obtém a tabela para trabalhar nela
+        tableModel = (DefaultTableModel) tabelaVenda.getModel();
+        
+        if (produto != null) 
+        {
+            //Cria array com valores do produto
+            Object[] dadosTabela = new Object[5];
+            //Cada dado na coluna correspondente
+            dadosTabela[0] = produto.getId();
+            dadosTabela[1] = produto.getNome();
+            dadosTabela[2] = produto.getQuantidade();
+            dadosTabela[3] = produto.getValor();
+            dadosTabela[4] = Float.parseFloat(txtProdutoValorTotal.getText());
+            
+            //Adiciona a linha de dados na tabela
+            tableModel.addRow(dadosTabela);
+        }
+        else
+        {
+            //informa ao usuário que não foi possível encontrar o produto para inserção
+            JOptionPane.showMessageDialog(rootPane, 
+                "O Produto não foi encontrado! \n\n"
+                        + "Procure o administrador do sistemas.",
+                "Erro", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+       
+        //faz cálculo de subtotal da compra
+        for(int i = 1; i <=tableModel.getRowCount(); i++){
+            subtotal += (Float) tabelaVenda.getValueAt(i-1, 4);   
+        }
+        
+        //insere valor subtotal da compra na label
+        txtSubtotal.setText(subtotal.toString());
+    }//GEN-LAST:event_btAdicionarItemActionPerformed
+
+    private void btRemoverItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoverItemActionPerformed
+        try{
+            //Resgato o índice da linha selecionada
+            int row = tabelaVenda.getSelectedRow();
+
+            //Passo o indice da linha a ser removida
+            tableModel.removeRow(row);
+        }
+        catch(Exception e){}
+    }//GEN-LAST:event_btRemoverItemActionPerformed
+    
+   
 //==============================================================================
 //NAO MEXER
 //==============================================================================  

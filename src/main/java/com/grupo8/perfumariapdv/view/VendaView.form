@@ -75,11 +75,9 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jpDadosCliente" min="-2" max="-2" attributes="0"/>
-                  <Component id="btAdicionarItem" min="-2" pref="182" max="-2" attributes="0"/>
-                  <Component id="btRegistrarVenda" min="-2" pref="182" max="-2" attributes="0"/>
+                  <Component id="btAdicionarItem" max="32767" attributes="0"/>
+                  <Component id="btRegistrarVenda" max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <Component id="btRemoverItem" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cbDinheiro" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -91,6 +89,8 @@
                           <Component id="txtPagamentoCartão" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="jpDadosCliente" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btRemoverItem" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -102,12 +102,35 @@
               <Component id="jpCabecalho" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="lbProdutoValorUnitario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbProdutoQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbProdutoValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btAdicionarItem" min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Component id="lbProdutoNome" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtProdutoValorUnitario" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jsProdutoQuantidade" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="txtProdutoValorTotal" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="txtProdutoNome" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lbVendaClienteCpf" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtCpf" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="btAdicionarItem" min="-2" pref="51" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="btRemoverItem" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jpDadosCliente" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btRemoverItem" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -121,33 +144,7 @@
                           <Component id="txtPagamentoCartão" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="lbProdutoValorUnitario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbProdutoQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbProdutoValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="lbProdutoNome" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtProdutoValorUnitario" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jsProdutoQuantidade" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="txtProdutoValorTotal" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="txtProdutoNome" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lbVendaClienteCpf" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtCpf" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -248,6 +245,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtProdutoNome">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Clique aqui para pesquisar o produto..."/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[14, 25]"/>
         </Property>
@@ -273,6 +271,10 @@
           <Dimension value="[14, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jsProdutoQuantidadeStateChanged"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jsProdutoQuantidadeFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbProdutoValorUnitario">
       <Properties>
@@ -341,6 +343,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Adicionar Item"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAdicionarItemActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -352,7 +357,7 @@
         <Component class="javax.swing.JTable" name="tabelaVenda">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="20">
+              <Table columnCount="5" rowCount="0">
                 <Column editable="false" title="Id" type="java.lang.Integer"/>
                 <Column editable="false" title="Nome" type="java.lang.String"/>
                 <Column editable="false" title="Quantidade" type="java.lang.Integer"/>
@@ -517,17 +522,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btRemoverItem">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="99" type="rgb"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Remover Item"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -579,16 +573,16 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="lbSubtotal" max="32767" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtSubtotal" min="-2" pref="143" max="-2" attributes="0"/>
+                  <Component id="lbSubtotal" min="-2" pref="454" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="txtSubtotal" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtSubtotal" alignment="1" max="32767" attributes="0"/>
-              <Component id="lbSubtotal" alignment="1" max="32767" attributes="0"/>
+              <Component id="lbSubtotal" pref="51" max="32767" attributes="0"/>
+              <Component id="txtSubtotal" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -603,10 +597,11 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtSubtotal">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="R$ 540,50"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -621,6 +616,20 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Registrar Venda"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btRemoverItem">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="99" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Remover Item"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRemoverItemActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

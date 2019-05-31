@@ -298,7 +298,7 @@ public class ProdutoConsultaView extends javax.swing.JInternalFrame {
 
                 if (produto != null) 
                 {
-                    //Cria arrai com resultados
+                    //Cria array com resultados
                     Object[] dadosTabela = new Object[6];
                     //Cada dado na coluna correspondente
                     dadosTabela[0] = produto.getId();
