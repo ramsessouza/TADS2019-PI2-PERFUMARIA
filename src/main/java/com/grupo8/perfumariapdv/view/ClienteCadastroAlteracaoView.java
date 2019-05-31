@@ -56,6 +56,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtObservacoes = new javax.swing.JTextArea();
         btnSair = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        lbPreencherAutomatico = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -254,6 +255,15 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
             }
         });
 
+        lbPreencherAutomatico.setBackground(new java.awt.Color(255, 255, 255));
+        lbPreencherAutomatico.setForeground(new java.awt.Color(255, 255, 255));
+        lbPreencherAutomatico.setText("Preencher");
+        lbPreencherAutomatico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbPreencherAutomaticoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -294,7 +304,8 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                                     .addComponent(cboEstadoCivil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(6, 6, 6))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lbPreencherAutomatico)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -406,9 +417,11 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnSair))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSalvar)
+                        .addComponent(btnSair))
+                    .addComponent(lbPreencherAutomatico, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -696,6 +709,24 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtDataNascimentoFocusLost
 
+    //PREENCHIMENTO AUTOMATICO
+    private void lbPreencherAutomaticoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPreencherAutomaticoMouseClicked
+        txtNome.setText("Ramsés Carneiro de Souza");
+        txtCpf.setValue("372.461.178-14");
+        txtDataNascimento.setValue("27/01/1992");
+        rdbMasculino.setSelected(true);
+        cboEstadoCivil.setSelectedIndex(2);
+        cboEstado.setSelectedIndex(25);
+        txtCidade.setText("São Paulo");
+        txtBairro.setText("Parque Residencial Cocaia");
+        txtLogradouro.setText("Rua Henri Duparc");
+        txtNumero.setText("118");
+        txtEmail.setText("ramses.souza@hotmail.com");
+        txtTelefoneCelular.setText("11991229987");
+        txtTelefoneOutros.setText("551159317686");
+        txtObservacoes.setText("Cliente antigo, atender com muita atenção!");
+    }//GEN-LAST:event_lbPreencherAutomaticoMouseClicked
+
 //==============================================================================
 //NAO MEXER
 //==============================================================================   
@@ -722,6 +753,7 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpCabecalho;
     private javax.swing.JLabel lbCabecalho;
+    private javax.swing.JLabel lbPreencherAutomatico;
     private javax.swing.JRadioButton rdbFeminino;
     private javax.swing.JRadioButton rdbMasculino;
     private javax.swing.JTextField txtBairro;

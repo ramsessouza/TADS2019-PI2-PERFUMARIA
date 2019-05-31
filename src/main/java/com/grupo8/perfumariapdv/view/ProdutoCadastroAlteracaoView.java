@@ -26,7 +26,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cboCategoria = new javax.swing.JComboBox<>();
+        cboCategoria = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
         txtQuantidade = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -40,6 +40,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         txtDescricao = new javax.swing.JTextArea();
         btnSair = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        lbPreencherAutomatico = new javax.swing.JLabel();
 
         setBackground(null);
         setBorder(null);
@@ -105,7 +106,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
 
         cboCategoria.setBackground(java.awt.Color.white);
         cboCategoria.setForeground(new java.awt.Color(0, 0, 0));
-        cboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Higiene", "Cosmeticos" }));
+        cboCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Higiene", "Cosmeticos", "Utencílios", "Maquiagem" }));
         cboCategoria.setPreferredSize(new java.awt.Dimension(95, 22));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -167,6 +168,15 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
             }
         });
 
+        lbPreencherAutomatico.setBackground(new java.awt.Color(255, 255, 255));
+        lbPreencherAutomatico.setForeground(new java.awt.Color(255, 255, 255));
+        lbPreencherAutomatico.setText("Preencher");
+        lbPreencherAutomatico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbPreencherAutomaticoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,7 +214,8 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
                                     .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbPreencherAutomatico)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,9 +257,11 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnSair))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSalvar)
+                        .addComponent(btnSair))
+                    .addComponent(lbPreencherAutomatico, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -462,6 +475,17 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         lbCabecalho.setText(cabecario);
     }//GEN-LAST:event_formComponentShown
 
+    //PREENCHIMENTO AUTOMATICO
+    private void lbPreencherAutomaticoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPreencherAutomaticoMouseClicked
+        txtNome.setText("Shampoo");
+        cboCategoria.setSelectedIndex(1);
+        txtQuantidade.setValue(20);
+        txtCusto.setValue(19);
+        txtValor.setValue(24.50);
+        txtDescricao.setText("Lote com data de validade para 07/02/2020");
+        
+    }//GEN-LAST:event_lbPreencherAutomaticoMouseClicked
+
 //==============================================================================
 //NAO MEXER
 //============================================================================== 
@@ -480,6 +504,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpCabecalho;
     private javax.swing.JLabel lbCabecalho;
+    private javax.swing.JLabel lbPreencherAutomatico;
     private javax.swing.JFormattedTextField txtCusto;
     private javax.swing.JTextArea txtDescricao;
     private javax.swing.JTextField txtNome;
