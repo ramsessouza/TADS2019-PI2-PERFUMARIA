@@ -166,12 +166,14 @@ public class VendaView extends javax.swing.JInternalFrame {
         lbProdutoValorUnitario.setText("Valor unitario");
 
         txtProdutoValorUnitario.setEditable(false);
+        txtProdutoValorUnitario.setText("0");
         txtProdutoValorUnitario.setMinimumSize(new java.awt.Dimension(14, 25));
         txtProdutoValorUnitario.setPreferredSize(new java.awt.Dimension(14, 25));
 
         lbProdutoValorTotal.setText("Valor Total");
 
         txtProdutoValorTotal.setEditable(false);
+        txtProdutoValorTotal.setText("0");
         txtProdutoValorTotal.setMinimumSize(new java.awt.Dimension(14, 25));
         txtProdutoValorTotal.setPreferredSize(new java.awt.Dimension(14, 25));
 
@@ -310,6 +312,7 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         txtPagamentoDinheiro.setEditable(false);
         txtPagamentoDinheiro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtPagamentoDinheiro.setText("0");
         txtPagamentoDinheiro.setMaximumSize(new java.awt.Dimension(101, 24));
         txtPagamentoDinheiro.setMinimumSize(new java.awt.Dimension(101, 24));
         txtPagamentoDinheiro.setPreferredSize(new java.awt.Dimension(101, 24));
@@ -330,6 +333,7 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         txtPagamentoCartao.setEditable(false);
         txtPagamentoCartao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtPagamentoCartao.setText("0");
         txtPagamentoCartao.setMaximumSize(new java.awt.Dimension(101, 24));
         txtPagamentoCartao.setMinimumSize(new java.awt.Dimension(101, 24));
         txtPagamentoCartao.setPreferredSize(new java.awt.Dimension(101, 24));
@@ -349,6 +353,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         txtSubtotal.setBackground(new java.awt.Color(153, 153, 153));
         txtSubtotal.setForeground(new java.awt.Color(0, 0, 0));
         txtSubtotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSubtotal.setText("0");
         txtSubtotal.setBorder(null);
 
         javax.swing.GroupLayout jpSubtotalLayout = new javax.swing.GroupLayout(jpSubtotal);
@@ -555,8 +560,8 @@ private Venda venda;
         //Limpa todos os campos de produto
         txtProdutoNome.setText("Clique aqui para pesquisar o produto...");
         jsProdutoQuantidade.setValue(0);
-        txtProdutoValorUnitario.setText("");
-        txtProdutoValorTotal.setText("");
+        txtProdutoValorUnitario.setText("0");
+        txtProdutoValorTotal.setText("0");
         
         //Limpa todos os campos de cliente
         txtCpf.setText("");
@@ -569,11 +574,11 @@ private Venda venda;
         //Limpa todos os campos da venda
         cbDinheiro.setSelected(false);
         cbCartão.setSelected(false);
-        txtPagamentoDinheiro.setText("");
-        txtPagamentoCartao.setText("");
+        txtPagamentoDinheiro.setValue(0);
+        txtPagamentoCartao.setValue(0);
         txtPagamentoDinheiro.setEditable(false);
         txtPagamentoCartao.setEditable(false);
-        txtSubtotal.setText("");
+        txtSubtotal.setText("0");
                 
         //Obtém a tabela para trabalhar nela
         tableModel = (DefaultTableModel) tabelaVenda.getModel();
@@ -771,80 +776,134 @@ private Venda venda;
     //REGISTRA A VENDA
     private void btRegistrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVendaActionPerformed
         venda = new Venda();
-        Produto produtoAuxiliar = new Produto();
+        Produto produto = new Produto();
         Float valorTotal = 0f;
-        Float faltante = 0f;
+        Float valorFaltante = 0f;
         String respostaController = null;
         
-        //coloca dados da venda na instancia
-        venda.setPagamentoCartao(Float.parseFloat(txtPagamentoCartao.getText()));
-        venda.setPagamentoDinheiro(Float.parseFloat(txtPagamentoDinheiro.getText()));
-        venda.setSubtotal(Float.parseFloat(txtSubtotal.getText()));
-        java.util.Date data = new Date();
-        venda.setData(data);
-        //coloca dados do cliente da venda na instancia
-        venda.getCliente().setNome(txtClienteNomeInfo.getText());
-        venda.getCliente().setCpf(txtClienteCpfInfo.getText());
-        venda.getCliente().setCidade(txtClienteCidadeInfo.getText());
-        venda.getCliente().setLogradouro(txtClienteLogradouroInfo.getText());
-        venda.getCliente().setNumero(txtClienteNumeroInfo.getText());
-        //coloca dados dos itens da venda na instancia
-        for(int i = 1; i <=tableModel.getRowCount(); i++){
-            //obtem o id dessa linha
-            produtoAuxiliar.setId((Integer) tabelaVenda.getValueAt(i, 0));
-            produtoAuxiliar.setNome((String) tabelaVenda.getValueAt(i, 1)); 
-            produtoAuxiliar.setQuantidade((Integer) tabelaVenda.getValueAt(i, 2));
-            produtoAuxiliar.setValor((Float) tabelaVenda.getValueAt(i, 3));
-            valorTotal = produtoAuxiliar.getQuantidade()*produtoAuxiliar.getValor();
-        }
-        venda.getItensVenda().add(produto);
-        
-        //se o valor pago for menor que o valor da compra
-        if(venda.getPagamentoCartao()+venda.getPagamentoDinheiro() < venda.getSubtotal()){
-            
-            //envia venda para salvar para o controller
-            respostaController = VendaController.salvar(venda);
-
-             //verifica resposta do controller
-            if (respostaController == null)//se a resposta for positiva
-            {
-                JOptionPane.showMessageDialog(rootPane,
-                    "Venda registrada!\n\n"+
-                        "Subtotal da compra "+venda.getSubtotal()+"\n"+
-                        "Total em Dinheiro "+venda.getPagamentoDinheiro()+"\n"+
-                        "Total em Cartão"+venda.getPagamentoCartao()+"\n\n"    
-                        + "Agora você pode consultar sua venda em:\n"
-                        + "Menu > Relatório",
-                    "Confirmação",
-                    JOptionPane.INFORMATION_MESSAGE);
-
-                //Limpa o formulário
-                limpaTelaVenda();
-
-                //Atualiza número da venda
-                atualizaIndiceVenda();
+        //se foi selecionada uma forma de pagamento
+        if(cbCartão.isSelected() || cbDinheiro.isSelected()){
+            //se nao tiver produtos adicionados na venda
+            if(tabelaVenda.getModel().getRowCount() <= 0){
+               JOptionPane.showMessageDialog(rootPane,
+                    "Nenhum item adicionado!\n"
+                        + "Você precisa adicionar itens na venda.",
+                    "Atenção",
+                    JOptionPane.ERROR_MESSAGE);
+                //sai do método 
+                return;
             }
-            else//se a resposta do controller for negativa
-            {
+            //coloca dados dos itens da venda na instancia
+            for(int i = 0; i+1 <=tableModel.getRowCount(); i++){
+                //obtem o id dessa linha
+                produto.setId((Integer) tabelaVenda.getValueAt(i, 0));
+                produto.setNome((String) tabelaVenda.getValueAt(i, 1)); 
+                produto.setQuantidade((Integer) tabelaVenda.getValueAt(i, 2));
+                produto.setValor((Float) tabelaVenda.getValueAt(i, 3));
+                produto.setCategoria("asd");
+                produto.setCusto(12f);
+                produto.setDescricao("asd");
+                valorTotal = produto.getQuantidade()*produto.getValor();
+            }
+            venda.getItensVenda().add(produto);
+            
+            //coloca dados da venda na instancia
+            venda.setPagamentoCartao(Float.parseFloat(txtPagamentoCartao.getText()));
+            venda.setPagamentoDinheiro(Float.parseFloat(txtPagamentoDinheiro.getText()));
+            venda.setSubtotal(Float.parseFloat(txtSubtotal.getText()));
+            java.util.Date data = new Date();
+            venda.setData(data);
+            
+            //se compra não tiver valor
+            if(Float.parseFloat(txtSubtotal.getText())<0.001){
+                JOptionPane.showMessageDialog(rootPane,
+                    "Essa compra não tem valor!\n"
+                        + "O registro não foi realizado.",
+                    "Informe de registro",
+                    JOptionPane.ERROR_MESSAGE);
+                //sai do método 
+                return;
+            }
+            
+            //coloca dados do cliente da venda na instancia
+            //caso nao tenha selecionado cliente segue em frente pois o 
+            //cliente não é obrigatório na venda
+            try{
+                venda.getCliente().setNome(txtClienteNomeInfo.getText());
+                venda.getCliente().setCpf(txtClienteCpfInfo.getText());
+                venda.getCliente().setCidade(txtClienteCidadeInfo.getText());
+                venda.getCliente().setLogradouro(txtClienteLogradouroInfo.getText());
+                venda.getCliente().setNumero(txtClienteNumeroInfo.getText());
+            }catch(Exception e){
+                //avisa que não existe cliente para registrar junto a venda
+                int respostaConfirmacao = JOptionPane.showConfirmDialog(
+                        rootPane,
+                        "Não existe cliente na venda.\n\n"
+                                + "Deseja continuar?",
+                        "Confirmar registro", 
+                        JOptionPane.YES_NO_OPTION);
+
+                //se resposa for não para continuar o registro da venda
+                if (respostaConfirmacao == JOptionPane.NO_OPTION) 
+                {
+                    //sai do método 
+                    return;
+                }
+            }
+            
+            //se o valor pago for maior que o valor da compra realiza registro
+            if(venda.getPagamentoCartao()+venda.getPagamentoDinheiro() >= venda.getSubtotal()){
+
+                //envia venda para salvar para o controller
+                respostaController = VendaController.salvar(venda);
+
+                 //verifica resposta do controller
+                if (respostaController == null)//se a resposta for positiva
+                {
+                    JOptionPane.showMessageDialog(rootPane,
+                        "Venda registrada!\n\n"+
+                            "Subtotal da compra "+venda.getSubtotal()+"\n"+
+                            "Total em Dinheiro "+venda.getPagamentoDinheiro()+"\n"+
+                            "Total em Cartão"+venda.getPagamentoCartao()+"\n\n"    
+                            + "Agora você pode consultar sua venda em:\n"
+                            + "Menu > Relatório",
+                        "Informe de registro",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+                    //Limpa o formulário
+                    limpaTelaVenda();
+
+                    //Atualiza número da venda
+                    atualizaIndiceVenda();
+                }
+                else//se a resposta do controller for negativa
+                {
+                    //Exibe mensagens de erro para o usuário
+                    JOptionPane.showMessageDialog(rootPane, 
+                        respostaController
+                            +"\n Procure o administrador do sistema!",
+                        "Erro", 
+                        JOptionPane.ERROR_MESSAGE);
+                } 
+            }else{//se o valor pago for menor que o valor da compra
+                valorFaltante = venda.getSubtotal()-(venda.getPagamentoCartao()+venda.getPagamentoDinheiro());
                 //Exibe mensagens de erro para o usuário
                 JOptionPane.showMessageDialog(rootPane, 
-                    respostaController
-                        +"\n Procure o administrador do sistema!",
-                    "Erro", 
+                    "Subtotal da compra "+venda.getSubtotal()+"\n"+
+                    "Total em Dinheiro "+venda.getPagamentoDinheiro()+"\n"+
+                    "Total em Cartão"+venda.getPagamentoCartao()+"\n\n"+
+                    "Faltante "+valorFaltante,
+                    "Informe de registro", 
                     JOptionPane.ERROR_MESSAGE);
-            } 
-        }else{
-            faltante = venda.getSubtotal()-(venda.getPagamentoCartao()+venda.getPagamentoDinheiro());
-            //Exibe mensagens de erro para o usuário
+            }
+        }else//caso nenhuma forma de pagamento tenha sido selecionada
+        {
+            //Mensagem informando para selecionar uma forma de pagamento
             JOptionPane.showMessageDialog(rootPane, 
-                "Subtotal da compra "+venda.getSubtotal()+"\n"+
-                "Total em Dinheiro "+venda.getPagamentoDinheiro()+"\n"+
-                "Total em Cartão"+venda.getPagamentoCartao()+"\n\n"+
-                "Faltante "+faltante,
-                "Confirmação", 
-                JOptionPane.INFORMATION_MESSAGE);
+                "Você deve selecionar uma forma de pagamento!",
+                "Atenção", 
+                JOptionPane.ERROR_MESSAGE);
         }
-        
     }//GEN-LAST:event_btRegistrarVendaActionPerformed
     
     //SELECIONA TIPO PAGAMENTO DINHEIRO

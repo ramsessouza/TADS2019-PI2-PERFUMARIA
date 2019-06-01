@@ -1,5 +1,6 @@
 package com.grupo8.perfumariapdv.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class Venda {
     private Float pagamentoDinheiro;
     private Float pagamentoCartao;
     private Cliente cliente;
-    private List<Produto> itensVenda;
+    private ArrayList<Produto> itensVenda;
 
     public Integer getId() {
         return id;
@@ -60,13 +61,15 @@ public class Venda {
         this.cliente = cliente;
     }
 
-    public List<Produto> getItensVenda() {
+    public ArrayList<Produto> getItensVenda() {
         return itensVenda;
     }
 
-    public void setItensVenda(List<Produto> itensVenda) {
+    public void setItensVenda(ArrayList<Produto> itensVenda) {
         this.itensVenda = itensVenda;
     }
+
+    
     
     
 }
