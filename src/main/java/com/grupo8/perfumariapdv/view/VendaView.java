@@ -493,8 +493,7 @@ public class VendaView extends javax.swing.JInternalFrame {
 //DECLARACOES
 //============================================================================== 
 private VendaConsultaProdutoView consultaProduto;
-public MenuView menuView;
-//private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();    
+public MenuView menuView;  
 private DefaultTableModel tableModel;
 private Produto produto;
 private Venda venda;
@@ -544,13 +543,14 @@ private Venda venda;
         Venda venda = new Venda();
         
         venda = VendaController.obterUltima();
+        Integer ultimaVenda = venda.getId();
         
-        if(venda.getId() == null){
+        if(ultimaVenda == null){
             lbCabecalho.setText("Venda nº 1");
         }
         else{
-            venda.setId(venda.getId()+2);
-            lbCabecalho.setText("Venda nº "+venda.getId());
+            ultimaVenda += 2;
+            lbCabecalho.setText("Venda nº "+ultimaVenda);
         }
     }
     
@@ -739,7 +739,7 @@ private Venda venda;
         //Obtém a tabela para trabalhar nela
         tableModel = (DefaultTableModel) tabelaVenda.getModel();
         
-        if (produto.getNome() != null) 
+        if (!txtProdutoNome.getText().equalsIgnoreCase("Clique aqui para pesquisar o produto...")) 
         {
             //Cria array com valores do produto
             Object[] dadosTabela = new Object[5];
@@ -752,8 +752,10 @@ private Venda venda;
             
             //Adiciona a linha de dados na tabela
             tableModel.addRow(dadosTabela);
+            
+            atualizaSubtotal();
         }
-        atualizaSubtotal();
+        
     }//GEN-LAST:event_btAdicionarItemActionPerformed
     
     //REMOVE ITEM DA VENDA
