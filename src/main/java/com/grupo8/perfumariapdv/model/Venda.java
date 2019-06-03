@@ -11,8 +11,14 @@ public class Venda {
     private Float pagamentoDinheiro;
     private Float pagamentoCartao;
     private Cliente cliente;
-    private ArrayList<Produto> itensVenda;
+    private ArrayList<Produto> itensVenda = new ArrayList<Produto>();
+    
 
+    public Venda() {
+        itensVenda = new ArrayList<Produto>();
+        cliente = new Cliente();
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -61,7 +67,7 @@ public class Venda {
         this.cliente = cliente;
     }
 
-    public ArrayList<Produto> getItensVenda() {
+    public List<Produto> getItensVenda() {
         return itensVenda;
     }
 

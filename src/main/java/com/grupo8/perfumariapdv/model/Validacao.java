@@ -186,5 +186,29 @@ public class Validacao
         return resposta;
     }
     
-    
+    public static boolean vendaCliente(String Nome, String Cpf, String Cidade, 
+            String Logradouro, String Numero){
+        
+        if(Nome.equalsIgnoreCase("") || Nome == "")
+        {
+            return false;
+        }
+        if(Cpf.equalsIgnoreCase("") || Cpf == "")
+        {
+            return false;
+        }
+        if(Cidade.equalsIgnoreCase("") || Cidade == "")
+        {
+            return false;
+        }
+        if(Logradouro.equalsIgnoreCase("") || Logradouro == "")
+        {
+            return false;
+        }
+        if(Numero.equalsIgnoreCase("") || Numero == "")
+        {
+            return false;
+        }
+        return true;
+    }
 }
