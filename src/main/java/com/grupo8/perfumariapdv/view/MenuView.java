@@ -1,6 +1,7 @@
 package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.fonts.FontManager;
+import com.grupo8.perfumariapdv.relogio.AtualizadorHorario;
 import java.awt.Font;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -15,6 +16,7 @@ public class MenuView extends javax.swing.JFrame {
     //INICIALIZAÇÃO DOS COMPONENTES
     public MenuView() {
         initComponents();
+        AtualizadorHorario.start(lbRelogio);
         setLocationRelativeTo(null);
     }
     

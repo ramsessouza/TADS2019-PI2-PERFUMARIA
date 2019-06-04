@@ -873,7 +873,7 @@ private Venda venda;
                         "Subtotal da compra R$"+venda.getSubtotal()+"\n"+
                         "Total pago em Dinheiro R$"+venda.getPagamentoDinheiro()+"\n"+
                         "Total pago em Cartão R$"+venda.getPagamentoCartao()+"\n"+
-                        "Seu troco R$"+troco+"\n\n"+
+                        "Troco R$"+troco+"\n\n"+
                         "Agora você pode consultar sua venda em:\n"+ 
                         "Menu > Relatório",
                     "Informe de registro",
