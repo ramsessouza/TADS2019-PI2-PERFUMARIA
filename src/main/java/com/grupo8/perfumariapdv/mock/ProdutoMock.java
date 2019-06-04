@@ -28,7 +28,7 @@ public class ProdutoMock
         return listaProdutos;
     }
     
-    //PROCURA UM CLIENTE
+    //PROCURA UM PRODUTO
     public static List<Produto> procurar(String nome) throws Exception{
         
         List<Produto> listaResultado = new ArrayList<Produto>();
@@ -89,7 +89,7 @@ public class ProdutoMock
             //se a lista nao tiver dados retorna erro, usar try catch
             throw new Exception("Não há dados para pesquisa");
         }
-        //caso nao achar o cliente desejado
+        //caso nao achar o produto desejado
         return null;
     }
     

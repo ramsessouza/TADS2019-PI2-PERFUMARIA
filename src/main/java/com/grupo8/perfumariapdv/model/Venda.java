@@ -11,12 +11,11 @@ public class Venda {
     private Float pagamentoDinheiro;
     private Float pagamentoCartao;
     private Cliente cliente;
-    private ArrayList<Produto> itensVenda = new ArrayList<Produto>();
+    private ArrayList<ItenVenda> itensVenda = new ArrayList<ItenVenda>();
     
-
     public Venda() {
-        itensVenda = new ArrayList<Produto>();
         cliente = new Cliente();
+        itensVenda = new ArrayList<ItenVenda>();
     }
     
     public Integer getId() {
@@ -67,15 +66,11 @@ public class Venda {
         this.cliente = cliente;
     }
 
-    public List<Produto> getItensVenda() {
+    public List<ItenVenda> getItensVenda() {
         return itensVenda;
     }
 
-    public void setItensVenda(ArrayList<Produto> itensVenda) {
+    public void setItensVenda(ArrayList<ItenVenda> itensVenda) {
         this.itensVenda = itensVenda;
     }
-
-    
-    
-    
 }

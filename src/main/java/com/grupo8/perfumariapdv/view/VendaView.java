@@ -1,9 +1,11 @@
 package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.controller.ClienteController;
+import com.grupo8.perfumariapdv.controller.ItensVendaController;
 import com.grupo8.perfumariapdv.controller.VendaController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.Cliente;
+import com.grupo8.perfumariapdv.model.ItenVenda;
 import com.grupo8.perfumariapdv.model.Produto;
 import com.grupo8.perfumariapdv.model.Validacao;
 import com.grupo8.perfumariapdv.model.Venda;
@@ -205,14 +207,14 @@ public class VendaView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Id", "Nome", "Quantidade", "Valor unitário", "Valor total"
+                "Id ", "id Produto", "Nome", "Quantidade", "Valor unitário", "Valor total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -228,12 +230,14 @@ public class VendaView extends javax.swing.JInternalFrame {
             tabelaVenda.getColumnModel().getColumn(0).setResizable(false);
             tabelaVenda.getColumnModel().getColumn(0).setPreferredWidth(3);
             tabelaVenda.getColumnModel().getColumn(1).setResizable(false);
+            tabelaVenda.getColumnModel().getColumn(1).setPreferredWidth(3);
             tabelaVenda.getColumnModel().getColumn(2).setResizable(false);
-            tabelaVenda.getColumnModel().getColumn(2).setPreferredWidth(3);
             tabelaVenda.getColumnModel().getColumn(3).setResizable(false);
-            tabelaVenda.getColumnModel().getColumn(3).setPreferredWidth(6);
+            tabelaVenda.getColumnModel().getColumn(3).setPreferredWidth(3);
             tabelaVenda.getColumnModel().getColumn(4).setResizable(false);
             tabelaVenda.getColumnModel().getColumn(4).setPreferredWidth(6);
+            tabelaVenda.getColumnModel().getColumn(5).setResizable(false);
+            tabelaVenda.getColumnModel().getColumn(5).setPreferredWidth(6);
         }
 
         jpDadosCliente.setBackground(new java.awt.Color(204, 204, 204));
@@ -531,7 +535,7 @@ private Venda venda;
        
         //faz cálculo de subtotal da compra
         for(int i = 1; i <=tableModel.getRowCount(); i++){
-            subtotal += (Float) tabelaVenda.getValueAt(i-1, 4);   
+            subtotal += (Float) tabelaVenda.getValueAt(i-1, 5);   
         }
         
         //insere valor subtotal da compra na label
@@ -741,14 +745,27 @@ private Venda venda;
         
         if (!txtProdutoNome.getText().equalsIgnoreCase("Clique aqui para pesquisar o produto...")) 
         {
+            Integer idItem;
+                    
+            //pega numero do ultimo item adicionado
+            Integer ultimaLinha = tabelaVenda.getModel().getRowCount();
+            if(ultimaLinha < 1){
+                idItem = 1;
+            }
+            else{
+                idItem = (Integer) tabelaVenda.getValueAt(ultimaLinha-1, 0);
+                idItem +=1;
+            }
+            
             //Cria array com valores do produto
-            Object[] dadosTabela = new Object[5];
+            Object[] dadosTabela = new Object[6];
             //Cada dado na coluna correspondente
-            dadosTabela[0] = produto.getId();
-            dadosTabela[1] = produto.getNome();
-            dadosTabela[2] = produto.getQuantidade();
-            dadosTabela[3] = produto.getValor();
-            dadosTabela[4] = Float.parseFloat(txtProdutoValorTotal.getText());
+            dadosTabela[0] = idItem;
+            dadosTabela[1] = produto.getId();
+            dadosTabela[2] = produto.getNome();
+            dadosTabela[3] = (Integer) jsProdutoQuantidade.getValue();
+            dadosTabela[4] = produto.getValor();
+            dadosTabela[5] = Float.parseFloat(txtProdutoValorTotal.getText());
             
             //Adiciona a linha de dados na tabela
             tableModel.addRow(dadosTabela);
@@ -776,12 +793,13 @@ private Venda venda;
     //REGISTRA A VENDA
     private void btRegistrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVendaActionPerformed
         venda = new Venda();
-        Produto produto = new Produto();
+        ItenVenda itenVenda = new ItenVenda();
         Float valorTotal = 0f;
         Float valorFaltante = 0f;
         Float troco = 0f;
         Integer vendaIndex = Integer.parseInt(lbCabecalho.getText().replaceAll("Venda nº ", ""));
         String respostaController = null;
+        String respostaController2 = null;
         
         //se compra não tiver itens
         if(tabelaVenda.getModel().getRowCount()<1){
@@ -840,16 +858,19 @@ private Venda venda;
         java.util.Date data = new Date();
         venda.setData(data);
         
-        //coloca dados dos itens da venda na instancia
+        //coloca cada item da venda na lista de itens da venda da instancia de venda
         for(int i = 0; i+1 <=tabelaVenda.getModel().getRowCount(); i++){
             //obtem o id dessa linha
-            produto.setId((Integer) tabelaVenda.getValueAt(i, 0));
-            produto.setNome((String) tabelaVenda.getValueAt(i, 1)); 
-            produto.setQuantidade((Integer) tabelaVenda.getValueAt(i, 2));
-            produto.setValor((Float) tabelaVenda.getValueAt(i, 3));
+            itenVenda.setId((Integer) tabelaVenda.getValueAt(i, 0));
+            itenVenda.getProduto().setId((Integer) tabelaVenda.getValueAt(i, 1));
+            itenVenda.getProduto().setNome((String) tabelaVenda.getValueAt(i, 2)); 
+            itenVenda.getProduto().setQuantidade((Integer) tabelaVenda.getValueAt(i, 3));
+            itenVenda.getProduto().setValor((Float) tabelaVenda.getValueAt(i, 4));
             valorTotal = produto.getQuantidade()*produto.getValor();
+            
+            venda.getItensVenda().add(itenVenda);
         }
-        venda.getItensVenda().add(produto);
+        
 
         //coloca dados do cliente da venda na instancia de venda
         venda.getCliente().setNome(txtClienteNomeInfo.getText());
@@ -863,10 +884,32 @@ private Venda venda;
 
             //envia venda para salvar para o controller
             respostaController = VendaController.salvar(venda);
-
-             //verifica resposta do controller
+            
+            //verifica resposta do controller
             if (respostaController == null)//se a resposta for positiva
             {
+                Integer ultimasdas = VendaController.obterUltima().getId();
+                Integer itens = venda.getItensVenda().size();
+                //salva todos os itens da venda
+                for(int i = 0; i < venda.getItensVenda().size(); i++) {
+                    //pega a ultima venda para colocar na instancia de itens da venda
+                    itenVenda.setIdVenda(VendaController.obterUltima().getId());
+                    
+                    //envia item da venda para para o controller salvar
+                    respostaController2 = ItensVendaController.salvar(itenVenda);
+                    //teria que validar se deu certo o insert
+                    //caso contrário deveria fazer expurgo da ultima venda
+                    //e enviar msg ao usuário que houve problemas
+                    System.out.println("ultima venda " +ultimasdas+"\n"
+                        + "id do item "+itenVenda.getId()+"\n"
+                        + "nome do produto "+itenVenda.getProduto().getNome()+"\n"
+                        + "valor do produto "+itenVenda.getProduto().getValor()+"\n"
+                        + "valor quantidade "+itenVenda.getProduto().getQuantidade()+"\n"
+                        + "valor total "+itenVenda.getProduto().getQuantidade()*itenVenda.getProduto().getValor()+"\n"
+                        + "total de itens "+itens+"\n"    
+                    );
+                }
+                
                 troco = (venda.getPagamentoCartao()+venda.getPagamentoDinheiro())-venda.getSubtotal();
                 JOptionPane.showMessageDialog(rootPane,
                     "Venda número "+vendaIndex+ " registrada!\n\n"+
