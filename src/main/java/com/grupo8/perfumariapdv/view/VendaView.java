@@ -514,19 +514,34 @@ private Venda venda;
         Integer quantidadeAtual = (Integer) jsProdutoQuantidade.getValue();
         Float valorTotal = 0f;
         
+        //se quantidade for negativa ou maior que 999 altera o valor para 1
         if (quantidadeAtual<1 || quantidadeAtual >999){
             jsProdutoQuantidade.setValue(1);
             quantidadeAtual = 1;
         }
         
-        //verifica se tem valor no campo "Valor Unitário"
+        //verifica se tem valor no campo "Valor Unitário" para fazer calculo de valor total
         if(!txtProdutoValorUnitario.getText().equals("")){
             Float valorUnitario = Float.parseFloat(txtProdutoValorUnitario.getText());
             valorTotal = quantidadeAtual*valorUnitario;
+            txtProdutoValorTotal.setText(valorTotal.toString());
         }
         
-        txtProdutoValorTotal.setText(valorTotal.toString());
-        
+        //verifica se tem quantidade solicitada de produtos
+        if(produto != null){
+            if(produto.getId() != null){
+                if(produto.getQuantidade()<quantidadeAtual){
+                    //informa ao usuário que não foi possível encontrar o cliente para edição
+                    JOptionPane.showMessageDialog(rootPane, 
+                        "Usuário, a quantidade de produtos solicitadas não existem em estoque! \n"
+                                + "Só existem "+produto.getQuantidade()+" deste produto.",
+                        "Atenção", 
+                        JOptionPane.INFORMATION_MESSAGE);
+                    jsProdutoQuantidade.setValue(produto.getQuantidade());
+                    quantidadeAtual = produto.getQuantidade();
+                }
+            }
+        }
     }
     
     //ATUALIZA O SUBTOTAL DA COMPRA
