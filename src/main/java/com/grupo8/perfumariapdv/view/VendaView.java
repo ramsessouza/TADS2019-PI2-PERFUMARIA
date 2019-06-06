@@ -928,10 +928,10 @@ private Venda venda;
                     //atualiza quantidade de produto em estoque
                     //para cada vez que pegar um item da venda, coloca os dados 
                     //em um produto auxiliar e envia para o controller atualizar
-                    Produto produtoAtualizado = new Produto();
-                    produtoAtualizado.setId(venda.getItensVenda().get(i).getId());
-                    produtoAtualizado.setQuantidade(venda.getItensVenda().get(i).getQuantidade());
-                    respostaController3 = ProdutoController.atualizarEstoque(produtoAtualizado);
+//                    Produto produtoAtualizado = new Produto();
+//                    produtoAtualizado.setId(venda.getItensVenda().get(i).getId());
+//                    produtoAtualizado.setQuantidade(venda.getItensVenda().get(i).getQuantidade());
+//                    respostaController3 = ProdutoController.atualizarEstoque(produtoAtualizado);
                 }
                 
                 //dando tudo certo envia mensagem para usuário o resumo da compra

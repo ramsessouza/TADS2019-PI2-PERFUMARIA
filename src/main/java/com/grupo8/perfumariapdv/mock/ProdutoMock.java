@@ -191,15 +191,15 @@ public class ProdutoMock
             {
                 
                 //pega um produto da lista
-                Produto produtoDesatualizado = listaProdutos.get(contador);
+                //Produto produtoDesatualizado = listaProdutos.get(contador);
                 
                 //verifica se o produto eh valido e com o mesmo id
-                if (produtoDesatualizado != null
-                    && produtoDesatualizado.getId() == produtoAtualizado.getId()) 
+                if (listaProdutos.get(contador) != null
+                    && listaProdutos.get(contador).getId() == produtoAtualizado.getId()) 
                 {
                     //atualiza todos as atributos do produto
-                    produtoDesatualizado.setQuantidade(
-                            produtoAtualizado.getQuantidade());
+                    listaProdutos.get(contador).setQuantidade(
+                            listaProdutos.get(contador).getQuantidade() - produtoAtualizado.getQuantidade());
                     
                     //sinaliza que produto foi atualizado para sair da lista
                     atualizacao = true;
