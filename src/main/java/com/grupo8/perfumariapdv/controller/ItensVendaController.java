@@ -2,6 +2,7 @@ package com.grupo8.perfumariapdv.controller;
 
 import com.grupo8.perfumariapdv.mock.ItensVendaMock;
 import com.grupo8.perfumariapdv.model.ItenVenda;
+import java.util.List;
 
 public class ItensVendaController {
     
@@ -21,23 +22,17 @@ public class ItensVendaController {
         return resposta;
     }
     
-    //OBTER
-    public static ItenVenda obter(Integer id) {
+    //OBTER ITENS DA VEMDA
+    public static List<ItenVenda> obterItens(int idVenda){
+        List<ItenVenda> listaResposta = null;
         
-        //Instancia produto para retornar no fim da funcao
-        ItenVenda itensVenda =  new ItenVenda();
-        
-        try 
-        {
-            //tenta obter o produto procurado
-            itensVenda = ItensVendaMock.obter(id);
-        } 
-        catch (Exception e) 
-        {
-            //em caso de erro imprime erro 
+        //Tenta fazer a busca dos dados 
+        try{
+            listaResposta = ItensVendaMock.obterItens(idVenda);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return itensVenda;
+        return listaResposta;
     }
 }

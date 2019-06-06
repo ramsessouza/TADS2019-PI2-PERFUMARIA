@@ -1,10 +1,10 @@
 package com.grupo8.perfumariapdv.model;
 
-public class ItenVenda {
+public class ItenVenda extends Produto{
     
     private Integer idVenda;
-    private Integer id;
-    private Produto produto = new Produto();
+    private Integer idItem;
+    private Float valorTotal;
 
     public Integer getIdVenda() {
         return idVenda;
@@ -14,20 +14,19 @@ public class ItenVenda {
         this.idVenda = idVenda;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdItem() {
+        return idItem;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdItem(Integer idItem) {
+        this.idItem = idItem;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public Float getValorTotal() {
+        return valorTotal;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setValorTotal(Float valorTotal) {
+        this.valorTotal = valorTotal;
     }
-   
 }

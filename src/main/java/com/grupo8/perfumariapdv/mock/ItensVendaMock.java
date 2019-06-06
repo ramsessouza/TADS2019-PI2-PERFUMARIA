@@ -2,6 +2,7 @@ package com.grupo8.perfumariapdv.mock;
 
 import com.grupo8.perfumariapdv.model.ItenVenda;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItensVendaMock 
 {
@@ -19,34 +20,38 @@ public class ItensVendaMock
     }
     
     //OBTER UMA LISTA DE VENDAS
-    public static ItenVenda obter(int idVenda) throws Exception {
-        //verifica se a lista tem dados
+    public static List<ItenVenda> obterItens(int idVenda) throws Exception{
+        
+        List<ItenVenda> listaResultado = new ArrayList<ItenVenda>();
+        
+        //verifica se tem dados na lista
         if (listaItensVenda.size() > 0) {
             
-            //percorre a lista
+            //passa pela lista
             int contadorPosicao = 0;
-            while (contadorPosicao < listaItensVenda.size()) 
-            {
-                //obtém um produto da lista
-                ItenVenda itensVendaAuxiliar = listaItensVenda.get(contadorPosicao);
-                //verifica se é um produto válido com id desejado
-                if (itensVendaAuxiliar != null
-                        && itensVendaAuxiliar.getIdVenda()!= null
-                        && itensVendaAuxiliar.getIdVenda()== idVenda) 
+            while (contadorPosicao < listaItensVenda.size()) {
+
+                //coloca os dados num produto auxiliar para comparacao
+                ItenVenda itenVendaAuxiliar = listaItensVenda.get(contadorPosicao);
+                //Verifica se é um objeti válido
+                if (itenVendaAuxiliar != null && itenVendaAuxiliar.getIdVenda()!= null) 
                 {
-                    //retorna o produto procurado
-                    return itensVendaAuxiliar;
+                    //Verifica se contem valor pesquisado
+                    if (itenVendaAuxiliar.getIdVenda() == idVenda) 
+                    {
+                        //coloca todos os resultados de produto na lisata para retorno
+                        listaItensVenda.add(itenVendaAuxiliar);
+                    }
                 }
                 contadorPosicao++;
             }
         }
-        else 
+        else
         {
-            //se a lista nao tiver dados retorna erro, usar try catch
+            //caso a lista esteja vazia retorna erro
             throw new Exception("Não há dados para pesquisa");
         }
-        //caso nao achar o itens de venda desejado
-        return null;
+        return listaResultado;
     }
     
 }

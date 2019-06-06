@@ -207,7 +207,7 @@ public class VendaView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Id ", "id Produto", "Nome", "Quantidade", "Valor unitário", "Valor total"
+                "Id do Item", "id do Produto", "Nome", "Quantidade", "Valor unitário", "Valor total"
             }
         ) {
             Class[] types = new Class [] {
@@ -861,14 +861,27 @@ private Venda venda;
         //coloca cada item da venda na lista de itens da venda da instancia de venda
         for(int i = 0; i+1 <=tabelaVenda.getModel().getRowCount(); i++){
             //obtem o id dessa linha
+            itenVenda.setIdVenda(Integer.parseInt(lbCabecalho.getText().replaceAll("Venda nº ", "")));
             itenVenda.setId((Integer) tabelaVenda.getValueAt(i, 0));
-            itenVenda.getProduto().setId((Integer) tabelaVenda.getValueAt(i, 1));
-            itenVenda.getProduto().setNome((String) tabelaVenda.getValueAt(i, 2)); 
-            itenVenda.getProduto().setQuantidade((Integer) tabelaVenda.getValueAt(i, 3));
-            itenVenda.getProduto().setValor((Float) tabelaVenda.getValueAt(i, 4));
-            valorTotal = produto.getQuantidade()*produto.getValor();
+            itenVenda.setIdItem((Integer) tabelaVenda.getValueAt(i, 1));
+            itenVenda.setNome((String) tabelaVenda.getValueAt(i, 2)); 
+            itenVenda.setQuantidade((Integer) tabelaVenda.getValueAt(i, 3));
+            itenVenda.setValor((Float) tabelaVenda.getValueAt(i, 4));
+            itenVenda.setValorTotal(itenVenda.getQuantidade()*itenVenda.getValor());
             
             venda.getItensVenda().add(itenVenda);
+            
+            //USANDO SO PARA TESTE----------------------------------------------
+            Integer itens = venda.getItensVenda().size();
+            System.out.println("ultima venda " +itenVenda.getIdVenda()+"\n"
+                + "id do item "+itenVenda.getId()+"\n"
+                + "nome do produto "+itenVenda.getNome()+"\n"
+                + "valor do produto "+itenVenda.getValor()+"\n"
+                + "quantidade "+itenVenda.getQuantidade()+"\n"
+                + "valor total "+itenVenda.getValorTotal()+"\n"
+                + "total de itens "+itens+"\n"    
+            );
+            //------------------------------------------------------------------
         }
         
 
@@ -885,31 +898,17 @@ private Venda venda;
             //envia venda para salvar para o controller
             respostaController = VendaController.salvar(venda);
             
-            //verifica resposta do controller
-            if (respostaController == null)//se a resposta for positiva
+            //se a resposta for positiva salva os itens da venda
+            if (respostaController == null)
             {
-                Integer ultimasdas = VendaController.obterUltima().getId();
-                Integer itens = venda.getItensVenda().size();
-                //salva todos os itens da venda
+                //salva todos os itens da venda - (faz loop na lista de itens)
                 for(int i = 0; i < venda.getItensVenda().size(); i++) {
-                    //pega a ultima venda para colocar na instancia de itens da venda
-                    itenVenda.setIdVenda(VendaController.obterUltima().getId());
                     
                     //envia item da venda para para o controller salvar
                     respostaController2 = ItensVendaController.salvar(itenVenda);
-                    //teria que validar se deu certo o insert
-                    //caso contrário deveria fazer expurgo da ultima venda
-                    //e enviar msg ao usuário que houve problemas
-                    System.out.println("ultima venda " +ultimasdas+"\n"
-                        + "id do item "+itenVenda.getId()+"\n"
-                        + "nome do produto "+itenVenda.getProduto().getNome()+"\n"
-                        + "valor do produto "+itenVenda.getProduto().getValor()+"\n"
-                        + "valor quantidade "+itenVenda.getProduto().getQuantidade()+"\n"
-                        + "valor total "+itenVenda.getProduto().getQuantidade()*itenVenda.getProduto().getValor()+"\n"
-                        + "total de itens "+itens+"\n"    
-                    );
                 }
                 
+                //dando tudo certo envia mensagem para usuário o resumo da compra
                 troco = (venda.getPagamentoCartao()+venda.getPagamentoDinheiro())-venda.getSubtotal();
                 JOptionPane.showMessageDialog(rootPane,
                     "Venda número "+vendaIndex+ " registrada!\n\n"+
@@ -937,7 +936,8 @@ private Venda venda;
                     "Erro", 
                     JOptionPane.ERROR_MESSAGE);
             } 
-        }else{//se o valor pago for menor que o valor da compra
+        //se o valor pago for menor que o valor da compra
+        }else{
             valorFaltante = venda.getSubtotal()-(venda.getPagamentoCartao()+venda.getPagamentoDinheiro());
             //Exibe mensagens de erro para o usuário
             JOptionPane.showMessageDialog(rootPane, 
@@ -948,8 +948,7 @@ private Venda venda;
                 "Complete o e tente novamente.",
                 "Venda não registrada", 
                 JOptionPane.ERROR_MESSAGE);
-        }
-       
+        }       
     }//GEN-LAST:event_btRegistrarVendaActionPerformed
     
     //SELECIONA TIPO PAGAMENTO DINHEIRO
