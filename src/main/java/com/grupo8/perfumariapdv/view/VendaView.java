@@ -2,6 +2,7 @@ package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.controller.ClienteController;
 import com.grupo8.perfumariapdv.controller.ItensVendaController;
+import com.grupo8.perfumariapdv.controller.ProdutoController;
 import com.grupo8.perfumariapdv.controller.VendaController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.Cliente;
@@ -815,6 +816,8 @@ private Venda venda;
         Integer vendaIndex = Integer.parseInt(lbCabecalho.getText().replaceAll("Venda nº ", ""));
         String respostaController = null;
         String respostaController2 = null;
+        String respostaController3 = null;
+
         
         //se compra não tiver itens
         if(tabelaVenda.getModel().getRowCount()<1){
@@ -883,20 +886,19 @@ private Venda venda;
             itenVenda.setQuantidade((Integer) tabelaVenda.getValueAt(i, 3));
             itenVenda.setValor((Float) tabelaVenda.getValueAt(i, 4));
             itenVenda.setValorTotal(itenVenda.getQuantidade()*itenVenda.getValor());
+            venda.getItensVenda().set(i+1, itenVenda);
             
-            venda.getItensVenda().add(itenVenda);
-            
-            //USANDO SO PARA TESTE----------------------------------------------
+            //USANDO SO PARA TESTE-------------------------------------------------------------------AQUIIIIIIIII
             Integer itens = venda.getItensVenda().size();
-            System.out.println("ultima venda " +itenVenda.getIdVenda()+"\n"
-                + "id do item "+itenVenda.getId()+"\n"
-                + "nome do produto "+itenVenda.getNome()+"\n"
-                + "valor do produto "+itenVenda.getValor()+"\n"
-                + "quantidade "+itenVenda.getQuantidade()+"\n"
-                + "valor total "+itenVenda.getValorTotal()+"\n"
+            System.out.println("ultima venda " +venda.getItensVenda().get(i).getIdVenda()+"\n"
+                + "id do item "+venda.getItensVenda().get(i).getId()+"\n"
+                + "nome do produto "+venda.getItensVenda().get(i).getNome()+"\n"
+                + "valor do produto "+venda.getItensVenda().get(i).getValor()+"\n"
+                + "quantidade "+venda.getItensVenda().get(i).getQuantidade()+"\n"
+                + "valor total "+venda.getItensVenda().get(i).getValorTotal()+"\n"
                 + "total de itens "+itens+"\n"    
             );
-            //------------------------------------------------------------------
+            //----------------------------------------------------------
         }
         
 
@@ -920,7 +922,23 @@ private Venda venda;
                 for(int i = 0; i < venda.getItensVenda().size(); i++) {
                     
                     //envia item da venda para para o controller salvar
-                    respostaController2 = ItensVendaController.salvar(itenVenda);
+                    respostaController2 = ItensVendaController.salvar(venda.getItensVenda().get(i));
+                    
+                    //USANDO SO PARA TESTE--------------------------------------
+                    Integer itens = venda.getItensVenda().size();
+                    System.out.println("ultima venda " +venda.getItensVenda().get(i).getIdVenda()+"\n"
+                        + "id do item "+venda.getItensVenda().get(i).getId()+"\n"
+                        + "nome do produto "+venda.getItensVenda().get(i).getNome()+"\n"
+                        + "valor do produto "+venda.getItensVenda().get(i).getValor()+"\n"
+                        + "quantidade "+venda.getItensVenda().get(i).getQuantidade()+"\n"
+                        + "valor total "+venda.getItensVenda().get(i).getValorTotal()+"\n"
+                        + "total de itens "+itens+"\n"    
+                    );
+                    //----------------------------------------------------------
+                    
+                    //atualiza quantidade de produto em estoque
+                    //tenho que colocar o produto com a quantidade atualizada numa instancia qualquer
+                    //respostaController3 = ProdutoController.atualizar()
                 }
                 
                 //dando tudo certo envia mensagem para usuário o resumo da compra
