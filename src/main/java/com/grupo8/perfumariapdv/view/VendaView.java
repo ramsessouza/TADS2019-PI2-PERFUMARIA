@@ -6,7 +6,7 @@ import com.grupo8.perfumariapdv.controller.ProdutoController;
 import com.grupo8.perfumariapdv.controller.VendaController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.Cliente;
-import com.grupo8.perfumariapdv.model.ItenVenda;
+import com.grupo8.perfumariapdv.model.ItemVenda;
 import com.grupo8.perfumariapdv.model.Produto;
 import com.grupo8.perfumariapdv.model.Validacao;
 import com.grupo8.perfumariapdv.model.Venda;
@@ -809,7 +809,7 @@ private Venda venda;
     //REGISTRA A VENDA
     private void btRegistrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVendaActionPerformed
         venda = new Venda();
-        ItenVenda itenVenda = new ItenVenda();
+        ItemVenda itemVenda = new ItemVenda();
         Float valorTotal = 0f;
         Float valorFaltante = 0f;
         Float troco = 0f;
@@ -870,38 +870,27 @@ private Venda venda;
         }
         
         //coloca dados da venda na instancia
-        venda.setPagamentoCartao(Float.parseFloat(txtPagamentoCartao.getText().replaceAll(",", ".")));
-        venda.setPagamentoDinheiro(Float.parseFloat(txtPagamentoDinheiro.getText().replaceAll(",", ".")));
-        venda.setSubtotal(Float.parseFloat(txtSubtotal.getText()));
+        venda.setId(Integer.parseInt(lbCabecalho.getText().replaceAll("Venda nº ", "")));
         java.util.Date data = new Date();
         venda.setData(data);
+        venda.setSubtotal(Float.parseFloat(txtSubtotal.getText()));
+        venda.setPagamentoDinheiro(Float.parseFloat(txtPagamentoDinheiro.getText().replaceAll(",", ".")));
+        venda.setPagamentoCartao(Float.parseFloat(txtPagamentoCartao.getText().replaceAll(",", ".")));
         
         //coloca cada item da venda na lista de itens da venda da instancia de venda
         for(int i = 0; i+1 <=tabelaVenda.getModel().getRowCount(); i++){
             //obtem o id dessa linha
-            itenVenda.setIdVenda(Integer.parseInt(lbCabecalho.getText().replaceAll("Venda nº ", "")));
-            itenVenda.setId((Integer) tabelaVenda.getValueAt(i, 0));
-            itenVenda.setIdItem((Integer) tabelaVenda.getValueAt(i, 1));
-            itenVenda.setNome((String) tabelaVenda.getValueAt(i, 2)); 
-            itenVenda.setQuantidade((Integer) tabelaVenda.getValueAt(i, 3));
-            itenVenda.setValor((Float) tabelaVenda.getValueAt(i, 4));
-            itenVenda.setValorTotal(itenVenda.getQuantidade()*itenVenda.getValor());
-            venda.getItensVenda().set(i+1, itenVenda);
+            itemVenda.setIdVenda(venda.getId());
+            itemVenda.setIdItem((Integer) tabelaVenda.getValueAt(i, 0));
+            itemVenda.setId((Integer) tabelaVenda.getValueAt(i, 1));
+            itemVenda.setNome((String) tabelaVenda.getValueAt(i, 2)); 
+            itemVenda.setQuantidade((Integer) tabelaVenda.getValueAt(i, 3));
+            itemVenda.setValor((Float) tabelaVenda.getValueAt(i, 4));
+            itemVenda.setValorTotal(itemVenda.getQuantidade()*itemVenda.getValor());
             
-            //USANDO SO PARA TESTE-------------------------------------------------------------------AQUIIIIIIIII
-            Integer itens = venda.getItensVenda().size();
-            System.out.println("ultima venda " +venda.getItensVenda().get(i).getIdVenda()+"\n"
-                + "id do item "+venda.getItensVenda().get(i).getId()+"\n"
-                + "nome do produto "+venda.getItensVenda().get(i).getNome()+"\n"
-                + "valor do produto "+venda.getItensVenda().get(i).getValor()+"\n"
-                + "quantidade "+venda.getItensVenda().get(i).getQuantidade()+"\n"
-                + "valor total "+venda.getItensVenda().get(i).getValorTotal()+"\n"
-                + "total de itens "+itens+"\n"    
-            );
-            //----------------------------------------------------------
+            venda.adicionarItem(itemVenda);
         }
         
-
         //coloca dados do cliente da venda na instancia de venda
         venda.getCliente().setNome(txtClienteNomeInfo.getText());
         venda.getCliente().setCpf(txtClienteCpfInfo.getText());
@@ -925,20 +914,24 @@ private Venda venda;
                     respostaController2 = ItensVendaController.salvar(venda.getItensVenda().get(i));
                     
                     //USANDO SO PARA TESTE--------------------------------------
-                    Integer itens = venda.getItensVenda().size();
-                    System.out.println("ultima venda " +venda.getItensVenda().get(i).getIdVenda()+"\n"
-                        + "id do item "+venda.getItensVenda().get(i).getId()+"\n"
-                        + "nome do produto "+venda.getItensVenda().get(i).getNome()+"\n"
-                        + "valor do produto "+venda.getItensVenda().get(i).getValor()+"\n"
-                        + "quantidade "+venda.getItensVenda().get(i).getQuantidade()+"\n"
-                        + "valor total "+venda.getItensVenda().get(i).getValorTotal()+"\n"
-                        + "total de itens "+itens+"\n"    
-                    );
+//                    Integer itens = venda.getItensVenda().size();
+//                    System.out.println("ultima venda " +venda.getItensVenda().get(i).getIdVenda()+"\n"
+//                        + "id do item "+venda.getItensVenda().get(i).getId()+"\n"
+//                        + "nome do produto "+venda.getItensVenda().get(i).getNome()+"\n"
+//                        + "valor do produto "+venda.getItensVenda().get(i).getValor()+"\n"
+//                        + "quantidade "+venda.getItensVenda().get(i).getQuantidade()+"\n"
+//                        + "valor total "+venda.getItensVenda().get(i).getValorTotal()+"\n"
+//                        + "total de itens "+itens+"\n"    
+//                    );
                     //----------------------------------------------------------
                     
                     //atualiza quantidade de produto em estoque
-                    //tenho que colocar o produto com a quantidade atualizada numa instancia qualquer
-                    //respostaController3 = ProdutoController.atualizar()
+                    //para cada vez que pegar um item da venda, coloca os dados 
+                    //em um produto auxiliar e envia para o controller atualizar
+                    Produto produtoAtualizado = new Produto();
+                    produtoAtualizado.setId(venda.getItensVenda().get(i).getId());
+                    produtoAtualizado.setQuantidade(venda.getItensVenda().get(i).getQuantidade());
+                    respostaController3 = ProdutoController.atualizarEstoque(produtoAtualizado);
                 }
                 
                 //dando tudo certo envia mensagem para usuário o resumo da compra

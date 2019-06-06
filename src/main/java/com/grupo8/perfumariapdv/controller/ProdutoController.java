@@ -99,4 +99,23 @@ public class ProdutoController {
         return produto;
         
     }
+    
+    //ATUALIZA A QUANTIDADE DO PRODUTO EM ESTOQUE
+    public static String atualizarEstoque(Produto produto) 
+    {
+        String resposta = null;
+
+        try
+        {
+            //tenta fazer a atualização
+            ProdutoMock.atualizarEstoque(produto);
+        } 
+        catch (Exception e) 
+        {   
+            //em caso de erro retorna para a classe que chamou com o erro
+            e.printStackTrace();
+            resposta = "Erro na fonte de dados";
+        }
+        return resposta;        
+    }
 }

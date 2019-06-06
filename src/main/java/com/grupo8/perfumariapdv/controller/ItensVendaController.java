@@ -1,13 +1,13 @@
 package com.grupo8.perfumariapdv.controller;
 
 import com.grupo8.perfumariapdv.mock.ItensVendaMock;
-import com.grupo8.perfumariapdv.model.ItenVenda;
+import com.grupo8.perfumariapdv.model.ItemVenda;
 import java.util.List;
 
 public class ItensVendaController {
     
     //SALVAR
-    public static String salvar(ItenVenda itensVenda){
+    public static String salvar(ItemVenda itensVenda){
         
         String resposta = null;
         
@@ -23,8 +23,8 @@ public class ItensVendaController {
     }
     
     //OBTER ITENS DA VEMDA
-    public static List<ItenVenda> obterItens(int idVenda){
-        List<ItenVenda> listaResposta = null;
+    public static List<ItemVenda> obterItens(int idVenda){
+        List<ItemVenda> listaResposta = null;
         
         //Tenta fazer a busca dos dados 
         try{

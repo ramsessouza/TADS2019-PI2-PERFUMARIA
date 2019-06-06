@@ -11,11 +11,11 @@ public class Venda {
     private Float pagamentoDinheiro;
     private Float pagamentoCartao;
     private Cliente cliente;
-    private ArrayList<ItenVenda> itensVenda = new ArrayList<ItenVenda>();
+    private ArrayList<ItemVenda> itensVenda = new ArrayList<ItemVenda>();
     
     public Venda() {
         cliente = new Cliente();
-        itensVenda = new ArrayList<ItenVenda>();
+        itensVenda = new ArrayList<ItemVenda>();
     }
     
     public Integer getId() {
@@ -66,11 +66,16 @@ public class Venda {
         this.cliente = cliente;
     }
 
-    public List<ItenVenda> getItensVenda() {
+    public ArrayList<ItemVenda> getItensVenda() {
         return itensVenda;
     }
 
-    public void setItensVenda(ArrayList<ItenVenda> itensVenda) {
+    public void setItensVenda(ArrayList<ItemVenda> itensVenda) {
         this.itensVenda = itensVenda;
     }
+    
+    public void adicionarItem(ItemVenda itemVenda){
+        this.itensVenda.add(itemVenda);
+    }
+    
 }

@@ -1,28 +1,28 @@
 package com.grupo8.perfumariapdv.mock;
 
-import com.grupo8.perfumariapdv.model.ItenVenda;
+import com.grupo8.perfumariapdv.model.ItemVenda;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItensVendaMock 
 {
     //INSTANCIA DE LISTA ITENSVENDA
-    private static ArrayList<ItenVenda> listaItensVenda = new ArrayList<ItenVenda>();
+    private static ArrayList<ItemVenda> listaItensVenda = new ArrayList<ItemVenda>();
     
     //CONSTRUTOR DA CLASSE ITENSVENDAMOCK INICIANDO A LISTA ITENSVENDA
     public ItensVendaMock(){
-        listaItensVenda = new ArrayList<ItenVenda>();
+        listaItensVenda = new ArrayList<ItemVenda>();
     }
     
     //SALVA UMA ITENSVENDA NA LISTA/TABELA DE ITENSVENDA
-    public static void salvar(ItenVenda itensVenda) throws Exception {
+    public static void salvar(ItemVenda itensVenda) throws Exception {
         listaItensVenda.add(itensVenda);
     }
     
     //OBTER UMA LISTA DE VENDAS
-    public static List<ItenVenda> obterItens(int idVenda) throws Exception{
+    public static List<ItemVenda> obterItens(int idVenda) throws Exception{
         
-        List<ItenVenda> listaResultado = new ArrayList<ItenVenda>();
+        List<ItemVenda> listaResultado = new ArrayList<ItemVenda>();
         
         //verifica se tem dados na lista
         if (listaItensVenda.size() > 0) {
@@ -32,15 +32,15 @@ public class ItensVendaMock
             while (contadorPosicao < listaItensVenda.size()) {
 
                 //coloca os dados num produto auxiliar para comparacao
-                ItenVenda itenVendaAuxiliar = listaItensVenda.get(contadorPosicao);
+                ItemVenda itemVendaAuxiliar = listaItensVenda.get(contadorPosicao);
                 //Verifica se é um objeti válido
-                if (itenVendaAuxiliar != null && itenVendaAuxiliar.getIdVenda()!= null) 
+                if (itemVendaAuxiliar != null && itemVendaAuxiliar.getIdVenda()!= null) 
                 {
                     //Verifica se contem valor pesquisado
-                    if (itenVendaAuxiliar.getIdVenda() == idVenda) 
+                    if (itemVendaAuxiliar.getIdVenda() == idVenda) 
                     {
                         //coloca todos os resultados de produto na lisata para retorno
-                        listaItensVenda.add(itenVendaAuxiliar);
+                        listaItensVenda.add(itemVendaAuxiliar);
                     }
                 }
                 contadorPosicao++;
