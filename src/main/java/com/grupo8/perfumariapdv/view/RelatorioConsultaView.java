@@ -1,9 +1,14 @@
 package com.grupo8.perfumariapdv.view;
 
+import com.grupo8.perfumariapdv.controller.ItensVendaController;
 import com.grupo8.perfumariapdv.controller.ProdutoController;
+import com.grupo8.perfumariapdv.controller.VendaController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
+import com.grupo8.perfumariapdv.model.ItemVenda;
+import com.grupo8.perfumariapdv.model.Venda;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,15 +28,15 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 
         jpCabecalho = new javax.swing.JPanel();
         lbCabecalho = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbDataInicial = new javax.swing.JLabel();
+        dcDataInicial = new datechooser.beans.DateChooserCombo();
+        lbDataFinal = new javax.swing.JLabel();
+        dcDataFinal = new datechooser.beans.DateChooserCombo();
         btnPesquisar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
-        btnSair = new javax.swing.JButton();
-        btnDeletar = new javax.swing.JButton();
-        dateChooserCombo3 = new datechooser.beans.DateChooserCombo();
         jScrollPane1 = new javax.swing.JScrollPane();
         vendasTabela = new javax.swing.JTable();
+        btnSair = new javax.swing.JButton();
+        btnDetalhes = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -88,9 +93,19 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                     .addContainerGap()))
         );
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Data inicial");
+        lbDataInicial.setBackground(new java.awt.Color(0, 0, 0));
+        lbDataInicial.setForeground(new java.awt.Color(0, 0, 0));
+        lbDataInicial.setText("Data inicial");
+
+        dcDataInicial.setCalendarBackground(new java.awt.Color(255, 255, 255));
+        dcDataInicial.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
+
+        lbDataFinal.setBackground(new java.awt.Color(0, 0, 0));
+        lbDataFinal.setForeground(new java.awt.Color(0, 0, 0));
+        lbDataFinal.setText("Data Final");
+
+        dcDataFinal.setCalendarBackground(new java.awt.Color(255, 255, 255));
+        dcDataFinal.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
 
         btnPesquisar.setBackground(new java.awt.Color(17, 128, 216));
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,78 +116,45 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Data Final");
-
-        dateChooserCombo2.setCalendarBackground(new java.awt.Color(255, 255, 255));
-        dateChooserCombo2.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
-
-        btnSair.setBackground(new java.awt.Color(102, 102, 102));
-        btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
-        btnSair.setMaximumSize(new java.awt.Dimension(79, 32));
-        btnSair.setMinimumSize(new java.awt.Dimension(79, 32));
-        btnSair.setPreferredSize(new java.awt.Dimension(79, 32));
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
-
-        btnDeletar.setBackground(new java.awt.Color(0, 102, 51));
-        btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeletar.setText("Detalhes");
-        btnDeletar.setMaximumSize(new java.awt.Dimension(79, 32));
-        btnDeletar.setMinimumSize(new java.awt.Dimension(79, 32));
-        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeletarActionPerformed(evt);
-            }
-        });
-
-        dateChooserCombo3.setCalendarBackground(new java.awt.Color(255, 255, 255));
-        dateChooserCombo3.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
-
         vendasTabela.setBackground(new java.awt.Color(255, 255, 255));
         vendasTabela.setForeground(new java.awt.Color(255, 255, 255));
         vendasTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Data", "Cliente", "Total itens", "Valort total", "Pagamento"
+                "Id", "Data", "Cliente", "Total itens", "Subtotal", "PG Dinheiro", "PG Cartão"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -189,12 +171,42 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(vendasTabela);
         if (vendasTabela.getColumnModel().getColumnCount() > 0) {
             vendasTabela.getColumnModel().getColumn(0).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(0).setPreferredWidth(3);
             vendasTabela.getColumnModel().getColumn(1).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(1).setPreferredWidth(10);
             vendasTabela.getColumnModel().getColumn(2).setResizable(false);
             vendasTabela.getColumnModel().getColumn(3).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(3).setPreferredWidth(3);
             vendasTabela.getColumnModel().getColumn(4).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(4).setPreferredWidth(6);
             vendasTabela.getColumnModel().getColumn(5).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(5).setPreferredWidth(6);
+            vendasTabela.getColumnModel().getColumn(6).setResizable(false);
+            vendasTabela.getColumnModel().getColumn(6).setPreferredWidth(6);
         }
+
+        btnSair.setBackground(new java.awt.Color(102, 102, 102));
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setText("Sair");
+        btnSair.setMaximumSize(new java.awt.Dimension(79, 32));
+        btnSair.setMinimumSize(new java.awt.Dimension(79, 32));
+        btnSair.setPreferredSize(new java.awt.Dimension(79, 32));
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        btnDetalhes.setBackground(new java.awt.Color(0, 102, 51));
+        btnDetalhes.setForeground(new java.awt.Color(255, 255, 255));
+        btnDetalhes.setText("Detalhes");
+        btnDetalhes.setMaximumSize(new java.awt.Dimension(79, 32));
+        btnDetalhes.setMinimumSize(new java.awt.Dimension(79, 32));
+        btnDetalhes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetalhesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -209,12 +221,12 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbDataInicial)
+                            .addComponent(dcDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbDataFinal)
+                            .addComponent(dcDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnPesquisar)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -222,7 +234,7 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -233,19 +245,19 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(lbDataInicial)
+                            .addComponent(lbDataFinal))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(dcDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dcDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnPesquisar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -264,7 +276,7 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 //==============================================================================
 //FUNÇÕES
 //==============================================================================
-    //NAO ESTA SENDO USADO
+    //LIMPA TABELA DE VENDAS
     public void tableModelLimpar(){
         
         if(tableModel==null)
@@ -278,11 +290,70 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
     
     //PESQUISAR PRODUTO
     public void pesquisar(){
-//        List<Produto> resultado = ProdutoController.procurar(
-//                txtProdutoNome.getText());
+        List<Venda> resultado = VendaController.procurar(
+                null,null);
+        
+        //Obtém a tabela para trabalhar nela
+        tableModel = (DefaultTableModel) vendasTabela.getModel();
+        
+        //Limpa resultados anteriores
+        tableModel.setRowCount(0);
+        
+        if (resultado != null && resultado.size() > 0)
+        {
+            //Percorre a lista de resultados e os adiciona na tabela
+            for (int i = 0; i < resultado.size(); i++) 
+            {
+                
+                //Obtém cada item da lista de resultados
+                Venda venda = resultado.get(i);
+
+                if (venda != null) 
+                {
+                    //Cria arrai com resultados
+                    Object[] dadosTabela = new Object[7];
+                    //Cada dado na coluna correspondente
+                    dadosTabela[0] = venda.getId();
+                    //dadosTabela[1] = venda.getData().toString();
+                    dadosTabela[1] = venda.getDataString();
+                    dadosTabela[2] = venda.getCliente().getNome();
+                    dadosTabela[3] = venda.getItensVenda().size();
+                    dadosTabela[4] = venda.getSubtotal();
+                    dadosTabela[5] = venda.getPagamentoDinheiro();
+                    dadosTabela[6] = venda.getPagamentoCartao();
+
+                    //Adiciona a linha de dados na tabela
+                    tableModel.addRow(dadosTabela);
+                }
+            }
+        }else{
+
+            //Caso a pesquisa não tenha retornado resultados
+            JOptionPane.showMessageDialog(rootPane,
+                    "Não existem resultados para a sua pesquisa!",
+                    "Não há dados",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+//==============================================================================
+//EVENTOS
+//============================================================================== 
+    //DETALHES DA VENDA
+    private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
+        //obtem a linha da tabela
+        int row = vendasTabela.getSelectedRow();
+        
+        //obtem o id dessa linha
+        Integer idVenda = (Integer) vendasTabela.getValueAt(row, 0);
+        
+        List<ItemVenda> resultado = ItensVendaController.obterItens(idVenda);
+        
+//        ItensVendaView itensVendaView = new ItensVendaView(this,true);
+//        itensVendaView.setVisible(true);
 //        
 //        //Obtém a tabela para trabalhar nela
-//        tableModel = (DefaultTableModel) produtoTabela.getModel();
+//        tableModel = (DefaultTableModel) vendasTabela.getModel();
 //        
 //        //Limpa resultados anteriores
 //        tableModel.setRowCount(0);
@@ -298,7 +369,7 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 //
 //                if (produto != null) 
 //                {
-//                    //Cria arrai com resultados
+//                    //Cria array com resultados
 //                    Object[] dadosTabela = new Object[6];
 //                    //Cada dado na coluna correspondente
 //                    dadosTabela[0] = produto.getId();
@@ -320,57 +391,9 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 //                    "Não há dados",
 //                    JOptionPane.ERROR_MESSAGE);
 //        }
-    }
-    
-//==============================================================================
-//EVENTOS
-//============================================================================== 
-    //DELETAR PRODUTO 
-    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-        //verifica se tem dados na tabela visual
-        if (vendasTabela.getSelectedRow() >= 0) 
-        {
-            //Obtém a linha do item selecionado na tabela visual
-            final int row = vendasTabela.getSelectedRow();
-
-            //obtem nome do produto para confirmar exclusao
-            String nome = (String) vendasTabela.getValueAt(row, 1);
-
-            //Mostra o diálogo de confirmação de exclusão
-            int respostaConfirmacao = JOptionPane.showConfirmDialog(
-                    rootPane,
-                    "Excluir o produto \"" + nome + "\"?",
-                    "Confirmar exclusão", 
-                    JOptionPane.YES_NO_OPTION);
-
-            //verifica se sim ou nao para exclusao
-            if (respostaConfirmacao == JOptionPane.YES_OPTION) 
-            {
-                //Obtém o ID do produto da tabela visual
-                Integer idProduto = (Integer) vendasTabela.getValueAt(row, 0);
-
-                //Solicita ao serviço a exclusão do produto com o ID
-                String respostaController = ProdutoController.excluir(idProduto);
-                
-                //verifica se deu certo a exclusao
-                if (respostaController == null) 
-                {   
-                    //pesquisa novamente para exibir os dados modificados
-                    pesquisar();
-                } 
-                else 
-                {
-                    //Exibe a mensagem de erro ao usuário
-                    JOptionPane.showMessageDialog(
-                            rootPane, 
-                            respostaController 
-                                    +"\n Procure o administrador do sistema!",
-                            "Falha na Exclusão", 
-                            JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }
-    }//GEN-LAST:event_btnDeletarActionPerformed
+        
+   
+    }//GEN-LAST:event_btnDetalhesActionPerformed
     
     //PESQUISAR PRODUTO
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -401,16 +424,16 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 //NAO MEXER
 //==============================================================================
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDeletar;
+    private javax.swing.JButton btnDetalhes;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
-    private datechooser.beans.DateChooserCombo dateChooserCombo2;
-    private datechooser.beans.DateChooserCombo dateChooserCombo3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private datechooser.beans.DateChooserCombo dcDataFinal;
+    private datechooser.beans.DateChooserCombo dcDataInicial;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpCabecalho;
     private javax.swing.JLabel lbCabecalho;
+    private javax.swing.JLabel lbDataFinal;
+    private javax.swing.JLabel lbDataInicial;
     private javax.swing.JTable vendasTabela;
     // End of variables declaration//GEN-END:variables
 }

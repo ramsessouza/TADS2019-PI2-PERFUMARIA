@@ -569,7 +569,7 @@ private Venda venda;
             lbCabecalho.setText("Venda nº 1");
         }
         else{
-            ultimaVenda += 2;
+            ultimaVenda += 1;
             lbCabecalho.setText("Venda nº "+ultimaVenda);
         }
     }

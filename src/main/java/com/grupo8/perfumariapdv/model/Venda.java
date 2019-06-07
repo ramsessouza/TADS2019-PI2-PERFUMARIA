@@ -1,5 +1,6 @@
 package com.grupo8.perfumariapdv.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +29,11 @@ public class Venda {
 
     public Date getData() {
         return data;
+    }
+    
+    public String getDataString(){
+        SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
+        return fd.format(data);
     }
 
     public void setData(Date data) {

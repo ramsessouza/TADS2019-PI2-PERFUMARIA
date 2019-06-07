@@ -8,7 +8,7 @@ import java.util.List;
 
 public class VendaMock 
 {
-    private static int sequenciaIdVendas = 0;
+    //private static int sequenciaIdVendas = 0;
     
     //INSTANCIA DE LISTA DO TIPO ABSTRATO VENDA
     private static ArrayList<Venda> listaVendas = new ArrayList<Venda>();
@@ -20,7 +20,7 @@ public class VendaMock
     
     //SALVA UM VENDA NA LISTA/TABELA DE VENDAS
     public static void salvar(Venda venda) throws Exception {
-        venda.setId(sequenciaIdVendas++);
+        //venda.setId(sequenciaIdVendas++);
         listaVendas.add(venda);
     }
     
