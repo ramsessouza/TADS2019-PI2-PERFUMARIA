@@ -40,7 +40,7 @@ public class ItensVendaMock
                     if (itemVendaAuxiliar.getIdVenda() == idVenda) 
                     {
                         //coloca todos os resultados de produto na lisata para retorno
-                        listaItensVenda.add(itemVendaAuxiliar);
+                        listaResultado.add(itemVendaAuxiliar);
                     }
                 }
                 contadorPosicao++;

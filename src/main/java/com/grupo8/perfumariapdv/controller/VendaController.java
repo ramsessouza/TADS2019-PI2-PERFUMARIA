@@ -57,7 +57,7 @@ public class VendaController {
         catch (Exception e) 
         {
             //em caso de erro imprime erro 
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         return venda;

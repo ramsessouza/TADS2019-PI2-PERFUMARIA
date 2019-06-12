@@ -29,7 +29,6 @@ public class VendaMock
         //verifica se a lista tem dados
         if (listaVendas.size() > 0) {
             
-            System.out.println(listaVendas.size());
             //obtém a ultima venda da lista
             Venda vendaAuxiliar = listaVendas.get(listaVendas.size()-1);
             

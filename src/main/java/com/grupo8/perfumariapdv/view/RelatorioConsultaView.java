@@ -1,7 +1,6 @@
 package com.grupo8.perfumariapdv.view;
 
 import com.grupo8.perfumariapdv.controller.ItensVendaController;
-import com.grupo8.perfumariapdv.controller.ProdutoController;
 import com.grupo8.perfumariapdv.controller.VendaController;
 import com.grupo8.perfumariapdv.fonts.FontManager;
 import com.grupo8.perfumariapdv.model.ItemVenda;
@@ -36,7 +35,10 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         vendasTabela = new javax.swing.JTable();
         btnSair = new javax.swing.JButton();
-        btnDetalhes = new javax.swing.JButton();
+        jpCabecalho2 = new javax.swing.JPanel();
+        lbCabecalho2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        itensVendaTabela = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -69,7 +71,7 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 
         lbCabecalho.setBackground(new java.awt.Color(17, 128, 216));
         lbCabecalho.setForeground(new java.awt.Color(255, 255, 255));
-        lbCabecalho.setText("Consulta de Relatório de Vendas");
+        lbCabecalho.setText("Relatório de Vendas");
         lbCabecalho.setMaximumSize(new java.awt.Dimension(853, 29));
         lbCabecalho.setMinimumSize(new java.awt.Dimension(853, 29));
         lbCabecalho.setPreferredSize(new java.awt.Dimension(853, 29));
@@ -165,15 +167,19 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        vendasTabela.setMinimumSize(new java.awt.Dimension(105, 400));
         vendasTabela.setPreferredSize(new java.awt.Dimension(225, 400));
         vendasTabela.getTableHeader().setReorderingAllowed(false);
+        vendasTabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vendasTabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(vendasTabela);
         if (vendasTabela.getColumnModel().getColumnCount() > 0) {
             vendasTabela.getColumnModel().getColumn(0).setResizable(false);
             vendasTabela.getColumnModel().getColumn(0).setPreferredWidth(3);
             vendasTabela.getColumnModel().getColumn(1).setResizable(false);
-            vendasTabela.getColumnModel().getColumn(1).setPreferredWidth(10);
+            vendasTabela.getColumnModel().getColumn(1).setPreferredWidth(3);
             vendasTabela.getColumnModel().getColumn(2).setResizable(false);
             vendasTabela.getColumnModel().getColumn(3).setResizable(false);
             vendasTabela.getColumnModel().getColumn(3).setPreferredWidth(3);
@@ -197,16 +203,95 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnDetalhes.setBackground(new java.awt.Color(0, 102, 51));
-        btnDetalhes.setForeground(new java.awt.Color(255, 255, 255));
-        btnDetalhes.setText("Detalhes");
-        btnDetalhes.setMaximumSize(new java.awt.Dimension(79, 32));
-        btnDetalhes.setMinimumSize(new java.awt.Dimension(79, 32));
-        btnDetalhes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDetalhesActionPerformed(evt);
+        jpCabecalho2.setBackground(new java.awt.Color(17, 128, 216));
+        jpCabecalho2.setMaximumSize(new java.awt.Dimension(853, 29));
+        jpCabecalho2.setMinimumSize(new java.awt.Dimension(853, 29));
+
+        lbCabecalho2.setBackground(new java.awt.Color(17, 128, 216));
+        lbCabecalho2.setForeground(new java.awt.Color(255, 255, 255));
+        lbCabecalho2.setText("Itens da Venda");
+        lbCabecalho2.setMaximumSize(new java.awt.Dimension(853, 29));
+        lbCabecalho2.setMinimumSize(new java.awt.Dimension(853, 29));
+        lbCabecalho2.setPreferredSize(new java.awt.Dimension(853, 29));
+
+        javax.swing.GroupLayout jpCabecalho2Layout = new javax.swing.GroupLayout(jpCabecalho2);
+        jpCabecalho2.setLayout(jpCabecalho2Layout);
+        jpCabecalho2Layout.setHorizontalGroup(
+            jpCabecalho2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpCabecalho2Layout.createSequentialGroup()
+                .addComponent(lbCabecalho2, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jpCabecalho2Layout.setVerticalGroup(
+            jpCabecalho2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbCabecalho2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        itensVendaTabela.setBackground(new java.awt.Color(255, 255, 255));
+        itensVendaTabela.setForeground(new java.awt.Color(255, 255, 255));
+        itensVendaTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Id do Item", "Id do Produto", "Nome Produto", "Quantidade", "Valor Unitário", "Valor Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        itensVendaTabela.setPreferredSize(new java.awt.Dimension(225, 400));
+        itensVendaTabela.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(itensVendaTabela);
+        if (itensVendaTabela.getColumnModel().getColumnCount() > 0) {
+            itensVendaTabela.getColumnModel().getColumn(0).setResizable(false);
+            itensVendaTabela.getColumnModel().getColumn(0).setPreferredWidth(3);
+            itensVendaTabela.getColumnModel().getColumn(1).setResizable(false);
+            itensVendaTabela.getColumnModel().getColumn(1).setPreferredWidth(3);
+            itensVendaTabela.getColumnModel().getColumn(2).setResizable(false);
+            itensVendaTabela.getColumnModel().getColumn(3).setResizable(false);
+            itensVendaTabela.getColumnModel().getColumn(3).setPreferredWidth(3);
+            itensVendaTabela.getColumnModel().getColumn(4).setResizable(false);
+            itensVendaTabela.getColumnModel().getColumn(4).setPreferredWidth(6);
+            itensVendaTabela.getColumnModel().getColumn(5).setResizable(false);
+            itensVendaTabela.getColumnModel().getColumn(5).setPreferredWidth(6);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,11 +315,11 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnPesquisar)
                         .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jpCabecalho2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -253,11 +338,13 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                             .addComponent(dcDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnPesquisar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jpCabecalho2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -267,12 +354,9 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 //==============================================================================
 //DECLARAÇÕES
 //============================================================================== 
-    //DECLARA O MODELO DE TABELA PARA SER USADO NA PESQUISA
     private DefaultTableModel tableModel;
+    private DefaultTableModel tableMode2;
     
-    //INSTANCIA DA TELA DE CADASTRO/ALTERACAO DE PRODUTO
-    ProdutoCadastroAlteracaoView produtoCadastroAlteracao;
-
 //==============================================================================
 //FUNÇÕES
 //==============================================================================
@@ -336,65 +420,58 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         }
     }
     
-//==============================================================================
-//EVENTOS
-//============================================================================== 
-    //DETALHES DA VENDA
-    private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
+    //VER DETALHES DA VENDA
+    public void detalhesVenda(){
         //obtem a linha da tabela
-        int row = vendasTabela.getSelectedRow();
+        Integer row = vendasTabela.getSelectedRow();
         
         //obtem o id dessa linha
         Integer idVenda = (Integer) vendasTabela.getValueAt(row, 0);
         
         List<ItemVenda> resultado = ItensVendaController.obterItens(idVenda);
         
-//        ItensVendaView itensVendaView = new ItensVendaView(this,true);
-//        itensVendaView.setVisible(true);
-//        
-//        //Obtém a tabela para trabalhar nela
-//        tableModel = (DefaultTableModel) vendasTabela.getModel();
-//        
-//        //Limpa resultados anteriores
-//        tableModel.setRowCount(0);
-//        
-//        if (resultado != null && resultado.size() > 0)
-//        {
-//            //Percorre a lista de resultados e os adiciona na tabela
-//            for (int i = 0; i < resultado.size(); i++) 
-//            {
-//                
-//                //Obtém cada item da lista de resultados
-//                Produto produto = resultado.get(i);
-//
-//                if (produto != null) 
-//                {
-//                    //Cria array com resultados
-//                    Object[] dadosTabela = new Object[6];
-//                    //Cada dado na coluna correspondente
-//                    dadosTabela[0] = produto.getId();
-//                    dadosTabela[1] = produto.getNome();
-//                    dadosTabela[2] = produto.getCategoria();
-//                    dadosTabela[3] = produto.getQuantidade();
-//                    dadosTabela[4] = produto.getCusto();
-//                    dadosTabela[5] = produto.getValor();
-//
-//                    //Adiciona a linha de dados na tabela
-//                    tableModel.addRow(dadosTabela);
-//                }
-//            }
-//        }else{
-//
-//            //Caso a pesquisa não tenha retornado resultados
-//            JOptionPane.showMessageDialog(rootPane,
-//                    "Não existem resultados para a sua pesquisa!",
-//                    "Não há dados",
-//                    JOptionPane.ERROR_MESSAGE);
-//        }
+        //Obtém a tabela para trabalhar nela
+        tableMode2 = (DefaultTableModel) itensVendaTabela.getModel();
         
-   
-    }//GEN-LAST:event_btnDetalhesActionPerformed
+        //Limpa resultados anteriores
+        tableMode2.setRowCount(0);
+        
+        if (resultado != null && resultado.size() > 0)
+        {
+            //Percorre a lista de resultados e os adiciona na tabela
+            for (int i = 0; i < resultado.size(); i++) 
+            {
+                
+                //Obtém cada item da lista de resultados
+                ItemVenda itemVenda = resultado.get(i);
+
+                if (itemVenda != null) 
+                {
+                    //Cria arrai com resultados
+                    Object[] dadosTabela = new Object[6];
+                    //Cada dado na coluna correspondente
+                    dadosTabela[0] = itemVenda.getIdItem();
+                    dadosTabela[1] = itemVenda.getId();
+                    dadosTabela[2] = itemVenda.getNome();
+                    dadosTabela[3] = itemVenda.getQuantidade();
+                    dadosTabela[4] = itemVenda.getValor();
+                    dadosTabela[5] = itemVenda.getValorTotal();
+                    
+                    //Adiciona a linha de dados na tabela
+                    tableMode2.addRow(dadosTabela);
+                }
+            }
+        }else{
+
+            //Caso não tenha retornado resultados
+            JOptionPane.showMessageDialog(rootPane,
+                    "Não existem resultados para esta venda!",
+                    "Não há dados",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
     
+   
     //PESQUISAR PRODUTO
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         pesquisar();
@@ -405,14 +482,18 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         //Muda a cor do cabecalho da tabela
         vendasTabela.getTableHeader().setBackground(new Color(017, 128, 216));
         vendasTabela.getTableHeader().setForeground(Color.white);
+        itensVendaTabela.getTableHeader().setBackground(new Color(017, 128, 216));
+        itensVendaTabela.getTableHeader().setForeground(Color.white);
         
         //Muda a cor da fonte da tabela
         vendasTabela.setForeground(Color.black);
+        itensVendaTabela.setForeground(Color.black);
 
         //Altera o tamanha da fonte do cabecalho do form
         FontManager fontManager = new FontManager();
         Font futuraPT20Bold = fontManager.carregarFont("/fontes/FuturaPT.otf", Font.BOLD, 20);
         lbCabecalho.setFont(futuraPT20Bold);
+        lbCabecalho2.setFont(futuraPT20Bold);
     }//GEN-LAST:event_formInternalFrameOpened
     
     //SAIR DA TELA
@@ -420,18 +501,27 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void vendasTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vendasTabelaMouseClicked
+        detalhesVenda();
+    }//GEN-LAST:event_vendasTabelaMouseClicked
+
 //==============================================================================
 //NAO MEXER
 //==============================================================================
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDetalhes;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
     private datechooser.beans.DateChooserCombo dcDataFinal;
     private datechooser.beans.DateChooserCombo dcDataInicial;
+    private javax.swing.JTable itensVendaTabela;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel jpCabecalho;
+    private javax.swing.JPanel jpCabecalho1;
+    private javax.swing.JPanel jpCabecalho2;
     private javax.swing.JLabel lbCabecalho;
+    private javax.swing.JLabel lbCabecalho1;
+    private javax.swing.JLabel lbCabecalho2;
     private javax.swing.JLabel lbDataFinal;
     private javax.swing.JLabel lbDataInicial;
     private javax.swing.JTable vendasTabela;

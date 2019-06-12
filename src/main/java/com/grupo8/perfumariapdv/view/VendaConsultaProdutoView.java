@@ -7,7 +7,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
@@ -230,7 +229,7 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
     private DefaultTableModel tableModel;
     private VendaView vendaView;
     public MenuView menuView;
-    Produto produto;
+    public Produto produto;
 
 //==============================================================================
 //GETS E SETERS

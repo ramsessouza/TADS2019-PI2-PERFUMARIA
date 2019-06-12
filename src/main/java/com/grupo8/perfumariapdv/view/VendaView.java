@@ -504,10 +504,6 @@ private Produto produto;
 private Venda venda;
     
 //==============================================================================
-//GETS E SETERS
-//==============================================================================
-    
-//==============================================================================
 //FUNÇÕES
 //==============================================================================     
     //ATUALIZA QUANTIDADE DE PRODUTO
@@ -829,6 +825,16 @@ private Venda venda;
             return;
         }
         
+        //se não foi selecionada uma forma de pagamento
+        if(!cbCartão.isSelected() && !cbDinheiro.isSelected()){
+           JOptionPane.showMessageDialog(rootPane,
+                 "Você deve selecionar uma forma de pagamento!",
+                 "Atenção",
+                 JOptionPane.ERROR_MESSAGE);
+             //sai do método 
+             return;
+        }
+        
         //se não houver cliente na venda
         if(!Validacao.vendaCliente(txtClienteNomeInfo.getText(), txtClienteCpfInfo.getText(),
                 txtClienteCidadeInfo.getText(), txtClienteLogradouroInfo.getText(), 
@@ -848,16 +854,6 @@ private Venda venda;
                 //sai do método 
                 return;
             }
-        }
-        
-        //se não foi selecionada uma forma de pagamento
-        if(!cbCartão.isSelected() && !cbDinheiro.isSelected()){
-           JOptionPane.showMessageDialog(rootPane,
-                 "Você deve selecionar uma forma de pagamento!",
-                 "Atenção",
-                 JOptionPane.ERROR_MESSAGE);
-             //sai do método 
-             return;
         }
         
         //se o valor do cartao for maior que o subtotal
