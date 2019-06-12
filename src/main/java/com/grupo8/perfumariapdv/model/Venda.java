@@ -3,7 +3,6 @@ package com.grupo8.perfumariapdv.model;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Venda {
     private Integer id;

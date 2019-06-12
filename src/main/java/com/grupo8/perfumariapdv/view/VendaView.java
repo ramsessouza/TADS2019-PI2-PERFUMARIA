@@ -805,7 +805,6 @@ private Venda venda;
     //REGISTRA A VENDA
     private void btRegistrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVendaActionPerformed
         venda = new Venda();
-        ItemVenda itemVenda = new ItemVenda();
         Float valorTotal = 0f;
         Float valorFaltante = 0f;
         Float troco = 0f;
@@ -876,6 +875,7 @@ private Venda venda;
         //coloca cada item da venda na lista de itens da venda da instancia de venda
         for(int i = 0; i+1 <=tabelaVenda.getModel().getRowCount(); i++){
             //obtem o id dessa linha
+            ItemVenda itemVenda = new ItemVenda();
             itemVenda.setIdVenda(venda.getId());
             itemVenda.setIdItem((Integer) tabelaVenda.getValueAt(i, 0));
             itemVenda.setId((Integer) tabelaVenda.getValueAt(i, 1));
@@ -908,18 +908,6 @@ private Venda venda;
                     
                     //envia item da venda para para o controller salvar
                     respostaController2 = ItensVendaController.salvar(venda.getItensVenda().get(i));
-                    
-                    //USANDO SO PARA TESTE--------------------------------------
-//                    Integer itens = venda.getItensVenda().size();
-//                    System.out.println("ultima venda " +venda.getItensVenda().get(i).getIdVenda()+"\n"
-//                        + "id do item "+venda.getItensVenda().get(i).getId()+"\n"
-//                        + "nome do produto "+venda.getItensVenda().get(i).getNome()+"\n"
-//                        + "valor do produto "+venda.getItensVenda().get(i).getValor()+"\n"
-//                        + "quantidade "+venda.getItensVenda().get(i).getQuantidade()+"\n"
-//                        + "valor total "+venda.getItensVenda().get(i).getValorTotal()+"\n"
-//                        + "total de itens "+itens+"\n"    
-//                    );
-                    //----------------------------------------------------------
                     
                     //atualiza quantidade de produto em estoque
                     //para cada vez que pegar um item da venda, coloca os dados 
