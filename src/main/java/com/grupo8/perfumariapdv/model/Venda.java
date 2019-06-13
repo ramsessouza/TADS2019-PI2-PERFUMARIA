@@ -12,6 +12,7 @@ public class Venda {
     private Float pagamentoCartao;
     private Cliente cliente;
     private ArrayList<ItemVenda> itensVenda = new ArrayList<ItemVenda>();
+    private Integer qtdItens;
     
     public Venda() {
         cliente = new Cliente();
@@ -81,6 +82,14 @@ public class Venda {
     
     public void adicionarItem(ItemVenda itemVenda){
         this.itensVenda.add(itemVenda);
+    }
+
+    public Integer getQtdItens() {
+        return qtdItens;
+    }
+
+    public void setQtdItens(Integer qtdItens) {
+        this.qtdItens = qtdItens;
     }
     
 }

@@ -1,5 +1,6 @@
 package com.grupo8.perfumariapdv.controller;
 
+import com.grupo8.perfumariapdv.db.ProdutoDao;
 import com.grupo8.perfumariapdv.mock.ProdutoMock;
 import com.grupo8.perfumariapdv.model.Produto;
 import java.util.List;
@@ -13,7 +14,8 @@ public class ProdutoController {
         
         //Tenta fazer a insercao
         try{
-            ProdutoMock.salvar(produto);
+            //ProdutoMock.salvar(produto);
+            ProdutoDao.salvar(produto);
         }catch (Exception e){
             e.printStackTrace();
             resposta = "Erro na fonte de dados";
@@ -30,9 +32,11 @@ public class ProdutoController {
         try{
         
             if (nome == null || "".equals(nome)) {
-                listaResposta = ProdutoMock.listar();
+                //listaResposta = ProdutoMock.listar();
+                listaResposta = ProdutoDao.listar();
             } else {
-                listaResposta = ProdutoMock.procurar(nome);
+                //listaResposta = ProdutoMock.procurar(nome);
+                listaResposta = ProdutoDao.procurar(nome);
             }
 
         } catch (Exception e) {
@@ -50,7 +54,8 @@ public class ProdutoController {
         try
         {
             //tenta fazer a atualização
-            ProdutoMock.atualizar(produto);
+            //ProdutoMock.atualizar(produto);
+            ProdutoDao.atualizar(produto);
         } 
         catch (Exception e) 
         {   
@@ -69,7 +74,8 @@ public class ProdutoController {
         try 
         {   
             //tenta excluir 
-            ProdutoMock.excluir(id);
+            //ProdutoMock.excluir(id);
+            ProdutoDao.excluir(id);
         } catch (Exception e) 
         {
             //em caso de erro retorna erro para a classe que chamou
@@ -88,7 +94,8 @@ public class ProdutoController {
         try 
         {
             //tenta obter o produto procurado
-            produto = ProdutoMock.obter(id);
+            //produto = ProdutoMock.obter(id);
+            produto = ProdutoDao.obter(id);
         } 
         catch (Exception e) 
         {

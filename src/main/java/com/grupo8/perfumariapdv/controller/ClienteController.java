@@ -1,5 +1,6 @@
 package com.grupo8.perfumariapdv.controller;
 
+import com.grupo8.perfumariapdv.db.ClienteDao;
 import com.grupo8.perfumariapdv.mock.ClienteMock;
 import com.grupo8.perfumariapdv.model.Cliente;
 import java.util.List;
@@ -13,7 +14,8 @@ public class ClienteController {
         
         //Tenta fazer a insercao
         try{
-            ClienteMock.salvar(cliente);
+            //ClienteMock.salvar(cliente);
+            ClienteDao.salvar(cliente);
         }catch (Exception e){
             e.printStackTrace();
             resposta = "Erro na fonte de dados";
@@ -30,9 +32,11 @@ public class ClienteController {
         try{
         
             if (nome == null || "".equals(nome)) {
-                listaResposta = ClienteMock.listar();
+                //listaResposta = ClienteMock.listar();
+                listaResposta = ClienteDao.listar();
             } else {
-                listaResposta = ClienteMock.procurar(nome);
+                //listaResposta = ClienteMock.procurar(nome);
+                listaResposta = ClienteDao.procurar(nome);
             }
 
         } catch (Exception e) {
@@ -50,7 +54,8 @@ public class ClienteController {
         try
         {
             //tenta fazer a atualização
-            ClienteMock.atualizar(cliente);
+            //ClienteMock.atualizar(cliente);
+            ClienteDao.atualizar(cliente);
         } 
         catch (Exception e) 
         {   
@@ -69,7 +74,8 @@ public class ClienteController {
         try 
         {   
             //tenta excluir 
-            ClienteMock.excluir(id);
+            //ClienteMock.excluir(id);
+            ClienteDao.excluir(id);
         } catch (Exception e) 
         {
             //em caso de erro retorna erro para a classe que chamou
@@ -88,7 +94,8 @@ public class ClienteController {
         try 
         {
             //tenta obter o cliente procurado
-            cliente = ClienteMock.obter(id);
+            //cliente = ClienteMock.obter(id);
+            cliente = ClienteDao.obter(id);
         } 
         catch (Exception e) 
         {
@@ -108,7 +115,8 @@ public class ClienteController {
         try 
         {
             //tenta obter o cliente procurado
-            cliente = ClienteMock.obter2(cpf);
+            //cliente = ClienteMock.obter2(cpf);
+            cliente = ClienteDao.obter2(cpf);
         } 
         catch (Exception e) 
         {

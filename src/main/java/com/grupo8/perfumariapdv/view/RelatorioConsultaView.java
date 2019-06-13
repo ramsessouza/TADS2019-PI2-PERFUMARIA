@@ -401,7 +401,8 @@ public class RelatorioConsultaView extends javax.swing.JInternalFrame {
                     //dadosTabela[1] = venda.getData().toString();
                     dadosTabela[1] = venda.getDataString();
                     dadosTabela[2] = venda.getCliente().getNome();
-                    dadosTabela[3] = venda.getItensVenda().size();
+                    //dadosTabela[3] = venda.getItensVenda().size(); usado somente com o Mock
+                    dadosTabela[3] = venda.getQtdItens();
                     dadosTabela[4] = venda.getSubtotal();
                     dadosTabela[5] = venda.getPagamentoDinheiro();
                     dadosTabela[6] = venda.getPagamentoCartao();

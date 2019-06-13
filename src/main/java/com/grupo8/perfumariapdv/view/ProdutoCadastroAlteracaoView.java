@@ -26,7 +26,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cboCategoria = new javax.swing.JComboBox<String>();
+        cboCategoria = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtQuantidade = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -106,7 +106,7 @@ public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
 
         cboCategoria.setBackground(java.awt.Color.white);
         cboCategoria.setForeground(new java.awt.Color(0, 0, 0));
-        cboCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Higiene", "Cosmeticos", "Utencílios", "Maquiagem" }));
+        cboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Higiene", "Cosmeticos", "Utensílios", "Maquiagem" }));
         cboCategoria.setPreferredSize(new java.awt.Dimension(95, 22));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));

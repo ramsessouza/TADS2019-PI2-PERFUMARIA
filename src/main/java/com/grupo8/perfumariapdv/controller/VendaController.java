@@ -1,5 +1,6 @@
 package com.grupo8.perfumariapdv.controller;
 
+import com.grupo8.perfumariapdv.db.VendaDao;
 import com.grupo8.perfumariapdv.mock.VendaMock;
 import com.grupo8.perfumariapdv.model.Venda;
 import java.util.Date;
@@ -14,7 +15,8 @@ public class VendaController {
         
         //Tenta fazer a insercao
         try{
-            VendaMock.salvar(venda);
+            //VendaMock.salvar(venda);
+            VendaDao.salvar(venda);
         }catch (Exception e){
             e.printStackTrace();
             resposta = "Erro na fonte de dados";
@@ -31,9 +33,11 @@ public class VendaController {
         try{
         
             if (dataInicio == null || dataFim == null) {
-                listaResposta = VendaMock.listar();
+                //listaResposta = VendaMock.listar();
+                listaResposta = VendaDao.listar();
             } else {
-                listaResposta = VendaMock.procurar(dataInicio, dataFim);
+                //listaResposta = VendaMock.procurar(dataInicio, dataFim);
+                listaResposta = VendaDao.procurar(dataInicio, dataFim);
             }
 
         } catch (Exception e) {
@@ -52,7 +56,8 @@ public class VendaController {
         try 
         {
             //tenta obter o venda procurado
-            venda = VendaMock.obterUltima();
+            //venda = VendaMock.obterUltima();
+            venda = VendaDao.obterUltima();
         } 
         catch (Exception e) 
         {
