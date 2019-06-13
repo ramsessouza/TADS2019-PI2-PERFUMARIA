@@ -226,6 +226,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaVenda.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaVenda);
         if (tabelaVenda.getColumnModel().getColumnCount() > 0) {
             tabelaVenda.getColumnModel().getColumn(0).setResizable(false);

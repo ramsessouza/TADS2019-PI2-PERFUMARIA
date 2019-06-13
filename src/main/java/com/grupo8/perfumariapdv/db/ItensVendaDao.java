@@ -2,10 +2,13 @@ package com.grupo8.perfumariapdv.db;
 
 import com.grupo8.perfumariapdv.db.ConnectionUtils;
 import com.grupo8.perfumariapdv.model.ItemVenda;
+import com.grupo8.perfumariapdv.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItensVendaDao
 {
@@ -13,8 +16,8 @@ public class ItensVendaDao
         throws SQLException, Exception {
         
         String sql = "INSERT INTO DBPERFUMARIA.TBITEMVENDA(idVenda, idItem, "
-                + "nomeProduto, idProduto, qtdItens, custo, valor, valorTotal) "
-                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
+                + "nomeProduto, idProduto, qtdItens, valor, valorTotal) "
+                + "VALUES(?, ?, ?, ?, ?, ?, ?);";
             
             Connection connection = null;
             PreparedStatement preparedStatement = null;
@@ -30,9 +33,8 @@ public class ItensVendaDao
             preparedStatement.setString(3, itemVenda.getNome());
             preparedStatement.setInt(4, itemVenda.getId());
             preparedStatement.setInt(5, itemVenda.getQuantidade());
-            preparedStatement.setFloat(6, itemVenda.getCusto());
-            preparedStatement.setFloat(7, itemVenda.getValor());
-            preparedStatement.setFloat(8, itemVenda.getValorTotal());
+            preparedStatement.setFloat(6, itemVenda.getValor());
+            preparedStatement.setFloat(7, itemVenda.getValorTotal());
             
             
             preparedStatement.execute();
@@ -48,11 +50,13 @@ public class ItensVendaDao
         }
     }
 
-    public static ItemVenda obter(Integer id) 
+    public static List<ItemVenda> obterItens(Integer id) 
         throws SQLException, Exception {
         
         String sql = "SELECT idVenda, idItem, nomeProduto, idProduto, qtdItens, "
                 + "valorTotal, valor FROM DBPERFUMARIA.TBITEMVENDA WHERE idVenda =?";
+        
+        List<ItemVenda> listaItensVenda = null;
         
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -65,7 +69,10 @@ public class ItensVendaDao
             preparedStatement.setInt(1, id);
             result = preparedStatement.executeQuery();
             
-            if(result.next()){
+           while (result.next()) {
+                if (listaItensVenda == null) {
+                    listaItensVenda = new ArrayList<ItemVenda>();
+                }
                 ItemVenda itemVenda = new ItemVenda();
                 itemVenda.setIdVenda(result.getInt("idVenda"));
                 itemVenda.setIdItem(result.getInt("idItem"));
@@ -75,7 +82,7 @@ public class ItensVendaDao
                 itemVenda.setValorTotal(result.getFloat("valorTotal"));
                 itemVenda.setValor(result.getFloat("valor"));
                 
-                return itemVenda;
+                listaItensVenda.add(itemVenda);
             }
         }finally{
             if(result != null && !result.isClosed()){
@@ -88,7 +95,7 @@ public class ItensVendaDao
                 connection.close();
             }
         }
-        return null;
+        return listaItensVenda;
     } 
 }
 

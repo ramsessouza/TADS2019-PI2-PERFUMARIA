@@ -15,9 +15,9 @@ public class VendaDao
      public static void salvar(Venda venda) 
         throws SQLException, Exception {
         
-        String sql = "INSERT INTO DBPERFUMARIA.TBVENDAS(data, qtdItens, "
+        String sql = "INSERT INTO DBPERFUMARIA.TBVENDAS(id, data, qtdItens, "
                 + "subtotal, pagamentoDinheiro, pagamentoCartao, nomeCliente, cpfCliente) "
-                + "VALUES(?, ?, ?, ?, ?, ?, ?);";
+                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
             
             Connection connection = null;
             PreparedStatement preparedStatement = null;
@@ -28,14 +28,15 @@ public class VendaDao
            
             preparedStatement = connection.prepareStatement(sql);
             
+            preparedStatement.setInt(1, venda.getId());
             java.sql.Timestamp data = new java.sql.Timestamp(venda.getData().getTime());
-            preparedStatement.setTimestamp(1, data);
-            preparedStatement.setInt(2, venda.getItensVenda().size());
-            preparedStatement.setFloat(3, venda.getSubtotal());
-            preparedStatement.setFloat(4, venda.getPagamentoDinheiro());
-            preparedStatement.setFloat(5, venda.getPagamentoCartao());
-            preparedStatement.setString(6, venda.getCliente().getNome());
-            preparedStatement.setString(7, venda.getCliente().getCpf());
+            preparedStatement.setTimestamp(2, data);
+            preparedStatement.setInt(3, venda.getItensVenda().size());
+            preparedStatement.setFloat(4, venda.getSubtotal());
+            preparedStatement.setFloat(5, venda.getPagamentoDinheiro());
+            preparedStatement.setFloat(6, venda.getPagamentoCartao());
+            preparedStatement.setString(7, venda.getCliente().getNome());
+            preparedStatement.setString(8, venda.getCliente().getCpf());
             
             preparedStatement.execute();
         } finally {
