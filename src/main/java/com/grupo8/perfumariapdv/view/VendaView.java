@@ -508,37 +508,53 @@ private Venda venda;
 //==============================================================================     
     //ATUALIZA QUANTIDADE DE PRODUTO
     public void alteraQuantidade(){
-        Integer quantidadeAtual = (Integer) jsProdutoQuantidade.getValue();
+        //Coloca dados da tela numa instancia de produto
+        Produto produtoTela = new Produto();
+        produtoTela.setNome(txtProdutoNome.getText());
+        produtoTela.setQuantidade((Integer) jsProdutoQuantidade.getValue());
+        produtoTela.setValor(Float.parseFloat(txtProdutoValorUnitario.getText()));
         Float valorTotal = 0f;
         
         //se quantidade for negativa ou maior que 999 altera o valor para 1
-        if (quantidadeAtual<1 || quantidadeAtual >999){
+        if (produtoTela.getQuantidade()<1 || produtoTela.getQuantidade() >999){
             jsProdutoQuantidade.setValue(1);
-            quantidadeAtual = 1;
+            produtoTela.setQuantidade(1);
         }
         
-        //verifica se tem valor no campo "Valor Unitário" para fazer calculo de valor total
-        if(!txtProdutoValorUnitario.getText().equals("")){
-            Float valorUnitario = Float.parseFloat(txtProdutoValorUnitario.getText());
-            valorTotal = quantidadeAtual*valorUnitario;
-            txtProdutoValorTotal.setText(valorTotal.toString());
-        }
+        //faz calculo de valor total
+        valorTotal = produtoTela.getQuantidade()*produtoTela.getValor();
+        txtProdutoValorTotal.setText(valorTotal.toString());
+    }
+    
+    //VERIFICA A QUANTIDADE EM ESTOQUE
+    public boolean verificaEstoque(){
+        //Coloca dados da tela numa instancia de produto
+        Produto produtoTela = new Produto();
+        produtoTela.setNome(txtProdutoNome.getText());
+        produtoTela.setQuantidade((Integer) jsProdutoQuantidade.getValue());
+        produtoTela.setValor(Float.parseFloat(txtProdutoValorUnitario.getText()));
         
-        //verifica se tem quantidade solicitada de produtos
-        if(produto != null){
-            if(produto.getId() != null){
-                if(produto.getQuantidade()<quantidadeAtual){
-                    //informa ao usuário que não foi possível encontrar o cliente para edição
-                    JOptionPane.showMessageDialog(rootPane, 
-                        "Usuário, a quantidade de produtos solicitadas não existem em estoque! \n"
-                                + "Só existem "+produto.getQuantidade()+" deste produto.",
-                        "Atenção", 
-                        JOptionPane.INFORMATION_MESSAGE);
-                    jsProdutoQuantidade.setValue(produto.getQuantidade());
-                    quantidadeAtual = produto.getQuantidade();
+        Integer quantidadeNaLista = 0;
+        
+        //pega toda a quantidade do produto ja inserida na lista
+        for(int i = 0; i+1 <=tabelaVenda.getModel().getRowCount(); i++){
+            //obtem o id dessa linha
+            
+            if(produto != null){
+                if(produto.getId() == (Integer) tabelaVenda.getValueAt(i, 1)){
+                    quantidadeNaLista += (Integer) tabelaVenda.getValueAt(i, 3);
                 }
             }
         }
+        
+        //verifica se tem quantidade solicitada de produtos
+        if(produto != null && produto.getId() != null){
+            //se a quantidade em estoque for menos que a quantidade solicitada
+            if(produto.getQuantidade()<(produtoTela.getQuantidade()+quantidadeNaLista)){
+                return false;
+            }
+        }
+        return true;
     }
     
     //ATUALIZA O SUBTOTAL DA COMPRA
@@ -731,8 +747,8 @@ private Venda venda;
             //coloca na tela de venda nome e valor do produto
             txtProdutoNome.setText(produto.getNome());
             txtProdutoValorUnitario.setText(produto.getValor().toString());
-            
-            //atualiza o textbox com subtotal da compra
+            jsProdutoQuantidade.setValue(1);
+            //verifica se o produto selecionado tem mais que 1 item no estoque
             alteraQuantidade();
             
         }
@@ -745,6 +761,7 @@ private Venda venda;
     private void jsProdutoQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jsProdutoQuantidadeStateChanged
        alteraQuantidade();
     }//GEN-LAST:event_jsProdutoQuantidadeStateChanged
+    
     //ALTERA QUANTIDADE
     private void jsProdutoQuantidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jsProdutoQuantidadeFocusLost
         alteraQuantidade();
@@ -754,37 +771,47 @@ private Venda venda;
     private void btAdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarItemActionPerformed
         //Obtém a tabela para trabalhar nela
         tableModel = (DefaultTableModel) tabelaVenda.getModel();
-        
-        if (!txtProdutoNome.getText().equalsIgnoreCase("Clique aqui para pesquisar o produto...")) 
-        {
-            Integer idItem;
-                    
-            //pega numero do ultimo item adicionado
-            Integer ultimaLinha = tabelaVenda.getModel().getRowCount();
-            if(ultimaLinha < 1){
-                idItem = 1;
+        //se a quantidade solicitada for maior que valor em estoque
+        if (verificaEstoque()){
+            
+            if (!txtProdutoNome.getText().equalsIgnoreCase("Clique aqui para pesquisar o produto...")) 
+            {
+                Integer idItem;
+
+                //pega numero do ultimo item adicionado
+                Integer ultimaLinha = tabelaVenda.getModel().getRowCount();
+                if(ultimaLinha < 1){
+                    idItem = 1;
+                }
+                else{
+                    idItem = (Integer) tabelaVenda.getValueAt(ultimaLinha-1, 0);
+                    idItem +=1;
+                }
+
+                //Cria array com valores do produto
+                Object[] dadosTabela = new Object[6];
+                //Cada dado na coluna correspondente
+                dadosTabela[0] = idItem;
+                dadosTabela[1] = produto.getId();
+                dadosTabela[2] = produto.getNome();
+                dadosTabela[3] = (Integer) jsProdutoQuantidade.getValue();
+                dadosTabela[4] = produto.getValor();
+                dadosTabela[5] = Float.parseFloat(txtProdutoValorTotal.getText());
+
+                //Adiciona a linha de dados na tabela
+                tableModel.addRow(dadosTabela);
+
+                atualizaSubtotal();
             }
-            else{
-                idItem = (Integer) tabelaVenda.getValueAt(ultimaLinha-1, 0);
-                idItem +=1;
-            }
-            
-            //Cria array com valores do produto
-            Object[] dadosTabela = new Object[6];
-            //Cada dado na coluna correspondente
-            dadosTabela[0] = idItem;
-            dadosTabela[1] = produto.getId();
-            dadosTabela[2] = produto.getNome();
-            dadosTabela[3] = (Integer) jsProdutoQuantidade.getValue();
-            dadosTabela[4] = produto.getValor();
-            dadosTabela[5] = Float.parseFloat(txtProdutoValorTotal.getText());
-            
-            //Adiciona a linha de dados na tabela
-            tableModel.addRow(dadosTabela);
-            
-            atualizaSubtotal();
+        }else{
+            //informa usuario que nao tem quantidade suficiente em estoque 
+            //para inserir na venda
+            JOptionPane.showMessageDialog(rootPane, 
+                "Usuário, a quantidade de produtos solicitadas não existem em estoque! \n"
+                        + "A quantidade deste produto em estoque é "+produto.getQuantidade()+".",
+                "Atenção", 
+                JOptionPane.INFORMATION_MESSAGE);
         }
-        
     }//GEN-LAST:event_btAdicionarItemActionPerformed
     
     //REMOVE ITEM DA VENDA
@@ -909,13 +936,13 @@ private Venda venda;
                     //envia item da venda para para o controller salvar
                     respostaController2 = ItensVendaController.salvar(venda.getItensVenda().get(i));
                     
-                    //atualiza quantidade de produto em estoque
-                    //para cada vez que pegar um item da venda, coloca os dados 
-                    //em um produto auxiliar e envia para o controller atualizar
-//                    Produto produtoAtualizado = new Produto();
-//                    produtoAtualizado.setId(venda.getItensVenda().get(i).getId());
-//                    produtoAtualizado.setQuantidade(venda.getItensVenda().get(i).getQuantidade());
-//                    respostaController3 = ProdutoController.atualizarEstoque(produtoAtualizado);
+                    //atualiza quantidade de produto em estoque.
+                    //para cada item da venda, pega o produto em estoque
+                    //decrementa a quantidade vendida e envia ele com a quantidade 
+                    //atualizada para o controller atualizar no estoque
+                    Produto produtoAtualizado = ProdutoController.obter(venda.getItensVenda().get(i).getId());
+                    produtoAtualizado.setQuantidade(produtoAtualizado.getQuantidade() - venda.getItensVenda().get(i).getQuantidade());
+                    respostaController3 = ProdutoController.atualizar(produtoAtualizado);
                 }
                 
                 //dando tudo certo envia mensagem para usuário o resumo da compra

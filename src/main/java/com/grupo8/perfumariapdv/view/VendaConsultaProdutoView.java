@@ -54,6 +54,11 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
                 formInternalFrameOpened(evt);
             }
         });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(17, 128, 216));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -332,6 +337,14 @@ public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
         
         this.dispose();        
     }//GEN-LAST:event_produtoTabelaMouseClicked
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        //Obtém a tabela para trabalhar nela
+        tableModel = (DefaultTableModel) produtoTabela.getModel();
+        
+        //Limpa resultados anteriores
+        tableModel.setRowCount(0);
+    }//GEN-LAST:event_formComponentShown
 
 //==============================================================================
 //NAO MEXER

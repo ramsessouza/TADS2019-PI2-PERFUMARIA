@@ -173,44 +173,4 @@ public class ProdutoMock
             throw new Exception("Não há cliente para remover");
         }
     }
-    
-    //ATUALIZA A QUANTIDADE EM ESTOQUE DE UM PRODUTO
-    public static void atualizarEstoque(Produto produtoAtualizado) throws Exception {
-        
-        //verifica se produto é valido se tem id e se a lista tem dados
-        if (produtoAtualizado != null
-                && produtoAtualizado.getId() != null
-                && listaProdutos.size() > 0) 
-        {
-
-            int contador = 0;
-            boolean atualizacao = false;
-            
-            //passa por toda a lista enquanto o produto nao eh encontrado
-            while (contador < listaProdutos.size() && !atualizacao) 
-            {
-                
-                //pega um produto da lista
-                //Produto produtoDesatualizado = listaProdutos.get(contador);
-                
-                //verifica se o produto eh valido e com o mesmo id
-                if (listaProdutos.get(contador) != null
-                    && listaProdutos.get(contador).getId() == produtoAtualizado.getId()) 
-                {
-                    //atualiza todos as atributos do produto
-                    listaProdutos.get(contador).setQuantidade(
-                            listaProdutos.get(contador).getQuantidade() - produtoAtualizado.getQuantidade());
-                    
-                    //sinaliza que produto foi atualizado para sair da lista
-                    atualizacao = true;
-                }
-                contador++;
-            }
-        }
-        else 
-        {
-            //caso nao encontrar produto retorna erro para a classe que chamou
-            throw new Exception("Não há cliente para atualizar");
-        }
-    }
 }
