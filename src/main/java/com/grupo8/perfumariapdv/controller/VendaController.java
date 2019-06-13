@@ -26,7 +26,7 @@ public class VendaController {
     }
     
     //PROCURAR/LISTAR
-    public static List<Venda> procurar(Date dataInicio, Date dataFim){
+    public static List<Venda> procurar(String dataInicio, String dataFim){
         List<Venda> listaResposta = null;
         
         //Tenta fazer a busca dos dados 

@@ -47,7 +47,6 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbDataInicial" min="-2" max="-2" attributes="0"/>
@@ -62,12 +61,13 @@
                       <Component id="btnPesquisar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jpCabecalho2" alignment="0" pref="841" max="32767" attributes="0"/>
-                  <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="btnSair" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jpCabecalho2" alignment="0" pref="841" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -97,7 +97,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jpCabecalho2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane3" pref="140" max="32767" attributes="0"/>
+              <Component id="jScrollPane3" pref="138" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSair" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -241,19 +241,20 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="25">
+              <Table columnCount="8" rowCount="25">
                 <Column editable="false" title="Id" type="java.lang.Integer"/>
                 <Column editable="false" title="Data" type="java.lang.String"/>
-                <Column editable="false" title="Cliente" type="java.lang.String"/>
+                <Column editable="false" title="CPF Cliente" type="java.lang.String"/>
                 <Column editable="false" title="Total itens" type="java.lang.Integer"/>
                 <Column editable="false" title="Subtotal" type="java.lang.Float"/>
                 <Column editable="false" title="PG Dinheiro" type="java.lang.Float"/>
                 <Column editable="false" title="PG Cart&#xe3;o" type="java.lang.Float"/>
+                <Column editable="false" title="Troco" type="java.lang.Float"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="3" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -268,22 +269,27 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="3" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="2" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="6" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="6" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="6" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -343,7 +349,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="lbCabecalho2" min="-2" pref="835" max="-2" attributes="0"/>
+                  <Component id="lbCabecalho2" min="-2" pref="838" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>

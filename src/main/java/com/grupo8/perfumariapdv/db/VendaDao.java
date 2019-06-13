@@ -133,50 +133,53 @@ public class VendaDao
         return listaVendas;
     }
 
-    public static List<Venda> procurar(Date dataInicio, Date dataFim)
+    public static List<Venda> procurar(String dataInicio, String dataFim)
         throws SQLException, Exception {
         
-//        String sql = "SELECT id, data, qtdItens, subtotal, pagamentoDinheiro, "
-//                + "pagamentoCartao, nomeCliente, cpfCliente "
-//                + "FROM DBPERFUMARIA.TBVENDAS";
+        String sql = "SELECT id, data, qtdItens, subtotal, pagamentoDinheiro, "
+                + "pagamentoCartao, nomeCliente, cpfCliente "
+                + "FROM DBPERFUMARIA.TBVENDAS WHERE data BETWEEN ? AND ?";
         List<Venda> listaVendas = null;
+        Connection connection = null;
+        ResultSet result = null;
+        PreparedStatement preparedStatement = null;
         
-//        Connection connection = null;
-//        PreparedStatement preparedStatement = null;
-//        ResultSet result = null;
-//        
-//        try{
-//            connection = ConnectionUtils.obterConexao();
-//            preparedStatement = connection.prepareStatement(sql);
-//            result = preparedStatement.executeQuery();
-//            
-//            while (result.next()) {
-//                if (listaVendas == null) {
-//                    listaVendas = new ArrayList<Venda>();
-//                }
-//                Venda venda = new Venda();
-//                venda.setId(result.getInt("id"));
-//                Date data = new Date(result.getTimestamp("data").getTime());
-//                venda.setData(data);
-//                venda.setQtdItens(result.getInt("qtdItens"));
-//                venda.setSubtotal(result.getFloat("subtotal"));
-//                venda.setPagamentoDinheiro(result.getFloat("pagamentoDinheiro"));
-//                venda.setPagamentoCartao(result.getFloat("pagamentoCartao"));
-//                venda.getCliente().setNome(result.getString("nomeCliente"));
-//                venda.getCliente().setCpf(result.getString("cpfCliente"));
-//                listaVendas.add(venda);
-//            }
-//        }finally{
-//            if(result != null && !result.isClosed()){
-//                result.close();
-//            }
-//            if (preparedStatement != null && !preparedStatement.isClosed()) {
-//                preparedStatement.close();
-//            }
-//            if (connection != null && !connection.isClosed()) {
-//                connection.close();
-//            }
-//        }
+        try{
+            connection = ConnectionUtils.obterConexao();
+            preparedStatement = connection.prepareStatement(sql);
+            
+            preparedStatement.setString(1, dataInicio + " 00:00:00");
+            preparedStatement.setString(2, dataFim + " 23:59:59");
+            
+            result = preparedStatement.executeQuery();
+            
+            while (result.next()) {
+                if (listaVendas == null) {
+                    listaVendas = new ArrayList<Venda>();
+                }
+                Venda venda = new Venda();
+                venda.setId(result.getInt("id"));
+                Date data = new Date(result.getTimestamp("data").getTime());
+                venda.setData(data);
+                venda.setQtdItens(result.getInt("qtdItens"));
+                venda.setSubtotal(result.getFloat("subtotal"));
+                venda.setPagamentoDinheiro(result.getFloat("pagamentoDinheiro"));
+                venda.setPagamentoCartao(result.getFloat("pagamentoCartao"));
+                venda.getCliente().setNome(result.getString("nomeCliente"));
+                venda.getCliente().setCpf(result.getString("cpfCliente"));
+                listaVendas.add(venda);
+            }
+        }finally{
+            if(result != null && !result.isClosed()){
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
         return listaVendas;
     }
     
