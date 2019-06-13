@@ -219,7 +219,11 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
 
         txtTelefoneCelular.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefoneCelular.setForeground(new java.awt.Color(0, 0, 0));
-        txtTelefoneCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        try {
+            txtTelefoneCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         txtTelefoneCelular.setPreferredSize(new java.awt.Dimension(4, 22));
 
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
@@ -227,7 +231,11 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
 
         txtTelefoneOutros.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefoneOutros.setForeground(new java.awt.Color(0, 0, 0));
-        txtTelefoneOutros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        try {
+            txtTelefoneOutros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         txtTelefoneOutros.setMaximumSize(new java.awt.Dimension(2147483647, 22));
         txtTelefoneOutros.setPreferredSize(new java.awt.Dimension(123123, 22));
 
@@ -601,8 +609,8 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
                 cliente.setLogradouro(txtLogradouro.getText());
                 cliente.setNumero(txtNumero.getText());
                 cliente.setEmail(txtEmail.getText());
-                cliente.setTelefoneCelular(txtTelefoneCelular.getText());
-                cliente.setTelefoneOutros(txtTelefoneOutros.getText());
+                cliente.setTelefoneCelular(txtTelefoneCelular.getText().replace("(", "").replace(")", "").replace("-", ""));
+                cliente.setTelefoneOutros(txtTelefoneOutros.getText().replace("(", "").replace(")", "").replace("-", ""));
                 cliente.setObservacoes(txtObservacoes.getText());
 
                 if (!modoEdicao)//for modo de cadastro
