@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+*@author – RamsesSouza
+*/
 public class ItensVendaDao
 {
      public static void salvar(ItemVenda itemVenda)

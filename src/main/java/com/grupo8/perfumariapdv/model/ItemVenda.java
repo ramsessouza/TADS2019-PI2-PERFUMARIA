@@ -1,5 +1,8 @@
 package com.grupo8.perfumariapdv.model;
 
+/*
+*@author – DeboraGomes
+*/
 public class ItemVenda extends Produto{
     
     private Integer idItem;

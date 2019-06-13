@@ -5,6 +5,9 @@ import com.grupo8.perfumariapdv.mock.ItensVendaMock;
 import com.grupo8.perfumariapdv.model.ItemVenda;
 import java.util.List;
 
+/*
+*@author – RamsesSouza
+*/
 public class ItensVendaController {
     
     //SALVAR

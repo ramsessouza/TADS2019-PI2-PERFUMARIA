@@ -14,6 +14,9 @@ import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+/*
+*@author – GabrielaYamamoto
+*/
 public class RelatorioConsultaView extends javax.swing.JInternalFrame {
 //==============================================================================
 //NAO MEXER

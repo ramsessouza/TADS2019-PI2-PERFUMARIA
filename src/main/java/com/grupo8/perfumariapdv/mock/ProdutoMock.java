@@ -4,7 +4,9 @@ import com.grupo8.perfumariapdv.model.Produto;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*
+*@author – RamsesSouza
+*/
 public class ProdutoMock 
 {
     private static int sequenciaIdProdutos = 0;

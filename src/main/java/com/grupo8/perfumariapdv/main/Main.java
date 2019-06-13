@@ -5,6 +5,9 @@ import com.grupo8.perfumariapdv.view.MenuView;
 import java.awt.Font;
 import javax.swing.UIManager;
 
+/*
+*@author – RamsesSouza
+*/
 public class Main 
 {
     public static void main (String[] args)

@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+*@author – RamsesSouza
+*/
 public class ClienteDao
 {
      public static void salvar(Cliente cliente) 

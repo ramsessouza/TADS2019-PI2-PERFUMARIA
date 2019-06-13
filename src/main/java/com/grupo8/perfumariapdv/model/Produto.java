@@ -1,5 +1,8 @@
 package com.grupo8.perfumariapdv.model;
 
+/*
+*@author – DeboraGomes
+*/
 public class Produto 
 {
     private Integer id;

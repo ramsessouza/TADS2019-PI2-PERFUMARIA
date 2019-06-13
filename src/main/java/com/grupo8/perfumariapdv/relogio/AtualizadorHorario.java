@@ -5,6 +5,9 @@ import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+/*
+*@author – DeboraGomes
+*/
 public class AtualizadorHorario 
 {
     public static void start(final JLabel textFieldHorario)

@@ -7,6 +7,9 @@ import com.grupo8.perfumariapdv.fonts.FontManager;
 import java.awt.Font;
 import javax.swing.JOptionPane;
 
+/*
+*@author – GabrielaYamamoto
+*/
 public class ProdutoCadastroAlteracaoView extends javax.swing.JInternalFrame {
 //==============================================================================
 //NAO MEXER

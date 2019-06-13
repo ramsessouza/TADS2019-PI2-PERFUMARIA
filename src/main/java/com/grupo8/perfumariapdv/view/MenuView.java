@@ -9,6 +9,9 @@ import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
+/*
+*@author – GabrielaYamamoto
+*/
 public class MenuView extends javax.swing.JFrame {
 //==============================================================================
 //NAO MEXER

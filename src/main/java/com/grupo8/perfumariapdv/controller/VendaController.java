@@ -6,6 +6,9 @@ import com.grupo8.perfumariapdv.model.Venda;
 import java.util.Date;
 import java.util.List;
 
+/*
+*@author – RamsesSouza
+*/
 public class VendaController {
     
     //SALVAR

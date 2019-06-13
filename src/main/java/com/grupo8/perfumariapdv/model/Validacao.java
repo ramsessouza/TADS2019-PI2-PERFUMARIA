@@ -2,6 +2,9 @@ package com.grupo8.perfumariapdv.model;
 
 import java.util.Date;
 
+/*
+*@author – DeboraGomes
+*/
 public class Validacao 
 {
     //VALIDACAO DE PRODUTO (CAMPOS OBRIGATÓRIOS)

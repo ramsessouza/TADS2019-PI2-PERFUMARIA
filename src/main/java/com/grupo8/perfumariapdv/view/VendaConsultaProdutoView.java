@@ -9,6 +9,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+/*
+*@author – GabrielaYamamoto
+*/
 public class VendaConsultaProdutoView extends javax.swing.JInternalFrame {
 //==============================================================================
 //NAO MEXER

@@ -4,6 +4,9 @@ import com.grupo8.perfumariapdv.model.ItemVenda;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+*@author – RamsesSouza
+*/
 public class ItensVendaMock 
 {
     //INSTANCIA DE LISTA ITENSVENDA

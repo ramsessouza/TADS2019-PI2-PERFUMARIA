@@ -13,6 +13,9 @@ import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
+/*
+*@author – GabrielaYamamoto
+*/
 public class ClienteConsultaView extends javax.swing.JInternalFrame {
 //==============================================================================
 //NAO MEXER

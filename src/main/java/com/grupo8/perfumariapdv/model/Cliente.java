@@ -1,5 +1,8 @@
 package com.grupo8.perfumariapdv.model;
 
+/*
+*@author – DeboraGomes
+*/
 public class Cliente {
     private Integer id;
     private String nome;

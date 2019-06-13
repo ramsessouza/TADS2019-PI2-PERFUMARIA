@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/*
+*@author – DeboraGomes
+*/
 public class Venda {
     private Integer id;
     private Date data;

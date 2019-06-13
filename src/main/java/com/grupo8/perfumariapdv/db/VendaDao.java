@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/*
+*@author – RamsesSouza
+*/
 public class VendaDao
 {
      public static void salvar(Venda venda) 

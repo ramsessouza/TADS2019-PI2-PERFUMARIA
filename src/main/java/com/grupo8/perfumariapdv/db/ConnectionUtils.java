@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/*
+*@author – RamsesSouza
+*/
 public class ConnectionUtils 
 {
     public static Connection obterConexao() throws ClassNotFoundException, 

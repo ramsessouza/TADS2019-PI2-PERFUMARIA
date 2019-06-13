@@ -4,6 +4,9 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.IOException;
 
+/*
+*@author – RamsesSouza
+*/
 public class FontManager 
 {
     public Font carregarFont (String pCaminhoFonte, int tipoFonte, int pTamanhoFonte)
