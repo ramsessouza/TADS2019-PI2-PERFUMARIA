@@ -723,18 +723,18 @@ public class ClienteCadastroAlteracaoView extends javax.swing.JInternalFrame {
     //PREENCHIMENTO AUTOMATICO
     private void lbPreencherAutomaticoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPreencherAutomaticoMouseClicked
         txtNome.setText("Ramsés Carneiro de Souza");
-        txtCpf.setValue("372.461.178-14");
-        txtDataNascimento.setValue("27/01/1992");
+        txtCpf.setValue("786.456.435-78");
+        txtDataNascimento.setValue("15/17/1982");
         rdbMasculino.setSelected(true);
         cboEstadoCivil.setSelectedIndex(2);
         cboEstado.setSelectedIndex(25);
         txtCidade.setText("São Paulo");
-        txtBairro.setText("Parque Residencial Cocaia");
-        txtLogradouro.setText("Rua Henri Duparc");
-        txtNumero.setText("118");
-        txtEmail.setText("ramses.souza@hotmail.com");
-        txtTelefoneCelular.setText("11991229987");
-        txtTelefoneOutros.setText("551159317686");
+        txtBairro.setText("Parque Primavera");
+        txtLogradouro.setText("Rua Pera Manga");
+        txtNumero.setText("856");
+        txtEmail.setText("teste@teste.com");
+        txtTelefoneCelular.setText("11999999999");
+        txtTelefoneOutros.setText("551155555555");
         txtObservacoes.setText("Cliente antigo, atender com muita atenção!");
     }//GEN-LAST:event_lbPreencherAutomaticoMouseClicked
 
